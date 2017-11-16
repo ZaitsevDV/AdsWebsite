@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using log4net;
-using log4net.Config;
-using log4net.Repository.Hierarchy;
 using LogicTier;
 using PresentationTier.Models;
 
@@ -19,16 +16,26 @@ namespace PresentationTier.Controllers
         {
             Provider = ProviderInput;
         }
-        // GET: Home
-            //Logger.Log.Debug("Debug message");
-            //Logger.Log.Error("Error message");
-            //Logger.Log.Info("Info message");
+
+        //Logger.Log.Debug("Debug message");
+        //Logger.Log.Error("Error message");
+        //Logger.Log.Info("Info message");
 
         public ActionResult Index()
         {
+            //The exception created for testing of logging.
+            try
+            {
+                string d = null;
+                d.ToString();
+            }
+            catch (Exception error)
+            {
+                Logger.Log.Error(error.Message);
+            }
+
             HomeViewModel model = new HomeViewModel { Message = Provider.GetMessage() };
             return View(model);
         }
     }
-
 }
