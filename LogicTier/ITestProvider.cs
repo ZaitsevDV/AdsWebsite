@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicTier
 {
-    public class Class1 : ITestProvider
+    public interface ITestProvider
     {
-        public string GetMessage()
-        {
-            return "Provider Message";
-        }
+        string GetMessage();
     }
 }
