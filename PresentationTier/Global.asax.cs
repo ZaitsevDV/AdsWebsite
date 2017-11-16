@@ -13,6 +13,7 @@ namespace PresentationTier
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Logger.InitLogger();
         }
     }
 }
