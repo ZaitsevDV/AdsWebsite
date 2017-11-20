@@ -15,11 +15,12 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 namespace PresentationTier.DependencyResolution
 {
+    using DataTier.Repositories;
+    using LogicTier.Providers;
+    using Service;
     using StructureMap;
-    using LogicTier;
 
     public static class IoC
     {
@@ -29,6 +30,9 @@ namespace PresentationTier.DependencyResolution
             {
                 c.AddRegistry<DefaultRegistry>();
                 c.For<ITestProvider>().Use<Class1>();
+                c.For<IAdProvider>().Use<AdProvider>();
+                c.For<IAdsService>().Use<AdsService>();
+                c.For<IAdsRepository>().Use<AdsRepository>();
             });
         }
     }

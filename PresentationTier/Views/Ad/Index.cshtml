@@ -1,0 +1,34 @@
+﻿@using Common.Models;
+@model IEnumerable<Ad>
+
+@{
+    ViewBag.Title = "List of ads";
+}
+
+<h3>List Of Ads</h3>
+
+@Html.ActionLink("Create New", "AddAd")
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAd", new { id = item.Id })
+              
+                @Html.ActionLink("Details", "DetailsOfAd", new { id = item.Id })
+              
+                @Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

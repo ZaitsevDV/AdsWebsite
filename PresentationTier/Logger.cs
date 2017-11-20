@@ -8,12 +8,7 @@ namespace PresentationTier
     ///
     public static class Logger
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(Logger));
-
-        public static ILog Log
-        {
-            get { return log; }
-        }
+        public static ILog Log { get; } = LogManager.GetLogger(typeof(Logger));
 
         public static void InitLogger()
         {

@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using LogicTier;
+using LogicTier.Providers;
 using PresentationTier.Models;
 
 namespace PresentationTier.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ITestProvider Provider;
+        private readonly ITestProvider _provider;
 
-        public HomeController(ITestProvider ProviderInput)
+        public HomeController(ITestProvider providerInput)
         {
-            Provider = ProviderInput;
+            _provider = providerInput;
         }
 
         //Logger.Log.Debug("Debug message");
@@ -34,7 +31,7 @@ namespace PresentationTier.Controllers
                 Logger.Log.Error(error.Message);
             }
 
-            HomeViewModel model = new HomeViewModel { Message = Provider.GetMessage() };
+            var model = new HomeViewModel { Message = _provider.GetMessage() };
             return View(model);
         }
     }
