@@ -17,22 +17,16 @@
 
 namespace PresentationTier.DependencyResolution
 {
-    using DataTier.Repositories;
-    using LogicTier.Providers;
-    using Service;
+    using LogicTier.Dependencies;
     using StructureMap;
 
     public static class IoC
     {
         public static IContainer Initialize()
         {
-            return new Container(c =>
-            {
+            return new Container(c => {
                 c.AddRegistry<DefaultRegistry>();
-                c.For<ITestProvider>().Use<Class1>();
-                c.For<IAdProvider>().Use<AdProvider>();
-                c.For<IAdsService>().Use<AdsService>();
-                c.For<IAdsRepository>().Use<AdsRepository>();
+                c.AddRegistry<CommonRegistry>();
             });
         }
     }

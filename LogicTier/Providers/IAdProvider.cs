@@ -6,7 +6,7 @@ namespace LogicTier.Providers
 {
     public interface IAdProvider
     {
-        Task<IEnumerable<Ad>> GetAdsAsync();
-        Task<Ad> AddAdAsync(Ad ad);
+        Ad AddAd(Ad ad);
+        IEnumerable<Ad> GetAds();
     }
 }

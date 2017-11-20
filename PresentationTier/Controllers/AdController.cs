@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using LogicTier.Providers;
+﻿using LogicTier.Providers;
 using System.Web.Mvc;
 using Common.Models;
 using PresentationTier.Models;
@@ -10,20 +9,26 @@ namespace PresentationTier.Controllers
     {
         private readonly IAdProvider _adProvider;
 
+        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(AdController));
+
         public AdController(IAdProvider adProvider)
         {
             _adProvider = adProvider;
         }
 
-        public async Task<ActionResult> Index()
+        public  ActionResult Index()
         {
-            object ads = await _adProvider.GetAdsAsync();
+            Log.Info("Controller:AdController; Action:Index");
+
+            var ads = _adProvider.GetAds();
 
             return View(ads);
         }
 
         public ActionResult AddAd()
         {
+            Log.Info("Controller:AdController; Action:AddAd");
+
             var adViewModel = new AdViewModel
             {
                 Title = "Add New Ad",
@@ -55,7 +60,7 @@ namespace PresentationTier.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddNewAd (AdViewModel adViewModel, string redirectUrl)
+        public ActionResult AddNewAd (AdViewModel adViewModel, string redirectUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -68,7 +73,7 @@ namespace PresentationTier.Controllers
                 Name = adViewModel.Name
             };
 
-            await _adProvider.AddAdAsync(ad);
+            _adProvider.AddAd(ad);
 
             return RedirectToLocal(redirectUrl);
         }

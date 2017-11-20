@@ -6,10 +6,10 @@ namespace DataTier.Repositories
 {
     public interface IAdsRepository
     {
-        Task<Ad> GetAdAsync(int id);
-        Task<Ad> AddAdAsync(Ad ad);
-        Task<IEnumerable<Ad>> GetAdsAsync();
-        Task DeleteAdAsync(int id);
-        Task<Ad> UpdateAdAsync(Ad ad);
+        Ad GetAd(int id);
+        Ad AddAd(Ad ad);
+        IEnumerable<Ad> GetAds();
+        Ad DeleteAd(int id);
+        Ad UpdateAd(Ad ad);
     }
 }
