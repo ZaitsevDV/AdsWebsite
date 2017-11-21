@@ -5,7 +5,7 @@ namespace Common.Models
 {
     public class Ad
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public int CreatorId { get; }
         public string Name { get; set; }
         public string Description { get; set; }

@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Convert.cs" />
+    <Compile Include="Business\IConvert.cs" />
+    <Compile Include="Clients\AdClient.cs" />
+    <Compile Include="Clients\IAdClient.cs" />
     <Compile Include="Container\DataRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdsRepository.cs" />
@@ -62,6 +66,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{1B700619-ECCF-48F2-ABFE-990034FD69A0}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{ECCEB86F-4CFE-4BCA-A06F-303882683DE0}</Project>
+      <Name>Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,6 @@
-﻿using StructureMap.Configuration.DSL;
+﻿using DataTier.Business;
+using DataTier.Clients;
+using StructureMap.Configuration.DSL;
 using DataTier.Repositories;
 
 namespace DataTier.Container
@@ -8,6 +10,8 @@ namespace DataTier.Container
         public DataRegistry()
         {
             For<IAdsRepository>().Use<AdsRepository>();
+            For<IAdClient>().Use<AdClient>();
+            For<IConvert>().Use<Convert>();
         }
     }
 }
