@@ -68,9 +68,6 @@
     <Compile Include="Contracts\AdService.cs" />
     <Compile Include="Contracts\IAdService.cs" />
     <Compile Include="Dto\AdDto.cs" />
-    <Compile Include="Service.svc.cs">
-      <DependentUpon>Service.svc</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

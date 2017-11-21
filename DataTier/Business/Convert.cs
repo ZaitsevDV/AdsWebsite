@@ -1,5 +1,5 @@
 ﻿using Common.Models;
-using Service.DTO;
+using DataTier.AdService;
 
 namespace DataTier.Business
 {

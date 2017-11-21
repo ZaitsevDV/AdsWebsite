@@ -1,5 +1,4 @@
-﻿using Service.Contracts;
-using Service.DTO;
+﻿using DataTier.AdService;
 
 namespace DataTier.Clients
 {
