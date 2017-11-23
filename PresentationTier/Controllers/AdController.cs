@@ -8,7 +8,6 @@ namespace PresentationTier.Controllers
     public class AdController : Controller
     {
         private readonly IAdProvider _adProvider;
-
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(AdController));
 
         public AdController(IAdProvider adProvider)

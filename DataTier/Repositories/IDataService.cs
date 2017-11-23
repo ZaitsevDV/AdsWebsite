@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataTier.Repositories
 {
-    public interface IAdsRepository
+    public interface IDataService
     {
         Ad GetAd(int id);
         Ad AddAd(Ad ad);

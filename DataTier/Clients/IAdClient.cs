@@ -2,8 +2,8 @@
 
 namespace DataTier.Clients
 {
-    interface IAdClient
+    public interface IAdClient
     {
-        AdDto GetaAdDto();
+        AdDto GetAdDto(int id);
     }
 }

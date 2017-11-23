@@ -66,8 +66,8 @@
     </Compile>
     <Compile Include="Container\DataRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AdsRepository.cs" />
-    <Compile Include="Repositories\IAdsRepository.cs" />
+    <Compile Include="Repositories\DataService.cs" />
+    <Compile Include="Repositories\IDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

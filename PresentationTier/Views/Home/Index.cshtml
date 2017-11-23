@@ -1,5 +1,14 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model PresentationTier.Models.AdViewModel
+
+@{
+    ViewBag.Title = "Ads website";
 }
 
-<h2>All ads in one place!</h2>
+<h2>Ads website</h2>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+</div>

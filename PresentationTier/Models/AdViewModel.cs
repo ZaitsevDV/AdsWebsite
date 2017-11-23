@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace PresentationTier.Models
@@ -11,11 +9,11 @@ namespace PresentationTier.Models
         public string AddButtonTitle { get; set; }
         public string RedirectUrl { get; set; }
 
-        [HiddenInput(DisplayValue = false)]
-        public int Id { get; set; }
+        //[HiddenInput(DisplayValue = false)]
+        //public int Id { get; set; }
 
-        [Display(Name = "Name goods")]
-        [Required(ErrorMessage = ("Goods name is required.")), RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        //[Display(Name = "Name goods")]
+        //[Required(ErrorMessage = ("Goods name is required.")), RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
         public string Name { get; set; }
 
         //[DataType(DataType.MultilineText)]

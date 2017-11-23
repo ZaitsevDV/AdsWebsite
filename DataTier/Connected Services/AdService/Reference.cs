@@ -15,7 +15,7 @@ namespace DataTier.AdService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdDto", Namespace="http://schemas.datacontract.org/2004/07/Service.DTO")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
     [System.SerializableAttribute()]
     public partial class AdDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -79,10 +79,10 @@ namespace DataTier.AdService {
     public interface IAdService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdDto", ReplyAction="http://tempuri.org/IAdService/GetAdDtoResponse")]
-        DataTier.AdService.AdDto GetAdDto();
+        DataTier.AdService.AdDto GetAdDto(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdDto", ReplyAction="http://tempuri.org/IAdService/GetAdDtoResponse")]
-        System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDtoAsync();
+        System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDtoAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -112,12 +112,12 @@ namespace DataTier.AdService {
                 base(binding, remoteAddress) {
         }
         
-        public DataTier.AdService.AdDto GetAdDto() {
-            return base.Channel.GetAdDto();
+        public DataTier.AdService.AdDto GetAdDto(int id) {
+            return base.Channel.GetAdDto(id);
         }
         
-        public System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDtoAsync() {
-            return base.Channel.GetAdDtoAsync();
+        public System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDtoAsync(int id) {
+            return base.Channel.GetAdDtoAsync(id);
         }
     }
 }

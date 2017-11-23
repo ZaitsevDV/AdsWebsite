@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Service.DTO
+namespace Service.Dto
 {
     [DataContract]
     public class AdDto

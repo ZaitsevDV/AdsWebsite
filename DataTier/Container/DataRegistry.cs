@@ -9,7 +9,7 @@ namespace DataTier.Container
     {
         public DataRegistry()
         {
-            For<IAdsRepository>().Use<AdsRepository>();
+            For<IDataService>().Use<DataService>();
             For<IAdClient>().Use<AdClient>();
             For<IConvert>().Use<Convert>();
         }

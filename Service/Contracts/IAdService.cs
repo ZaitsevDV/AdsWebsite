@@ -1,5 +1,5 @@
 ﻿using System.ServiceModel;
-using Service.DTO;
+using Service.Dto;
 
 namespace Service.Contracts
 {
@@ -7,6 +7,6 @@ namespace Service.Contracts
     public interface IAdService
     {
         [OperationContract]
-        AdDto GetAdDto();
+        AdDto GetAdDto(int id);
     }
 }

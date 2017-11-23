@@ -3,7 +3,7 @@ using System.Web.Routing;
 
 namespace PresentationTier
 {
-    public static class RouteConfig
+    public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -17,3 +17,4 @@ namespace PresentationTier
         }
     }
 }
+
