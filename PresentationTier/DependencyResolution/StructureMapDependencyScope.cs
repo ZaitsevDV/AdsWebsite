@@ -15,8 +15,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PresentationTier.DependencyResolution
-{
+namespace PresentationTier.DependencyResolution {
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -25,7 +24,7 @@ namespace PresentationTier.DependencyResolution
     using Microsoft.Practices.ServiceLocation;
 
     using StructureMap;
-
+	
     /// <summary>
     /// The structure map dependency scope.
     /// </summary>

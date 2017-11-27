@@ -1,7 +1,7 @@
 ﻿using DataTier.Business;
 using DataTier.Clients;
-using StructureMap.Configuration.DSL;
 using DataTier.Repositories;
+using StructureMap.Configuration.DSL;
 
 namespace DataTier.Container
 {
@@ -9,9 +9,9 @@ namespace DataTier.Container
     {
         public DataRegistry()
         {
-            For<IDataService>().Use<DataService>();
             For<IAdClient>().Use<AdClient>();
             For<IConvert>().Use<Convert>();
+            For<IDataService>().Use<DataService>();
         }
     }
 }

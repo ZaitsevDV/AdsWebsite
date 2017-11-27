@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - Ads Website</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Ads", "Index", "Ad")</li>
-                    <li>@Html.ActionLink("New ad", "AddAd", "Ad")</li>
+                    @*<li>@Html.ActionLink("New ad", "AddAd", "Ad")</li>*@
                 </ul>
             </div>
         </div>
@@ -37,8 +37,8 @@
         </footer>
     </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

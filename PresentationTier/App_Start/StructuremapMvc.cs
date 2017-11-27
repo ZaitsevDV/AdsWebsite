@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="StructuremapMvc.cs" company="Web Advanced">
 // Copyright 2012 Web Advanced (www.webadvanced.com)
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,33 +22,29 @@ using WebActivatorEx;
 [assembly: PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
 [assembly: ApplicationShutdownMethod(typeof(StructuremapMvc), "End")]
 
-namespace PresentationTier.App_Start
-{
-    using System.Web.Mvc;
+namespace PresentationTier.App_Start {
+	using System.Web.Mvc;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
-    using PresentationTier.DependencyResolution;
+	using PresentationTier.DependencyResolution;
 
     using StructureMap;
-
-    public static class StructuremapMvc
-    {
+    
+	public static class StructuremapMvc {
         #region Public Properties
 
         public static StructureMapDependencyScope StructureMapDependencyScope { get; set; }
 
         #endregion
-
-        #region Public Methods and Operators
-
-        public static void End()
-        {
+		
+		#region Public Methods and Operators
+		
+		public static void End() {
             StructureMapDependencyScope.Dispose();
         }
-
-        public static void Start()
-        {
+		
+        public static void Start() {
             IContainer container = IoC.Initialize();
             StructureMapDependencyScope = new StructureMapDependencyScope(container);
             DependencyResolver.SetResolver(StructureMapDependencyScope);

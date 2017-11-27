@@ -1,8 +1,8 @@
-﻿using StructureMap.Configuration.DSL;
-using DataTier.Container;
+﻿using DataTier.Container;
 using LogicTier.Container;
+using StructureMap.Configuration.DSL;
 
-namespace LogicTier.Dependencies
+namespace Dependecies.Dependencies
 {
     public class CommonRegistry : Registry
     {

@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 using Service.Dto;
 
 namespace Service.Contracts
@@ -7,6 +8,15 @@ namespace Service.Contracts
     public interface IAdService
     {
         [OperationContract]
-        AdDto GetAdDto(int id);
+        AdDto[] GetAdsDto();
+
+        [OperationContract]
+        AdDto GetAdDetailsDto(int id);
+
+        [OperationContract]
+        List<CategoryDto> GetCategoriesDto();
+
+        [OperationContract]
+        List<UserDto> GetUsersDto();
     }
 }

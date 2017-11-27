@@ -1,5 +1,4 @@
-﻿@using Common.Models;
-@model IEnumerable<Ad>
+﻿@model IEnumerable<Common.Models.Ad>
 
 @{
     ViewBag.Title = "List of ads";
@@ -7,7 +6,7 @@
 
 <h3>List Of Ads</h3>
 
-@Html.ActionLink("Create New", "AddAd")
+@*@Html.ActionLink("Create New", "AddAd")*@
 
 <table class="table">
     <tr>
@@ -16,18 +15,24 @@
         </th>
         <th></th>
     </tr>
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditAd", new { id = item.Id })
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "EditAd", new { id = item.Id })*@
               
-                @Html.ActionLink("Details", "DetailsOfAd", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
               
-                @Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })
+                @*@Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })*@
             </td>
         </tr>
     }

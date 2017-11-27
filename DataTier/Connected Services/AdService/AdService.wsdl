@@ -7,22 +7,79 @@
       <xsd:import schemaLocation="http://localhost:8011/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service.Dto" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IAdService_GetAdDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAdDto" />
+  <wsdl:message name="IAdService_GetAdsDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdsDto" />
   </wsdl:message>
-  <wsdl:message name="IAdService_GetAdDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAdDtoResponse" />
+  <wsdl:message name="IAdService_GetAdsDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdsDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdService_GetAdDetailsDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdDetailsDto" />
+  </wsdl:message>
+  <wsdl:message name="IAdService_GetAdDetailsDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdDetailsDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdService_GetCategoriesDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesDto" />
+  </wsdl:message>
+  <wsdl:message name="IAdService_GetCategoriesDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdService_GetUsersDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersDto" />
+  </wsdl:message>
+  <wsdl:message name="IAdService_GetUsersDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersDtoResponse" />
   </wsdl:message>
   <wsdl:portType name="IAdService">
-    <wsdl:operation name="GetAdDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAdService/GetAdDto" message="tns:IAdService_GetAdDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAdService/GetAdDtoResponse" message="tns:IAdService_GetAdDto_OutputMessage" />
+    <wsdl:operation name="GetAdsDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdService/GetAdsDto" message="tns:IAdService_GetAdsDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdService/GetAdsDtoResponse" message="tns:IAdService_GetAdsDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdDetailsDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdService/GetAdDetailsDto" message="tns:IAdService_GetAdDetailsDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdService/GetAdDetailsDtoResponse" message="tns:IAdService_GetAdDetailsDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdService/GetCategoriesDto" message="tns:IAdService_GetCategoriesDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdService/GetCategoriesDtoResponse" message="tns:IAdService_GetCategoriesDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdService/GetUsersDto" message="tns:IAdService_GetUsersDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdService/GetUsersDtoResponse" message="tns:IAdService_GetUsersDto_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAdService" type="tns:IAdService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetAdDto">
-      <soap:operation soapAction="http://tempuri.org/IAdService/GetAdDto" style="document" />
+    <wsdl:operation name="GetAdsDto">
+      <soap:operation soapAction="http://tempuri.org/IAdService/GetAdsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdDetailsDto">
+      <soap:operation soapAction="http://tempuri.org/IAdService/GetAdDetailsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesDto">
+      <soap:operation soapAction="http://tempuri.org/IAdService/GetCategoriesDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersDto">
+      <soap:operation soapAction="http://tempuri.org/IAdService/GetUsersDto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

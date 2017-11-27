@@ -16,7 +16,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace PresentationTier.DependencyResolution {
-    using StructureMap;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	

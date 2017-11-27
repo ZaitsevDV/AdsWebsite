@@ -5,8 +5,9 @@ namespace LogicTier.Providers
 {
     public interface IAdProvider
     {
-        Ad AddAd(Ad ad);
-        Ad GetAd(int id);
-        IEnumerable<Ad> GetAds();
+        Ad GetAdDetails(int id);
+        IEnumerable<Ad> GetAds { get; }
+        IEnumerable<User> GetUsers { get; }
+        IEnumerable<Category> GetCategories { get; }
     }
 }

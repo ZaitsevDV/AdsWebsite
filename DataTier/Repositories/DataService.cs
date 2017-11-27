@@ -1,5 +1,6 @@
 ﻿using Common.Models;
 using System.Collections.Generic;
+using DataTier.AdService;
 using DataTier.Business;
 using DataTier.Clients;
 
@@ -16,40 +17,34 @@ namespace DataTier.Repositories
             _convert = convert;
         }
 
-        public Ad GetAd(int id)
+        public Ad GetAdDetails(int id)
         {
-            var dto = _adClient.GetAdDto(id);
-
-            if (dto != null)
-            {
-                return _convert.ToAd(dto);
-            }
-            return default(Ad);
+            var adDto = _adClient.GetAdDetailsDto(id);
+            return adDto != null ? _convert.ToAd(adDto) : default(Ad);
         }
-
-        public Ad AddAd(Ad ad)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Ad DeleteAd(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        //public Ad GetAd(int id)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
 
         public IEnumerable<Ad> GetAds()
         {
-            throw new System.NotImplementedException();
+            var adsDto = _adClient.GetAdsDto();
+            if (adsDto == null) return default(List<Ad>);
+            var ads = (IList<AdDto>) adsDto;
+            return _convert.ToAds(ads) as List<Ad>;
         }
 
-        public Ad UpdateAd(Ad ad)
+        public IEnumerable<Category> GetCategories()
         {
-            throw new System.NotImplementedException();
+            var categoriesDto = _adClient.GetCategoriesDto();
+            if (categoriesDto == null) return default(List<Category>);
+            var categories = (IList<CategoryDto>) categoriesDto;
+            return _convert.ToCategories(categories) as List<Category>;
+        }
+
+        public IEnumerable<User> GetUsers()
+        {
+            var usersDto = _adClient.GetUsersDto();
+            if (usersDto == null) return default(List<User>);
+            var users = (IList<UserDto>)usersDto;
+            return _convert.ToUsers(users) as List<User>;
         }
     }
 }

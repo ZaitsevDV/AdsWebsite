@@ -1,17 +1,60 @@
-﻿using DataTier.AdService;
+﻿using System.Collections.Generic;
+using DataTier.AdService;
 
 namespace DataTier.Clients
 {
     public class AdClient : IAdClient
     {
-        AdDto IAdClient.GetAdDto(int id)
+        public AdDto GetAdDetailsDto(int id)
         {
-            var result = default(AdDto);
-            using (var client = new AdService.AdServiceClient())
+            AdDto result;
+            using (var client = new AdServiceClient())
             {
                 client.Open();
 
-                result = client.GetAdDto(id);
+                result = client.GetAdDetailsDto(id);
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<AdDto> GetAdsDto()
+        {
+            List<AdDto> result;
+            using (var client = new AdServiceClient())
+            {
+                client.Open();
+
+                result = new List<AdDto>(client.GetAdsDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<CategoryDto> GetCategoriesDto()
+        {
+            List<CategoryDto> result;
+            using (var client = new AdServiceClient())
+            {
+                client.Open();
+
+                result = new List<CategoryDto>(client.GetCategoriesDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<UserDto> GetUsersDto()
+        {
+            List<UserDto> result;
+            using (var client = new AdServiceClient())
+            {
+                client.Open();
+
+                result = new List<UserDto>(client.GetUsersDto());
 
                 client.Close();
             }

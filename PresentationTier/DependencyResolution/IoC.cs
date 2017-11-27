@@ -15,16 +15,15 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace PresentationTier.DependencyResolution
-{
-    using LogicTier.Dependencies;
-    using StructureMap;
 
-    public static class IoC
-    {
-        public static IContainer Initialize()
-        {
-            return new Container(c => {
+namespace PresentationTier.DependencyResolution {
+    using Dependecies.Dependencies;
+    using StructureMap;
+	
+    public static class IoC {
+        public static IContainer Initialize() {
+            return new Container(c =>
+            {
                 c.AddRegistry<DefaultRegistry>();
                 c.AddRegistry<CommonRegistry>();
             });

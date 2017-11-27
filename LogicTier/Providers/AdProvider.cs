@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Common.Models;
 using DataTier.Repositories;
 
@@ -14,19 +15,19 @@ namespace LogicTier.Providers
             _dataService = dataService ?? throw new NullReferenceException();
         }
 
-        public Ad AddAd(Ad ad)
+        public Ad GetAdDetails(int id)
         {
-            return _dataService.AddAd(ad);
+            return _dataService.GetAdDetails(id);
         }
 
-        public Ad GetAd(int id)
+        public IEnumerable<Ad> GetAds => _dataService.GetAds();
+
+        public IEnumerable<User> GetUsers => _dataService.GetUsers();
+
+        public IEnumerable<Category> GetCategories
         {
-            return _dataService.GetAd(id);
+            get { return _dataService.GetCategories().OrderBy(x => x.CategoryName); }
         }
 
-        public IEnumerable<Ad> GetAds()
-        {
-            return _dataService.GetAds();
-        }
     }
 }
