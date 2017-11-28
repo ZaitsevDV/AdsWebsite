@@ -425,10 +425,10 @@ namespace DataTier.AdService {
     public interface IAdService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdsDto", ReplyAction="http://tempuri.org/IAdService/GetAdsDtoResponse")]
-        DataTier.AdService.AdDto[] GetAdsDto();
+        System.Collections.Generic.List<DataTier.AdService.AdDto> GetAdsDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdsDto", ReplyAction="http://tempuri.org/IAdService/GetAdsDtoResponse")]
-        System.Threading.Tasks.Task<DataTier.AdService.AdDto[]> GetAdsDtoAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.AdDto>> GetAdsDtoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IAdService/GetAdDetailsDtoResponse")]
         DataTier.AdService.AdDto GetAdDetailsDto(int id);
@@ -437,16 +437,16 @@ namespace DataTier.AdService {
         System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDetailsDtoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetCategoriesDto", ReplyAction="http://tempuri.org/IAdService/GetCategoriesDtoResponse")]
-        DataTier.AdService.CategoryDto[] GetCategoriesDto();
+        System.Collections.Generic.List<DataTier.AdService.CategoryDto> GetCategoriesDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetCategoriesDto", ReplyAction="http://tempuri.org/IAdService/GetCategoriesDtoResponse")]
-        System.Threading.Tasks.Task<DataTier.AdService.CategoryDto[]> GetCategoriesDtoAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.CategoryDto>> GetCategoriesDtoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetUsersDto", ReplyAction="http://tempuri.org/IAdService/GetUsersDtoResponse")]
-        DataTier.AdService.UserDto[] GetUsersDto();
+        System.Collections.Generic.List<DataTier.AdService.UserDto> GetUsersDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetUsersDto", ReplyAction="http://tempuri.org/IAdService/GetUsersDtoResponse")]
-        System.Threading.Tasks.Task<DataTier.AdService.UserDto[]> GetUsersDtoAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.UserDto>> GetUsersDtoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -476,11 +476,11 @@ namespace DataTier.AdService {
                 base(binding, remoteAddress) {
         }
         
-        public DataTier.AdService.AdDto[] GetAdsDto() {
+        public System.Collections.Generic.List<DataTier.AdService.AdDto> GetAdsDto() {
             return base.Channel.GetAdsDto();
         }
         
-        public System.Threading.Tasks.Task<DataTier.AdService.AdDto[]> GetAdsDtoAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.AdDto>> GetAdsDtoAsync() {
             return base.Channel.GetAdsDtoAsync();
         }
         
@@ -492,19 +492,19 @@ namespace DataTier.AdService {
             return base.Channel.GetAdDetailsDtoAsync(id);
         }
         
-        public DataTier.AdService.CategoryDto[] GetCategoriesDto() {
+        public System.Collections.Generic.List<DataTier.AdService.CategoryDto> GetCategoriesDto() {
             return base.Channel.GetCategoriesDto();
         }
         
-        public System.Threading.Tasks.Task<DataTier.AdService.CategoryDto[]> GetCategoriesDtoAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.CategoryDto>> GetCategoriesDtoAsync() {
             return base.Channel.GetCategoriesDtoAsync();
         }
         
-        public DataTier.AdService.UserDto[] GetUsersDto() {
+        public System.Collections.Generic.List<DataTier.AdService.UserDto> GetUsersDto() {
             return base.Channel.GetUsersDto();
         }
         
-        public System.Threading.Tasks.Task<DataTier.AdService.UserDto[]> GetUsersDtoAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.UserDto>> GetUsersDtoAsync() {
             return base.Channel.GetUsersDtoAsync();
         }
     }

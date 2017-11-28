@@ -8,7 +8,7 @@ namespace Service.Contracts
     public interface IAdService
     {
         [OperationContract]
-        AdDto[] GetAdsDto();
+        List<AdDto> GetAdsDto();
 
         [OperationContract]
         AdDto GetAdDetailsDto(int id);

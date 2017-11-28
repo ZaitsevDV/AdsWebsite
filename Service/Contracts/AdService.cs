@@ -9,56 +9,45 @@ namespace Service.Contracts
 {
     public class AdService : IAdService
     {
-        private readonly SqlConnection _connection = new SqlConnection();
+        static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        SqlConnection _connection = new SqlConnection(connectionString);
 
-        private readonly string _connectionString =
-            ConfigurationManager.ConnectionStrings["AdsDataBase"].ConnectionString;
-
-        public AdDto[] GetAdsDto()
+        public List<AdDto> GetAdsDto()
         {
-            _connection.ConnectionString = _connectionString;
+            _connection.ConnectionString = connectionString;
+            _connection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Ads", _connection);
+            SqlDataReader reader = cmd.ExecuteReader();
             var adsList = new List<AdDto>();
-            try
+            while (reader.Read())
             {
-                using (var command = new SqlCommand("GetAds", _connection))
+                for (int i = 0; i < reader.FieldCount; i++)
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    _connection.Open();
-
-                    using (var reader = command.ExecuteReader())
+                    var ad = new AdDto()
                     {
-                        while (reader.Read())
-                        {
-                            var ad = new AdDto()
-                            {
-                                Id = (int)reader["Id"],
-                                UserId = (int)reader["UserId"],
-                                Name = reader["Name"].ToString(),
-                                Description = reader["Description"].ToString(),
-                                Picture = reader["Picture"].ToString(),
-                                Price = (decimal)reader["Price"],
-                                CategoryId = (int)reader["CategoryId"],
-                                CreationDate = (DateTime)reader["CreationDate"],
-                                LocationId = (int)reader["LocationId"],
-                                TypeId = (int)reader["TypeId"],
-                                ConditionId = (int)reader["ConditionId"]
-                            };
-                            adsList.Add(ad);
-                        }
-                    }
-                    _connection.Close();
+                        Id = (int)reader["Id"],
+                        UserId = (int)reader["UserId"],
+                        Name = reader["Name"].ToString(),
+                        Description = reader["Description"].ToString(),
+                        Picture = reader["Picture"].ToString(),
+                        Price = (decimal)reader["Price"],
+                        CategoryId = (int)reader["CategoryId"],
+                        CreationDate = (DateTime)reader["CreationDate"],
+                        LocationId = (int)reader["LocationId"],
+                        TypeId = (int)reader["TypeId"],
+                        ConditionId = (int)reader["ConditionId"]
+                    };
+                    adsList.Add(ad);
                 }
             }
-            catch (Exception e)
-            {
-            }
-            return adsList.ToArray();
+            reader.Close();
+            _connection.Close();
+            return adsList;
         }
 
         public AdDto GetAdDetailsDto(int adId)
         {
-            _connection.ConnectionString = _connectionString;
+            _connection.ConnectionString = connectionString;
             var adDetails = new AdDto();
 
             using (var command = new SqlCommand("GetAdDetails", _connection))
@@ -92,7 +81,7 @@ namespace Service.Contracts
 
         public List<CategoryDto> GetCategoriesDto()
         {
-            _connection.ConnectionString = _connectionString;
+            _connection.ConnectionString = connectionString;
             var categoriesList = new List<CategoryDto>();
 
             using (var command = new SqlCommand("GetCategories", _connection))
@@ -121,7 +110,7 @@ namespace Service.Contracts
 
         public List<UserDto> GetUsersDto()
         {
-            _connection.ConnectionString = _connectionString;
+            _connection.ConnectionString = connectionString;
             var usersList = new List<UserDto>();
 
             using (var command = new SqlCommand("GetUsers", _connection))
