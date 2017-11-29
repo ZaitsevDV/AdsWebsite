@@ -8,6 +8,6 @@ namespace LogicTier.Providers
         Ad GetAdDetails(int id);
         IEnumerable<Ad> GetAds { get; }
         IEnumerable<User> GetUsers { get; }
-        IEnumerable<Category> GetCategories { get; }
+        IList<Category> GetCategories { get; }
     }
 }

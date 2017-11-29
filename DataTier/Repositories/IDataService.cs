@@ -7,7 +7,7 @@ namespace DataTier.Repositories
     {
         IEnumerable<Ad> GetAds();
         Ad GetAdDetails(int id);
-        IEnumerable<Category> GetCategories();
+        IList<Category> GetCategories();
         IEnumerable<User> GetUsers();
     }
 }

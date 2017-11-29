@@ -48,7 +48,7 @@ namespace DataTier.Business
             };
         }
 
-        public IEnumerable<Category> ToCategories(IEnumerable<CategoryDto> categoriesDto)
+        public IList<Category> ToCategories(IList<CategoryDto> categoriesDto)
         {
             return categoriesDto.Select(ToCategory).ToList();
         }

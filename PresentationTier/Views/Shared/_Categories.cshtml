@@ -1,0 +1,17 @@
+﻿@model Common.Models.CategoryContainer
+
+@if (Model.Categories.Where(s => s.ParientCategoryId == Model.ParentId).Any())
+{
+    <ul>
+        @foreach (var node in Model.Categories)
+        {
+            if (node.ParientCategoryId == Model.ParentId)
+            {
+                Common.Models.CategoryContainer inner = new Common.Models.CategoryContainer (node.Id, Model.Categories);
+                <li><a href="?@node.">@node.CategoryName</a>
+                    @Html.Partial("_Categories", inner)
+                </li>
+            }
+        }
+    </ul>
+}

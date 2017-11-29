@@ -31,7 +31,7 @@ namespace DataTier.Repositories
             return _convert.ToAds(ads) as List<Ad>;
         }
 
-        public IEnumerable<Category> GetCategories()
+        public IList<Category> GetCategories()
         {
             var categoriesDto = _adClient.GetCategoriesDto();
             if (categoriesDto == null) return default(List<Category>);

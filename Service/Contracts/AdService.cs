@@ -16,46 +16,46 @@ namespace Service.Contracts
         {
             _connection.ConnectionString = connectionString;
             _connection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Ads", _connection);
-            SqlDataReader reader = cmd.ExecuteReader();
             var adsList = new List<AdDto>();
-            while (reader.Read())
+
+            using (var cmd = new SqlCommand("GetAds", _connection))
             {
-                for (int i = 0; i < reader.FieldCount; i++)
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (var reader = cmd.ExecuteReader())
                 {
-                    var ad = new AdDto()
+                    while (reader.Read())
                     {
-                        Id = (int)reader["Id"],
-                        UserId = (int)reader["UserId"],
-                        Name = reader["Name"].ToString(),
-                        Description = reader["Description"].ToString(),
-                        Picture = reader["Picture"].ToString(),
-                        Price = (decimal)reader["Price"],
-                        CategoryId = (int)reader["CategoryId"],
-                        CreationDate = (DateTime)reader["CreationDate"],
-                        LocationId = (int)reader["LocationId"],
-                        TypeId = (int)reader["TypeId"],
-                        ConditionId = (int)reader["ConditionId"]
-                    };
-                    adsList.Add(ad);
+                        var ad = new AdDto
+                        {
+                            Id = (int)reader["Id"],
+                            UserId = (int)reader["UserId"],
+                            Name = reader["Name"].ToString(),
+                            Description = reader["Description"].ToString(),
+                            Picture = reader["Picture"].ToString(),
+                            Price = (decimal)reader["Price"],
+                            CategoryId = (int)reader["CategoryId"],
+                            CreationDate = (DateTime)reader["CreationDate"],
+                            LocationId = (int)reader["LocationId"],
+                            TypeId = (int)reader["TypeId"],
+                            ConditionId = (int)reader["ConditionId"]
+                        };
+                        adsList.Add(ad);
+                    }
                 }
             }
-            reader.Close();
-            _connection.Close();
             return adsList;
         }
 
         public AdDto GetAdDetailsDto(int adId)
         {
             _connection.ConnectionString = connectionString;
+            _connection.Open();
             var adDetails = new AdDto();
 
             using (var command = new SqlCommand("GetAdDetails", _connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@Id", adId);
-
-                _connection.Open();
 
                 using (var reader = command.ExecuteReader())
                 {
@@ -74,7 +74,6 @@ namespace Service.Contracts
                         adDetails.ConditionId = (int)reader["ConditionId"];
                     }
                 }
-                _connection.Close();
             }
             return adDetails;
         }
@@ -82,13 +81,12 @@ namespace Service.Contracts
         public List<CategoryDto> GetCategoriesDto()
         {
             _connection.ConnectionString = connectionString;
+            _connection.Open();
             var categoriesList = new List<CategoryDto>();
 
             using (var command = new SqlCommand("GetCategories", _connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
-
-                _connection.Open();
 
                 using (var reader = command.ExecuteReader())
                 {
@@ -103,7 +101,6 @@ namespace Service.Contracts
                         categoriesList.Add(category);
                     }
                 }
-                _connection.Close();
             }
             return categoriesList;
         }
@@ -111,13 +108,12 @@ namespace Service.Contracts
         public List<UserDto> GetUsersDto()
         {
             _connection.ConnectionString = connectionString;
+            _connection.Open();
             var usersList = new List<UserDto>();
 
             using (var command = new SqlCommand("GetUsers", _connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
-
-                _connection.Open();
 
                 using (var reader = command.ExecuteReader())
                 {
@@ -135,7 +131,6 @@ namespace Service.Contracts
                         usersList.Add(userDto);
                     }
                 }
-                _connection.Close();
             }
             return usersList;
         }
