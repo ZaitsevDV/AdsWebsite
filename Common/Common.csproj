@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Models\Ad.cs" />
     <Compile Include="Models\CategoryContainer.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

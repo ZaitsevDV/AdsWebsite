@@ -16,6 +16,8 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
+using PresentationTier.Controllers;
+
 namespace PresentationTier.DependencyResolution {
     using Dependecies.Dependencies;
     using StructureMap;

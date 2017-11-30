@@ -1,0 +1,14 @@
+﻿@model Common.Models.CategoryContainer
+    
+@if (Model.Categories.Any(s => s.ParientCategoryId == Model.ParentId))
+{
+    <ul class="nav">
+        @foreach (var node in Model.Categories.Where(s => s.ParientCategoryId == Model.ParentId))
+        {
+            <li>
+                @*<a href="?@node.Id">@node.CategoryName</a>*@
+                @Html.ActionLink(node.CategoryName, "_ParientCategory", new { id = node.Id })
+            </li>
+        }
+    </ul>
+}

@@ -6,45 +6,60 @@
 
 <h3>List Of Ads</h3>
 
-<div class="col-md-2">
-    <h3>Categories</h3>
-    @Html.Action("Categories","Category") 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#lCategory").change(function () {
+            var categoryId =  $("#lCategory").val();
+            $("#dvCategoryResults").load('@(Url.Action("GetCategoryProducts","Home"))/' + categoryId);
+        });
+    });
+</script>
+<div id="categories">
+    @Html.Action("_Categories", "Category")
 </div>
+<div id="content">
+    <div label="table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Edit", "EditAd", new { id = item.Id })*@
 
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })
 
-@*@Html.ActionLink("Create New", "AddAd")*@
-
-<table class="table">
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Price
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "EditAd", new { id = item.Id })*@
-
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-
-                @*@Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })*@
-            </td>
-        </tr>
-    }
-</table>
+                            @*@Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @*@Html.ActionLink("Create New", "AddAd")*@
+    </div>
+</div>
