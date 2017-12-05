@@ -6,10 +6,10 @@ namespace Service.Dto
     public class CategoryDto
     {
         [DataMember]
-        public int Id { get; set; }
+        public int CategoryId { get; set; }
         [DataMember]
         public string CategoryName { get; set; }
         [DataMember]
-        public int ParientCategoryId { get; set; }
+        public int ParentCategoryId { get; set; }
     }
 }

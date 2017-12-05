@@ -94,9 +94,9 @@ namespace Service.Contracts
                     {
                         var category = new CategoryDto
                         {
-                            Id = (int)reader["Id"],
+                            CategoryId = (int)reader["CategoryId"],
                             CategoryName = reader["CategoryName"].ToString(),
-                            ParientCategoryId = (int)reader["ParientCategoryId"]
+                            ParentCategoryId = (int)reader["ParentCategoryId"]
                         };
                         categoriesList.Add(category);
                     }

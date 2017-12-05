@@ -10,7 +10,7 @@ namespace DataTier.Business
         Category ToCategory(CategoryDto categoryDto);
         User ToUser(UserDto userDto);
         IEnumerable<Ad> ToAds(IEnumerable<AdDto> adsDto);
-        IList<Category> ToCategories(IList<CategoryDto> catDtos);
+        List<Category> ToCategories(List<CategoryDto> catDtos);
         IEnumerable<User> ToUsers(IEnumerable<UserDto> usersDtos);
     }
 }

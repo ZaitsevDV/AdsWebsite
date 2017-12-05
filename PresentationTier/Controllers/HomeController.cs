@@ -27,12 +27,12 @@ namespace PresentationTier.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetCategoryProducts(string categoryId)
-        {
-            var lookupId = int.Parse(categoryId);
-            var model = await GetFullAndPartialViewModel(lookupId);
-            return PartialView("CategoryResults", model);
-        }
+        //public async Task<ActionResult> GetCategoryProducts(string categoryId)
+        //{
+        //    var lookupId = int.Parse(categoryId);
+        //    var model = await GetFullAndPartialViewModel(lookupId);
+        //    return PartialView("CategoryResults", model);
+        //}
 
         private async Task<IndexViewModel> GetFullAndPartialViewModel(int categoryId = 0)
         {

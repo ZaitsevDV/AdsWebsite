@@ -29,9 +29,9 @@ namespace DataTier.Business
         {
             return new Category()
             {
-                Id = categoryDto.Id,
+                CategoryId = categoryDto.CategoryId,
                 CategoryName = categoryDto.CategoryName,
-                ParientCategoryId = categoryDto.ParientCategoryId
+                ParentCategoryId = categoryDto.ParentCategoryId
             };
         }
 
@@ -48,7 +48,7 @@ namespace DataTier.Business
             };
         }
 
-        public IList<Category> ToCategories(IList<CategoryDto> categoriesDto)
+        public List<Category> ToCategories(List<CategoryDto> categoriesDto)
         {
             return categoriesDto.Select(ToCategory).ToList();
         }

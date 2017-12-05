@@ -31,11 +31,11 @@ namespace DataTier.Repositories
             return _convert.ToAds(ads) as List<Ad>;
         }
 
-        public IList<Category> GetCategories()
+        public List<Category> GetCategories()
         {
             var categoriesDto = _adClient.GetCategoriesDto();
             if (categoriesDto == null) return default(List<Category>);
-            var categories = (IList<CategoryDto>) categoriesDto;
+            var categories = (List<CategoryDto>) categoriesDto;
             return _convert.ToCategories(categories) as List<Category>;
         }
 

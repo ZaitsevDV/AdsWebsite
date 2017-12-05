@@ -228,13 +228,13 @@ namespace DataTier.AdService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CategoryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CategoryNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParientCategoryIdField;
+        private int ParentCategoryIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -243,6 +243,19 @@ namespace DataTier.AdService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CategoryId {
+            get {
+                return this.CategoryIdField;
+            }
+            set {
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
             }
         }
         
@@ -260,27 +273,14 @@ namespace DataTier.AdService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public int ParentCategoryId {
             get {
-                return this.IdField;
+                return this.ParentCategoryIdField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParientCategoryId {
-            get {
-                return this.ParientCategoryIdField;
-            }
-            set {
-                if ((this.ParientCategoryIdField.Equals(value) != true)) {
-                    this.ParientCategoryIdField = value;
-                    this.RaisePropertyChanged("ParientCategoryId");
+                if ((this.ParentCategoryIdField.Equals(value) != true)) {
+                    this.ParentCategoryIdField = value;
+                    this.RaisePropertyChanged("ParentCategoryId");
                 }
             }
         }

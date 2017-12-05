@@ -24,7 +24,7 @@ namespace LogicTier.Providers
 
         public IEnumerable<User> GetUsers => _dataService.GetUsers();
 
-        public IList<Category> GetCategories => _dataService.GetCategories();
+        public List<Category> GetCategories => _dataService.GetCategories();
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Common.Models;
 using LogicTier.Providers;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,31 +12,72 @@ namespace PresentationTier.Controllers
         public IAdProvider _adProvider;
         public CategoryController(IAdProvider adProvider) { _adProvider = adProvider; }
 
-        // GET: Category
         public ActionResult _Categories()
         {
-            Log.Info("Controller:CategoryController; Action:Categories");
-            var categories = _adProvider.GetCategories;
-            var catContainer = new CategoryContainer(0, categories);
-            return PartialView(catContainer);
+            ViewBag.Tree = GetAllCategoriesForTree();
+            return PartialView();
         }
 
-        public ActionResult _ParientCategory(int id)
+
+        public string GetAllCategoriesForTree()
         {
-            Log.Info("Controller:CategoryController; Action:_ParientCategory");
-            var categories = _adProvider.GetCategories;
-            var catContainer = new CategoryContainer(id, categories);
-            return PartialView(catContainer);
+            if (_adProvider.GetCategories != null)
+            {
+                List<Category> categories = _adProvider.GetCategories;
+
+                List<TreeNode> headerTree = FillRecursive(categories);
+
+                #region BindingHeaderMenus
+
+                string rootLi = string.Empty;
+                string down1Names = string.Empty;
+                string down2Names = string.Empty;
+
+                foreach (var item in headerTree)
+                {
+                    rootLi += "<li class=\"dropdown mega-menu-fullwidth\">"
+                               + "<a href=\"/Product/ListProduct?cat=" + item.CategoryId + "\" class=\"dropdown-toggle\" data-hover=\"dropdown\" data-toggle=\"dropdown\">" + item.CategoryName + "</a>";
+
+                    down1Names = "";
+                    foreach (var down1 in item.Children)
+                    {
+                        down2Names = "";
+                        foreach (var down2 in down1.Children)
+                        {
+                            down2Names += "<li><a href=\"/Product/ListProduct?cat=" + down2.CategoryId + "\">" + down2.CategoryName + "</a></li>";
+                        }
+                        down1Names += "<div class=\"col-sm-7\">"
+                                        + "<h4><a href=\"/Product/ListProduct?cat=" + down1.CategoryId + "\">" + down1.CategoryName + "</a></h4>"
+                                        + "<ul>"
+                                        + down2Names
+                                        + "</ul>"
+                                    + "</div>";
+                    }
+                    rootLi += "<ul class=\"dropdown-menu\">"
+                                + "<li>"
+                                    + "<div class=\"container-fluid\">"
+                                         + down1Names
+                                    + "<div>"
+                                + "</li>"
+                            + "</ul>"
+                         + "</li>";
+                }
+                #endregion
+
+                return "<ul class=\"nav navbar-nav\">" + rootLi + "</ul>";
+            }
+            return "Record Not Found!!";
         }
 
-        //public PartialViewResult Menu(string category = null)
-        //{
-        //    ViewBag.SelectedCategory = category;
-        //    var categories = _adProvider.GetCategories
-        //        .Select(x => x.ParientCategoryId)
-        //        .Distinct()
-        //        .OrderBy(x => x);
-        //    return PartialView(categories);
-        //}
+        private static List<TreeNode> FillRecursive(List<Category> flatObjects, int parentId = 0)
+            {
+                return flatObjects.Where(x => x.ParentCategoryId.Equals(parentId)).Select(item => new TreeNode
+                {
+                    CategoryName = item.CategoryName,
+                    CategoryId = item.CategoryId,
+                    Children = FillRecursive(flatObjects, item.CategoryId)
+                }).ToList();
+            }
+        }
     }
-}
+
