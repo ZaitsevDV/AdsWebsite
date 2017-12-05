@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Common.Models;
+﻿using Common.Models;
 using DataTier.AdService;
+using System.Collections.Generic;
 
 namespace DataTier.Business
 {

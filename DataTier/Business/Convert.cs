@@ -39,12 +39,10 @@ namespace DataTier.Business
         {
             return new User()
             {
-                Id = userDto.Id,
-                Name = userDto.Name,
-                Email1 = userDto.Email1,
-                Email2 = userDto.Email2,
-                Phone1 = userDto.Phone1,
-                Phone2 = userDto.Phone2
+                UserId = userDto.UserId,
+                UserName = userDto.UserName,
+                Password = userDto.Password,
+                RoleId = userDto.RoleId,
             };
         }
 
@@ -62,6 +60,5 @@ namespace DataTier.Business
         {
             return usersDto.Select(ToUser).ToList();
         }
-
     }
 }

@@ -6,16 +6,12 @@ namespace Service.Dto
     public class UserDto
     {
         [DataMember]
-        public int Id { get; set; }
+        public int UserId { get; set; }
         [DataMember]
-        public string Name { get; set; }
+        public string UserName { get; set; }
         [DataMember]
-        public string Phone1 { get; set; }
+        public string Password { get; set; }
         [DataMember]
-        public string Phone2 { get; set; }
-        [DataMember]
-        public string Email1 { get; set; }
-        [DataMember]
-        public string Email2 { get; set; }
+        public int RoleId { get; set; }
     }
 }

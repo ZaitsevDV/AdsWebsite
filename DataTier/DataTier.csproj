@@ -57,8 +57,8 @@
   <ItemGroup>
     <Compile Include="Business\Convert.cs" />
     <Compile Include="Business\IConvert.cs" />
-    <Compile Include="Clients\AdClient.cs" />
-    <Compile Include="Clients\IAdClient.cs" />
+    <Compile Include="Clients\Client.cs" />
+    <Compile Include="Clients\IClient.cs" />
     <Compile Include="Connected Services\AdService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

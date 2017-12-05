@@ -9,5 +9,6 @@ namespace DataTier.Repositories
         Ad GetAdDetails(int id);
         List<Category> GetCategories();
         IEnumerable<User> GetUsers();
+        User GetUserByName(string userName);
     }
 }

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using DataTier.AdService;
+﻿using DataTier.AdService;
+using System.Collections.Generic;
 
 namespace DataTier.Clients
 {
-    public interface IAdClient
+    public interface IClient
     {
         List<AdDto> GetAdsDto();
 
@@ -12,5 +12,7 @@ namespace DataTier.Clients
         List<CategoryDto> GetCategoriesDto();
 
         List<UserDto> GetUsersDto();
+
+        UserDto GetUserDtoByName(string userName);
     }
 }

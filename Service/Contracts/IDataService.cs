@@ -5,7 +5,7 @@ using Service.Dto;
 namespace Service.Contracts
 {
     [ServiceContract]
-    public interface IAdService
+    public interface IDataService
     {
         [OperationContract]
         List<AdDto> GetAdsDto();
@@ -18,5 +18,9 @@ namespace Service.Contracts
 
         [OperationContract]
         List<UserDto> GetUsersDto();
+
+        [OperationContract]
+        UserDto GetUserDtoByName(string userName);
+
     }
 }

@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using DataTier.AdService;
+﻿using DataTier.AdService;
+using System.Collections.Generic;
 
 namespace DataTier.Clients
 {
-    public class AdClient : IAdClient
+    public class Client : IClient
     {
         public AdDto GetAdDetailsDto(int id)
         {
             AdDto result;
-            using (var client = new AdServiceClient())
+            using (var client = new DataServiceClient())
             {
                 client.Open();
 
@@ -22,7 +22,7 @@ namespace DataTier.Clients
         public List<AdDto> GetAdsDto()
         {
             List<AdDto> result;
-            using (var client = new AdServiceClient())
+            using (var client = new DataServiceClient())
             {
                 client.Open();
 
@@ -36,7 +36,7 @@ namespace DataTier.Clients
         public List<CategoryDto> GetCategoriesDto()
         {
             List<CategoryDto> result;
-            using (var client = new AdServiceClient())
+            using (var client = new DataServiceClient())
             {
                 client.Open();
 
@@ -50,11 +50,25 @@ namespace DataTier.Clients
         public List<UserDto> GetUsersDto()
         {
             List<UserDto> result;
-            using (var client = new AdServiceClient())
+            using (var client = new DataServiceClient())
             {
                 client.Open();
 
                 result = new List<UserDto>(client.GetUsersDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public UserDto GetUserDtoByName(string userName)
+        {
+            UserDto result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = client.GetUserDtoByName(userName);
 
                 client.Close();
             }

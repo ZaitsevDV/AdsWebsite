@@ -44,12 +44,10 @@
   <xs:element name="ArrayOfUserDto" nillable="true" type="tns:ArrayOfUserDto" />
   <xs:complexType name="UserDto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Email1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Email2" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserDto" nillable="true" type="tns:UserDto" />

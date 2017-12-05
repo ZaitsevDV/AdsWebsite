@@ -305,22 +305,16 @@ namespace DataTier.AdService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Email1Field;
+        private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Email2Field;
+        private int RoleIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private int UserIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Phone1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Phone2Field;
+        private string UserNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -333,79 +327,53 @@ namespace DataTier.AdService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email1 {
+        public string Password {
             get {
-                return this.Email1Field;
+                return this.PasswordField;
             }
             set {
-                if ((object.ReferenceEquals(this.Email1Field, value) != true)) {
-                    this.Email1Field = value;
-                    this.RaisePropertyChanged("Email1");
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email2 {
+        public int RoleId {
             get {
-                return this.Email2Field;
+                return this.RoleIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.Email2Field, value) != true)) {
-                    this.Email2Field = value;
-                    this.RaisePropertyChanged("Email2");
+                if ((this.RoleIdField.Equals(value) != true)) {
+                    this.RoleIdField = value;
+                    this.RaisePropertyChanged("RoleId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public int UserId {
             get {
-                return this.IdField;
+                return this.UserIdField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
+        public string UserName {
             get {
-                return this.NameField;
+                return this.UserNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Phone1 {
-            get {
-                return this.Phone1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Phone1Field, value) != true)) {
-                    this.Phone1Field = value;
-                    this.RaisePropertyChanged("Phone1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Phone2 {
-            get {
-                return this.Phone2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Phone2Field, value) != true)) {
-                    this.Phone2Field = value;
-                    this.RaisePropertyChanged("Phone2");
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
                 }
             }
         }
@@ -421,58 +389,64 @@ namespace DataTier.AdService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AdService.IAdService")]
-    public interface IAdService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AdService.IDataService")]
+    public interface IDataService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdsDto", ReplyAction="http://tempuri.org/IAdService/GetAdsDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsDto", ReplyAction="http://tempuri.org/IDataService/GetAdsDtoResponse")]
         System.Collections.Generic.List<DataTier.AdService.AdDto> GetAdsDto();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdsDto", ReplyAction="http://tempuri.org/IAdService/GetAdsDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsDto", ReplyAction="http://tempuri.org/IDataService/GetAdsDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.AdDto>> GetAdsDtoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IAdService/GetAdDetailsDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
         DataTier.AdService.AdDto GetAdDetailsDto(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IAdService/GetAdDetailsDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
         System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDetailsDtoAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetCategoriesDto", ReplyAction="http://tempuri.org/IAdService/GetCategoriesDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
         System.Collections.Generic.List<DataTier.AdService.CategoryDto> GetCategoriesDto();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetCategoriesDto", ReplyAction="http://tempuri.org/IAdService/GetCategoriesDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.CategoryDto>> GetCategoriesDtoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetUsersDto", ReplyAction="http://tempuri.org/IAdService/GetUsersDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
         System.Collections.Generic.List<DataTier.AdService.UserDto> GetUsersDto();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdService/GetUsersDto", ReplyAction="http://tempuri.org/IAdService/GetUsersDtoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.UserDto>> GetUsersDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
+        DataTier.AdService.UserDto GetUserDtoByName(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
+        System.Threading.Tasks.Task<DataTier.AdService.UserDto> GetUserDtoByNameAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAdServiceChannel : DataTier.AdService.IAdService, System.ServiceModel.IClientChannel {
+    public interface IDataServiceChannel : DataTier.AdService.IDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AdServiceClient : System.ServiceModel.ClientBase<DataTier.AdService.IAdService>, DataTier.AdService.IAdService {
+    public partial class DataServiceClient : System.ServiceModel.ClientBase<DataTier.AdService.IDataService>, DataTier.AdService.IDataService {
         
-        public AdServiceClient() {
+        public DataServiceClient() {
         }
         
-        public AdServiceClient(string endpointConfigurationName) : 
+        public DataServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public AdServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public DataServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AdServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DataServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AdServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DataServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -506,6 +480,14 @@ namespace DataTier.AdService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.UserDto>> GetUsersDtoAsync() {
             return base.Channel.GetUsersDtoAsync();
+        }
+        
+        public DataTier.AdService.UserDto GetUserDtoByName(string userName) {
+            return base.Channel.GetUserDtoByName(userName);
+        }
+        
+        public System.Threading.Tasks.Task<DataTier.AdService.UserDto> GetUserDtoByNameAsync(string userName) {
+            return base.Channel.GetUserDtoByNameAsync(userName);
         }
     }
 }

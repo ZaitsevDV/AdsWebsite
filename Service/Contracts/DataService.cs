@@ -7,7 +7,7 @@ using Service.Dto;
 
 namespace Service.Contracts
 {
-    public class AdService : IAdService
+    public class DataService : IDataService
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         SqlConnection _connection = new SqlConnection(connectionString);
@@ -121,12 +121,10 @@ namespace Service.Contracts
                     {
                         var userDto = new UserDto
                         {
-                            Id = (int)reader["Id"],
-                            Name = reader["Name"].ToString(),
-                            Phone1 = reader["Phone1"].ToString(),
-                            Phone2 = reader["Phone2"].ToString(),
-                            Email1 = reader["Email1"].ToString(),
-                            Email2 = reader["Email2"].ToString(),
+                            UserId = (int)reader["Id"],
+                            UserName = reader["UserName"].ToString(),
+                            Password = reader["Password"].ToString(),
+                            RoleId = (int)reader["RoleId"]
                         };
                         usersList.Add(userDto);
                     }
@@ -134,5 +132,31 @@ namespace Service.Contracts
             }
             return usersList;
         }
+
+        public UserDto GetUserDtoByName(string userName)
+        {
+            _connection.ConnectionString = connectionString;
+            _connection.Open();
+            var userDto = new UserDto();
+
+            using (var command = new SqlCommand("GetUserDetails", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        userDto.UserId = (int)reader["UserId"];
+                        userDto.UserName = reader["UserName"].ToString();
+                        userDto.Password = reader["Password"].ToString();
+                        userDto.RoleId = (int)reader["RoleId"];
+                    }
+                }
+            }
+            return userDto;
+        }
+
     }
 }
