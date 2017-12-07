@@ -8,9 +8,9 @@ namespace LogicTier.Providers
 {
     public class AdProvider : IAdProvider
     {
-        private readonly IDataService _dataService;
+        private readonly IAdService _dataService;
 
-        public AdProvider(IDataService dataService)
+        public AdProvider(IAdService dataService)
         {
             _dataService = dataService ?? throw new NullReferenceException();
         }
@@ -21,8 +21,6 @@ namespace LogicTier.Providers
         }
 
         public IEnumerable<Ad> GetAds => _dataService.GetAds();
-
-        public IEnumerable<User> GetUsers => _dataService.GetUsers();
 
         public List<Category> GetCategories => _dataService.GetCategories();
 

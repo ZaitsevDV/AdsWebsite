@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Service.Dto;
+using System.Collections.Generic;
 using System.ServiceModel;
-using Service.Dto;
 
 namespace Service.Contracts
 {
@@ -22,5 +22,7 @@ namespace Service.Contracts
         [OperationContract]
         UserDto GetUserDtoByName(string userName);
 
+        [OperationContract]
+        bool IsValidUser(string userName, string password);
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Service.Dto;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using Service.Dto;
 
 namespace Service.Contracts
 {
@@ -158,5 +158,9 @@ namespace Service.Contracts
             return userDto;
         }
 
+        public bool IsValidUser(string userName, string password)
+        {
+            return true;
+        }
     }
 }

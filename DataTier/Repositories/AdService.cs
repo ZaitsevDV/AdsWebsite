@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace DataTier.Repositories
 {
-    public class DataService : IDataService
+    public class AdService : IAdService
     {
         private readonly IClient _client;
         private readonly IConvert _convert;
 
-        public DataService(IClient client, IConvert convert)
+        public AdService(IClient client, IConvert convert)
         {
             _client = client;
             _convert = convert;
@@ -40,19 +40,5 @@ namespace DataTier.Repositories
             return _convert.ToCategories(categories) as List<Category>;
         }
 
-        public IEnumerable<User> GetUsers()
-        {
-            var usersDto = _client.GetUsersDto();
-            if (usersDto == null) return default(List<User>);
-            var users = (IList<UserDto>)usersDto;
-            return _convert.ToUsers(users) as List<User>;
-        }
-
-        public User GetUserByName(string userName)
-        {
-            var userDto = _client.GetUserDtoByName(userName);
-            if (userDto == null) return default(User);
-            return _convert.ToUser(userDto);
-        }
     }
 }

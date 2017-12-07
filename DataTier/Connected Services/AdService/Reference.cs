@@ -421,6 +421,12 @@ namespace DataTier.AdService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
         System.Threading.Tasks.Task<DataTier.AdService.UserDto> GetUserDtoByNameAsync(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/IsValidUser", ReplyAction="http://tempuri.org/IDataService/IsValidUserResponse")]
+        bool IsValidUser(string userName, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/IsValidUser", ReplyAction="http://tempuri.org/IDataService/IsValidUserResponse")]
+        System.Threading.Tasks.Task<bool> IsValidUserAsync(string userName, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -488,6 +494,14 @@ namespace DataTier.AdService {
         
         public System.Threading.Tasks.Task<DataTier.AdService.UserDto> GetUserDtoByNameAsync(string userName) {
             return base.Channel.GetUserDtoByNameAsync(userName);
+        }
+        
+        public bool IsValidUser(string userName, string password) {
+            return base.Channel.IsValidUser(userName, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsValidUserAsync(string userName, string password) {
+            return base.Channel.IsValidUserAsync(userName, password);
         }
     }
 }

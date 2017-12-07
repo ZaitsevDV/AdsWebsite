@@ -8,6 +8,7 @@ namespace LogicTier.Container
         public LogicRegistry()
         {
             For<IAdProvider>().Use<AdProvider>();
+            For<IUserProvider>().Use<UserProvider>();
         }
     }
 }

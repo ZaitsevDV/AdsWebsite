@@ -74,5 +74,19 @@ namespace DataTier.Clients
             }
             return result;
         }
+
+        public bool IsValidUser(string userName, string password)
+        {
+            bool result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = client.IsValidUser(userName, password);
+
+                client.Close();
+            }
+            return result;
+        }
     }
 }

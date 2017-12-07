@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\LoginResult.cs" />
     <Compile Include="Models\Ad.cs" />
     <Compile Include="Models\TreeNode.cs" />
     <Compile Include="Models\IndexViewModel.cs" />

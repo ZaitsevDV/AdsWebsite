@@ -11,7 +11,8 @@ namespace DataTier.Container
         {
             For<IClient>().Use<Client>();
             For<IConvert>().Use<Convert>();
-            For<IDataService>().Use<DataService>();
+            For<IAdService>().Use<Repositories.AdService>();
+            For<IUserService>().Use<UserService>();
         }
     }
 }

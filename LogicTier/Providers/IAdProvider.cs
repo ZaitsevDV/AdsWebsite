@@ -7,7 +7,6 @@ namespace LogicTier.Providers
     {
         Ad GetAdDetails(int id);
         IEnumerable<Ad> GetAds { get; }
-        IEnumerable<User> GetUsers { get; }
         List<Category> GetCategories { get; }
     }
 }
