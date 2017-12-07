@@ -1,5 +1,5 @@
 ﻿
-namespace AuthProject.Business.Enums
+namespace Common.Enums
 {
     public enum LoginResult
     {

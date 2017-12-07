@@ -1,10 +1,9 @@
-﻿@*<div>
-    @if (HttpContext.Current.User.Identity.IsAuthenticated)
-    {
-        @Html.ActionLink("Logout", "Logout", "Login")<br />
-    }
-    else
-    {
-        @Html.ActionLink("Login", "Login", "Login")
-    }
-</div>*@
+﻿@if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+    @Html.ActionLink("Logout", "Logout", "Login")<br />
+                @*@Html.ActionLink("Admin Contact", "Contact")*@
+}
+else
+{
+    @Html.ActionLink("Login", "Login", "Login")
+}

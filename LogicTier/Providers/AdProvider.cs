@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Common.Models;
+﻿using Common.Models;
 using DataTier.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace LogicTier.Providers
 {

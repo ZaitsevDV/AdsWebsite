@@ -39,9 +39,7 @@ namespace DataTier.Business
         {
             return new User()
             {
-                UserId = userDto.UserId,
                 UserName = userDto.UserName,
-                Password = userDto.Password,
                 RoleId = userDto.RoleId,
             };
         }

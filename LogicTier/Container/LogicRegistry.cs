@@ -1,4 +1,5 @@
 ﻿using LogicTier.Providers;
+using LogicTier.Service;
 using StructureMap.Configuration.DSL;
 
 namespace LogicTier.Container
@@ -9,6 +10,7 @@ namespace LogicTier.Container
         {
             For<IAdProvider>().Use<AdProvider>();
             For<IUserProvider>().Use<UserProvider>();
+            For<ILoginService>().Use<LoginService>();
         }
     }
 }

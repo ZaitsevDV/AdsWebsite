@@ -14,5 +14,7 @@ namespace DataTier.Clients
         List<UserDto> GetUsersDto();
 
         UserDto GetUserDtoByName(string userName);
+
+        bool IsValidUser(string userName, string password);
     }
 }

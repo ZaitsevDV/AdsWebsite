@@ -121,9 +121,7 @@ namespace Service.Contracts
                     {
                         var userDto = new UserDto
                         {
-                            UserId = (int)reader["Id"],
                             UserName = reader["UserName"].ToString(),
-                            Password = reader["Password"].ToString(),
                             RoleId = (int)reader["RoleId"]
                         };
                         usersList.Add(userDto);
@@ -148,9 +146,7 @@ namespace Service.Contracts
                 {
                     while (reader.Read())
                     {
-                        userDto.UserId = (int)reader["UserId"];
                         userDto.UserName = reader["UserName"].ToString();
-                        userDto.Password = reader["Password"].ToString();
                         userDto.RoleId = (int)reader["RoleId"];
                     }
                 }
@@ -160,7 +156,17 @@ namespace Service.Contracts
 
         public bool IsValidUser(string userName, string password)
         {
-            return true;
+            _connection.ConnectionString = connectionString;
+            _connection.Open();
+
+            using (var command = new SqlCommand("IsValidUser", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@Password", password);
+
+                return command.ExecuteNonQuery() != 0;
+            }
         }
     }
 }
