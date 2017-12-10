@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Common.Models;
-using DataTier.AdService;
+using DataTier.DataService;
 
 namespace DataTier.Business
 {
@@ -12,7 +12,7 @@ namespace DataTier.Business
             return new Ad()
             {
                 Id = adDto.Id,
-                UserId = adDto.UserId,
+                UserName = adDto.UserName,
                 Name = adDto.Name,
                 Description = adDto.Description,
                 Picture = adDto.Picture,

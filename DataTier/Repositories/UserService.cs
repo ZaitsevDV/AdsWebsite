@@ -1,8 +1,7 @@
 ﻿using Common.Models;
-using DataTier.AdService;
 using DataTier.Business;
 using DataTier.Clients;
-using System;
+using DataTier.DataService;
 using System.Collections.Generic;
 
 namespace DataTier.Repositories

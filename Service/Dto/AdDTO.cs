@@ -9,7 +9,7 @@ namespace Service.Dto
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public int UserId { get; set; }
+        public string UserName { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]

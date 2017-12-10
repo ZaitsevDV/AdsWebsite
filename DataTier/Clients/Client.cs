@@ -1,5 +1,5 @@
-﻿using DataTier.AdService;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DataTier.DataService;
 
 namespace DataTier.Clients
 {

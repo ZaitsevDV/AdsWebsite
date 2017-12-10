@@ -59,7 +59,7 @@
     <Compile Include="Business\IConvert.cs" />
     <Compile Include="Clients\Client.cs" />
     <Compile Include="Clients\IClient.cs" />
-    <Compile Include="Connected Services\AdService\Reference.cs">
+    <Compile Include="Connected Services\DataService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -81,23 +81,23 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AdService\AdService.wsdl" />
-    <None Include="Connected Services\AdService\DataTier.AdService.AdDto.datasource">
+    <None Include="Connected Services\DataService\AdService.wsdl" />
+    <None Include="Connected Services\DataService\DataTier.DataService.AdDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\AdService\DataTier.AdService.CategoryDto.datasource">
+    <None Include="Connected Services\DataService\DataTier.DataService.CategoryDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\AdService\DataTier.AdService.UserDto.datasource">
+    <None Include="Connected Services\DataService\DataTier.DataService.UserDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\AdService\Service.xsd">
+    <None Include="Connected Services\DataService\Service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AdService\Service1.xsd">
+    <None Include="Connected Services\DataService\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AdService\Service2.xsd">
+    <None Include="Connected Services\DataService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -108,19 +108,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\AdService\" />
+    <WCFMetadataStorage Include="Connected Services\DataService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AdService\Service.disco" />
+    <None Include="Connected Services\DataService\Service.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AdService\configuration91.svcinfo" />
+    <None Include="Connected Services\DataService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AdService\configuration.svcinfo" />
+    <None Include="Connected Services\DataService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AdService\Reference.svcmap">
+    <None Include="Connected Services\DataService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

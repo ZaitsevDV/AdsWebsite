@@ -1,5 +1,5 @@
 ﻿using Common.Models;
-using DataTier.AdService;
+using DataTier.DataService;
 using DataTier.Business;
 using DataTier.Clients;
 using System.Collections.Generic;

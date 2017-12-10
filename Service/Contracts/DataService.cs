@@ -28,7 +28,7 @@ namespace Service.Contracts
                         var ad = new AdDto
                         {
                             Id = (int)reader["Id"],
-                            UserId = (int)reader["UserId"],
+                            UserName = (string)reader["UserName"],
                             Name = reader["Name"].ToString(),
                             Description = reader["Description"].ToString(),
                             Picture = reader["Picture"].ToString(),
@@ -62,7 +62,7 @@ namespace Service.Contracts
                     while (reader.Read())
                     {
                         adDetails.Id = (int)reader["Id"];
-                        adDetails.UserId = (int)reader["UserId"];
+                        adDetails.UserName = (string)reader["UserName"];
                         adDetails.Name = reader["Name"].ToString();
                         adDetails.Description = reader["Description"].ToString();
                         adDetails.Picture = reader["Picture"].ToString();
@@ -156,17 +156,19 @@ namespace Service.Contracts
 
         public bool IsValidUser(string userName, string password)
         {
-            _connection.ConnectionString = connectionString;
-            _connection.Open();
+            //_connection.ConnectionString = connectionString;
+            //_connection.Open();
 
-            using (var command = new SqlCommand("IsValidUser", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserName", userName);
-                command.Parameters.AddWithValue("@Password", password);
+            //using (var command = new SqlCommand("IsValidUser", _connection))
+            //{
+            //    command.CommandType = CommandType.StoredProcedure;
+            //    command.Parameters.AddWithValue("@UserName", userName);
+            //    command.Parameters.AddWithValue("@Password", password);
 
-                return command.ExecuteNonQuery() != 0;
-            }
+            //    return command.ExecuteNonQuery() != 0;
+            //}
+            return true;
+
         }
     }
 }

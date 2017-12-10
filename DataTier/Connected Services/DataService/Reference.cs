@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataTier.AdService {
+namespace DataTier.DataService {
     using System.Runtime.Serialization;
     using System;
     
@@ -53,7 +53,7 @@ namespace DataTier.AdService {
         private int TypeIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
+        private string UserNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -196,14 +196,14 @@ namespace DataTier.AdService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
+        public string UserName {
             get {
-                return this.UserIdField;
+                return this.UserNameField;
             }
             set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
                 }
             }
         }
@@ -357,38 +357,38 @@ namespace DataTier.AdService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AdService.IDataService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataService.IDataService")]
     public interface IDataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsDto", ReplyAction="http://tempuri.org/IDataService/GetAdsDtoResponse")]
-        System.Collections.Generic.List<DataTier.AdService.AdDto> GetAdsDto();
+        System.Collections.Generic.List<DataTier.DataService.AdDto> GetAdsDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsDto", ReplyAction="http://tempuri.org/IDataService/GetAdsDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.AdDto>> GetAdsDtoAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.AdDto>> GetAdsDtoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
-        DataTier.AdService.AdDto GetAdDetailsDto(int id);
+        DataTier.DataService.AdDto GetAdDetailsDto(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
-        System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDetailsDtoAsync(int id);
+        System.Threading.Tasks.Task<DataTier.DataService.AdDto> GetAdDetailsDtoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
-        System.Collections.Generic.List<DataTier.AdService.CategoryDto> GetCategoriesDto();
+        System.Collections.Generic.List<DataTier.DataService.CategoryDto> GetCategoriesDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.CategoryDto>> GetCategoriesDtoAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.CategoryDto>> GetCategoriesDtoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
-        System.Collections.Generic.List<DataTier.AdService.UserDto> GetUsersDto();
+        System.Collections.Generic.List<DataTier.DataService.UserDto> GetUsersDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.UserDto>> GetUsersDtoAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.UserDto>> GetUsersDtoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
-        DataTier.AdService.UserDto GetUserDtoByName(string userName);
+        DataTier.DataService.UserDto GetUserDtoByName(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
-        System.Threading.Tasks.Task<DataTier.AdService.UserDto> GetUserDtoByNameAsync(string userName);
+        System.Threading.Tasks.Task<DataTier.DataService.UserDto> GetUserDtoByNameAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/IsValidUser", ReplyAction="http://tempuri.org/IDataService/IsValidUserResponse")]
         bool IsValidUser(string userName, string password);
@@ -398,12 +398,12 @@ namespace DataTier.AdService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDataServiceChannel : DataTier.AdService.IDataService, System.ServiceModel.IClientChannel {
+    public interface IDataServiceChannel : DataTier.DataService.IDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DataServiceClient : System.ServiceModel.ClientBase<DataTier.AdService.IDataService>, DataTier.AdService.IDataService {
+    public partial class DataServiceClient : System.ServiceModel.ClientBase<DataTier.DataService.IDataService>, DataTier.DataService.IDataService {
         
         public DataServiceClient() {
         }
@@ -424,43 +424,43 @@ namespace DataTier.AdService {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<DataTier.AdService.AdDto> GetAdsDto() {
+        public System.Collections.Generic.List<DataTier.DataService.AdDto> GetAdsDto() {
             return base.Channel.GetAdsDto();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.AdDto>> GetAdsDtoAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.AdDto>> GetAdsDtoAsync() {
             return base.Channel.GetAdsDtoAsync();
         }
         
-        public DataTier.AdService.AdDto GetAdDetailsDto(int id) {
+        public DataTier.DataService.AdDto GetAdDetailsDto(int id) {
             return base.Channel.GetAdDetailsDto(id);
         }
         
-        public System.Threading.Tasks.Task<DataTier.AdService.AdDto> GetAdDetailsDtoAsync(int id) {
+        public System.Threading.Tasks.Task<DataTier.DataService.AdDto> GetAdDetailsDtoAsync(int id) {
             return base.Channel.GetAdDetailsDtoAsync(id);
         }
         
-        public System.Collections.Generic.List<DataTier.AdService.CategoryDto> GetCategoriesDto() {
+        public System.Collections.Generic.List<DataTier.DataService.CategoryDto> GetCategoriesDto() {
             return base.Channel.GetCategoriesDto();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.CategoryDto>> GetCategoriesDtoAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.CategoryDto>> GetCategoriesDtoAsync() {
             return base.Channel.GetCategoriesDtoAsync();
         }
         
-        public System.Collections.Generic.List<DataTier.AdService.UserDto> GetUsersDto() {
+        public System.Collections.Generic.List<DataTier.DataService.UserDto> GetUsersDto() {
             return base.Channel.GetUsersDto();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.AdService.UserDto>> GetUsersDtoAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.UserDto>> GetUsersDtoAsync() {
             return base.Channel.GetUsersDtoAsync();
         }
         
-        public DataTier.AdService.UserDto GetUserDtoByName(string userName) {
+        public DataTier.DataService.UserDto GetUserDtoByName(string userName) {
             return base.Channel.GetUserDtoByName(userName);
         }
         
-        public System.Threading.Tasks.Task<DataTier.AdService.UserDto> GetUserDtoByNameAsync(string userName) {
+        public System.Threading.Tasks.Task<DataTier.DataService.UserDto> GetUserDtoByNameAsync(string userName) {
             return base.Channel.GetUserDtoByNameAsync(userName);
         }
         

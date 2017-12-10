@@ -18,7 +18,7 @@
       <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" type="xs:decimal" />
       <xs:element minOccurs="0" name="TypeId" type="xs:int" />
-      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AdDto" nillable="true" type="tns:AdDto" />

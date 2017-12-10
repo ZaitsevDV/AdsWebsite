@@ -43,7 +43,7 @@ namespace PresentationTier.Controllers
             var selectedList = ads.Where(x => x.Category.Equals(category)).Select(item => new Ad()
             {
                 Id = item.Id,
-                UserId = item.UserId,
+                UserName = item.UserName,
                 Name = item.Name,
                 Description = item.Description,
                 Picture = item.Picture,
