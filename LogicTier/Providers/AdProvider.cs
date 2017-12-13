@@ -21,6 +21,11 @@ namespace LogicTier.Providers
 
         public IEnumerable<Ad> GetAds => _dataService.GetAds();
 
+        public List<Ad> GetAdsByCategory(int categoryId)
+        {
+            return _dataService.GetAdsByCategory(categoryId);
+        }
+
         public List<Category> GetCategories => _dataService.GetCategories();
 
     }

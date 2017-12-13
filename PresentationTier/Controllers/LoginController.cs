@@ -1,5 +1,5 @@
-﻿using LogicTier.Service;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using LogicTier.Authorization;
 using PresentationTier.Models;
 
 namespace PresentationTier.Controllers

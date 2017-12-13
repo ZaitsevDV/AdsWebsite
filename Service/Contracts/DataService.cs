@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Service.Contracts
 {
@@ -46,11 +47,26 @@ namespace Service.Contracts
             return adsList;
         }
 
+
+        public List<AdDto> GetAdsByCategoryDto(int categoryId)
+        {
+            var resultCollection = new List<int>();
+            var ads = new List<AdDto>();
+            var categoryIdList = GetChildId(categoryId, resultCollection, GetCategoriesDto());
+
+            foreach (var id in categoryIdList)
+            {
+                ads.AddRange(GetAdsByParentCategoryDto(id));
+            }
+            return ads;
+        }
+
         public AdDto GetAdDetailsDto(int adId)
         {
+            var ad = new AdDto();
+
             _connection.ConnectionString = connectionString;
             _connection.Open();
-            var adDetails = new AdDto();
 
             using (var command = new SqlCommand("GetAdDetails", _connection))
             {
@@ -61,21 +77,21 @@ namespace Service.Contracts
                 {
                     while (reader.Read())
                     {
-                        adDetails.Id = (int)reader["Id"];
-                        adDetails.UserName = (string)reader["UserName"];
-                        adDetails.Name = reader["Name"].ToString();
-                        adDetails.Description = reader["Description"].ToString();
-                        adDetails.Picture = reader["Picture"].ToString();
-                        adDetails.Price = (decimal)reader["Price"];
-                        adDetails.CategoryId = (int)reader["CategoryId"];
-                        adDetails.CreationDate = (DateTime)reader["CreationDate"];
-                        adDetails.LocationId = (int)reader["LocationId"];
-                        adDetails.TypeId = (int)reader["TypeId"];
-                        adDetails.ConditionId = (int)reader["ConditionId"];
+                        ad.Id = (int) reader["Id"];
+                        ad.UserName = (string) reader["UserName"];
+                        ad.Name = reader["Name"].ToString();
+                        ad.Description = reader["Description"].ToString();
+                        ad.Picture = reader["Picture"].ToString();
+                        ad.Price = (decimal) reader["Price"];
+                        ad.CategoryId = (int) reader["CategoryId"];
+                        ad.CreationDate = (DateTime) reader["CreationDate"];
+                        ad.LocationId = (int) reader["LocationId"];
+                        ad.TypeId = (int) reader["TypeId"];
+                        ad.ConditionId = (int) reader["ConditionId"];
                     }
                 }
             }
-            return adDetails;
+            return ad;
         }
 
         public List<CategoryDto> GetCategoriesDto()
@@ -122,7 +138,7 @@ namespace Service.Contracts
                         var userDto = new UserDto
                         {
                             UserName = reader["UserName"].ToString(),
-                            RoleId = (int)reader["RoleId"]
+                            RoleName = (string)reader["RoleName"]
                         };
                         usersList.Add(userDto);
                     }
@@ -147,7 +163,7 @@ namespace Service.Contracts
                     while (reader.Read())
                     {
                         userDto.UserName = reader["UserName"].ToString();
-                        userDto.RoleId = (int)reader["RoleId"];
+                        userDto.RoleName = reader["RoleName"].ToString();
                     }
                 }
             }
@@ -156,19 +172,71 @@ namespace Service.Contracts
 
         public bool IsValidUser(string userName, string password)
         {
+            _connection.ConnectionString = connectionString;
+            _connection.Open();
+
+            using (var command = new SqlCommand("IsValidUser", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@Password", password);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    return reader.Read();
+                }
+            }
+        }
+
+        private static List<int> GetChildId(int parentId, ICollection<int> resultCollection, IEnumerable<CategoryDto> list)
+        {
+            resultCollection.Add(parentId);
+
+            var categories = list as CategoryDto[] ?? list.ToArray();
+            foreach (var category in categories)
+            {
+                if (category.ParentCategoryId == parentId)
+                    GetChildId(category.CategoryId, resultCollection, categories);
+            }
+
+            return resultCollection.ToList();
+        }
+
+        private IEnumerable<AdDto> GetAdsByParentCategoryDto(int categoryId)
+        {
             //_connection.ConnectionString = connectionString;
             //_connection.Open();
+            var adsList = new List<AdDto>();
 
-            //using (var command = new SqlCommand("IsValidUser", _connection))
-            //{
-            //    command.CommandType = CommandType.StoredProcedure;
-            //    command.Parameters.AddWithValue("@UserName", userName);
-            //    command.Parameters.AddWithValue("@Password", password);
+            using (var command = new SqlCommand("GetAdsByCategory", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@categoryId", categoryId);
 
-            //    return command.ExecuteNonQuery() != 0;
-            //}
-            return true;
-
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var ad = new AdDto
+                        {
+                            Id = (int)reader["Id"],
+                            UserName = (string)reader["UserName"],
+                            Name = reader["Name"].ToString(),
+                            Description = reader["Description"].ToString(),
+                            Picture = reader["Picture"].ToString(),
+                            Price = (decimal)reader["Price"],
+                            CategoryId = (int)reader["CategoryId"],
+                            CreationDate = (DateTime)reader["CreationDate"],
+                            LocationId = (int)reader["LocationId"],
+                            TypeId = (int)reader["TypeId"],
+                            ConditionId = (int)reader["ConditionId"]
+                        };
+                        adsList.Add(ad);
+                    }
+                }
+            }
+            return adsList;
         }
+
     }
 }

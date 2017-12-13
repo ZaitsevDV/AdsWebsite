@@ -13,17 +13,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAdsByCategoryDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="categoryId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdsByCategoryDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetAdsByCategoryDtoResult" nillable="true" type="q2:ArrayOfAdDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAdDetailsDto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="adId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAdDetailsDtoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetAdDetailsDtoResult" nillable="true" type="q2:AdDto" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetAdDetailsDtoResult" nillable="true" type="q3:AdDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -35,7 +49,7 @@
   <xs:element name="GetCategoriesDtoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetCategoriesDtoResult" nillable="true" type="q3:ArrayOfCategoryDto" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetCategoriesDtoResult" nillable="true" type="q4:ArrayOfCategoryDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -47,7 +61,7 @@
   <xs:element name="GetUsersDtoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUsersDtoResult" nillable="true" type="q4:ArrayOfUserDto" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUsersDtoResult" nillable="true" type="q5:ArrayOfUserDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -61,7 +75,7 @@
   <xs:element name="GetUserDtoByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUserDtoByNameResult" nillable="true" type="q5:UserDto" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUserDtoByNameResult" nillable="true" type="q6:UserDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

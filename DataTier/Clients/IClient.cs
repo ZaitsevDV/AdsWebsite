@@ -7,6 +7,8 @@ namespace DataTier.Clients
     {
         List<AdDto> GetAdsDto();
 
+        List<AdDto> GetAdsByCategoryDto(int categoryId);
+
         AdDto GetAdDetailsDto(int id);
 
         List<CategoryDto> GetCategoriesDto();

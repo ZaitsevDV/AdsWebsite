@@ -40,7 +40,7 @@ namespace DataTier.Business
             return new User()
             {
                 UserName = userDto.UserName,
-                RoleId = userDto.RoleId,
+                Roles = new[] { new Role() { RoleName = userDto.RoleName } }
             };
         }
 

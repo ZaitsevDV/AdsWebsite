@@ -1,9 +1,5 @@
-﻿using System;
+﻿using Common.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Models;
 
 namespace LogicTier.Providers
 {

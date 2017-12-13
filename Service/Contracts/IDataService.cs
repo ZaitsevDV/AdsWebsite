@@ -11,7 +11,10 @@ namespace Service.Contracts
         List<AdDto> GetAdsDto();
 
         [OperationContract]
-        AdDto GetAdDetailsDto(int id);
+        List<AdDto> GetAdsByCategoryDto(int categoryId);
+        
+        [OperationContract]
+        AdDto GetAdDetailsDto(int adId);
 
         [OperationContract]
         List<CategoryDto> GetCategoriesDto();

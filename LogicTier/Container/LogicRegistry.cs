@@ -1,5 +1,5 @@
-﻿using LogicTier.Providers;
-using LogicTier.Service;
+﻿using LogicTier.Authorization;
+using LogicTier.Providers;
 using StructureMap.Configuration.DSL;
 
 namespace LogicTier.Container

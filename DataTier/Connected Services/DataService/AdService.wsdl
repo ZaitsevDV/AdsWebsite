@@ -13,6 +13,12 @@
   <wsdl:message name="IDataService_GetAdsDto_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdsDtoResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataService_GetAdsByCategoryDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdsByCategoryDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAdsByCategoryDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdsByCategoryDtoResponse" />
+  </wsdl:message>
   <wsdl:message name="IDataService_GetAdDetailsDto_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAdDetailsDto" />
   </wsdl:message>
@@ -48,6 +54,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetAdsDto" message="tns:IDataService_GetAdsDto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetAdsDtoResponse" message="tns:IDataService_GetAdsDto_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAdsByCategoryDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetAdsByCategoryDto" message="tns:IDataService_GetAdsByCategoryDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetAdsByCategoryDtoResponse" message="tns:IDataService_GetAdsByCategoryDto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAdDetailsDto">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetAdDetailsDto" message="tns:IDataService_GetAdDetailsDto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetAdDetailsDtoResponse" message="tns:IDataService_GetAdDetailsDto_OutputMessage" />
@@ -73,6 +83,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAdsDto">
       <soap:operation soapAction="http://tempuri.org/IDataService/GetAdsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdsByCategoryDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetAdsByCategoryDto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -17,6 +17,14 @@ namespace DataTier.Repositories
             _convert = convert;
         }
 
+        public List<Ad> GetAdsByCategory(int categoryId)
+        {
+            var adsDto = _client.GetAdsByCategoryDto(categoryId);
+            if (adsDto == null) return default(List<Ad>);
+            var ads = (IList<AdDto>)adsDto;
+            return _convert.ToAds(ads) as List<Ad>;
+        }
+
         public Ad GetAdDetails(int id)
         {
             var adDto = _client.GetAdDetailsDto(id);

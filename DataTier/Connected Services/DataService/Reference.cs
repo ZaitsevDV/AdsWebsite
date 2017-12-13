@@ -305,7 +305,7 @@ namespace DataTier.DataService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RoleIdField;
+        private string RoleNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserNameField;
@@ -321,14 +321,14 @@ namespace DataTier.DataService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RoleId {
+        public string RoleName {
             get {
-                return this.RoleIdField;
+                return this.RoleNameField;
             }
             set {
-                if ((this.RoleIdField.Equals(value) != true)) {
-                    this.RoleIdField = value;
-                    this.RaisePropertyChanged("RoleId");
+                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
+                    this.RoleNameField = value;
+                    this.RaisePropertyChanged("RoleName");
                 }
             }
         }
@@ -366,11 +366,17 @@ namespace DataTier.DataService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsDto", ReplyAction="http://tempuri.org/IDataService/GetAdsDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.AdDto>> GetAdsDtoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
-        DataTier.DataService.AdDto GetAdDetailsDto(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsByCategoryDto", ReplyAction="http://tempuri.org/IDataService/GetAdsByCategoryDtoResponse")]
+        System.Collections.Generic.List<DataTier.DataService.AdDto> GetAdsByCategoryDto(int categoryId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsByCategoryDto", ReplyAction="http://tempuri.org/IDataService/GetAdsByCategoryDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.AdDto>> GetAdsByCategoryDtoAsync(int categoryId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
-        System.Threading.Tasks.Task<DataTier.DataService.AdDto> GetAdDetailsDtoAsync(int id);
+        DataTier.DataService.AdDto GetAdDetailsDto(int adId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
+        System.Threading.Tasks.Task<DataTier.DataService.AdDto> GetAdDetailsDtoAsync(int adId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
         System.Collections.Generic.List<DataTier.DataService.CategoryDto> GetCategoriesDto();
@@ -432,12 +438,20 @@ namespace DataTier.DataService {
             return base.Channel.GetAdsDtoAsync();
         }
         
-        public DataTier.DataService.AdDto GetAdDetailsDto(int id) {
-            return base.Channel.GetAdDetailsDto(id);
+        public System.Collections.Generic.List<DataTier.DataService.AdDto> GetAdsByCategoryDto(int categoryId) {
+            return base.Channel.GetAdsByCategoryDto(categoryId);
         }
         
-        public System.Threading.Tasks.Task<DataTier.DataService.AdDto> GetAdDetailsDtoAsync(int id) {
-            return base.Channel.GetAdDetailsDtoAsync(id);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DataTier.DataService.AdDto>> GetAdsByCategoryDtoAsync(int categoryId) {
+            return base.Channel.GetAdsByCategoryDtoAsync(categoryId);
+        }
+        
+        public DataTier.DataService.AdDto GetAdDetailsDto(int adId) {
+            return base.Channel.GetAdDetailsDto(adId);
+        }
+        
+        public System.Threading.Tasks.Task<DataTier.DataService.AdDto> GetAdDetailsDtoAsync(int adId) {
+            return base.Channel.GetAdDetailsDtoAsync(adId);
         }
         
         public System.Collections.Generic.List<DataTier.DataService.CategoryDto> GetCategoriesDto() {

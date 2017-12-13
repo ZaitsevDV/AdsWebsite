@@ -5,6 +5,20 @@ namespace DataTier.Clients
 {
     public class Client : IClient
     {
+        public List<AdDto> GetAdsByCategoryDto(int categoryId)
+        {
+            List<AdDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<AdDto>(client.GetAdsByCategoryDto(categoryId));
+
+                client.Close();
+            }
+            return result;
+        }
+
         public AdDto GetAdDetailsDto(int id)
         {
             AdDto result;

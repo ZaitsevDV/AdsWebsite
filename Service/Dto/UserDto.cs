@@ -8,6 +8,6 @@ namespace Service.Dto
         [DataMember]
         public string UserName { get; set; }
         [DataMember]
-        public int RoleId { get; set; }
+        public string RoleName { get; set; }
     }
 }
