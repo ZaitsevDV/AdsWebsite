@@ -86,13 +86,13 @@
     <Compile Include="Authorization\LoginService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\AW.Common.csproj">
       <Project>{1B700619-ECCF-48F2-ABFE-990034FD69A0}</Project>
-      <Name>Common</Name>
+      <Name>AW.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataTier\DataTier.csproj">
+    <ProjectReference Include="..\DataTier\AW.Data.csproj">
       <Project>{C2705A5D-EDC4-4230-B86F-7B3F5D0E406B}</Project>
-      <Name>DataTier</Name>
+      <Name>AW.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

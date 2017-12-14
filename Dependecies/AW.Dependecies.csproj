@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2705A5D-EDC4-4230-B86F-7B3F5D0E406B}</ProjectGuid>
+    <ProjectGuid>{DB5B5938-16F6-4759-A561-B3D8CCE69C81}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataTier</RootNamespace>
-    <AssemblyName>DataTier</AssemblyName>
+    <RootNamespace>Dependecies</RootNamespace>
+    <AssemblyName>Dependecies</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,88 +47,27 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml" />
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Convert.cs" />
-    <Compile Include="Business\IConvert.cs" />
-    <Compile Include="Clients\Client.cs" />
-    <Compile Include="Clients\IClient.cs" />
-    <Compile Include="Connected Services\DataService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Container\DataRegistry.cs" />
+    <Compile Include="Dependencies\CommonRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AdService.cs" />
-    <Compile Include="Repositories\IAdService.cs" />
-    <Compile Include="Repositories\IUserService.cs" />
-    <Compile Include="Repositories\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{1B700619-ECCF-48F2-ABFE-990034FD69A0}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\DataService\AdService.wsdl" />
-    <None Include="Connected Services\DataService\DataTier.DataService.AdDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\DataService\DataTier.DataService.CategoryDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\DataService\DataTier.DataService.UserDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\DataService\Service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\DataService\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\DataService\Service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Service.DTO.AdDto.datasource" />
-    <None Include="Properties\DataSources\Service.Dto.ClassDto.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\DataService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DataService\Service.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DataService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DataService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\DataService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\DataTier\AW.Data.csproj">
+      <Project>{c2705a5d-edc4-4230-b86f-7b3f5d0e406b}</Project>
+      <Name>AW.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicTier\AW.Business.csproj">
+      <Project>{4b9cc226-61d2-494e-9b2f-ff98693c0608}</Project>
+      <Name>AW.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>

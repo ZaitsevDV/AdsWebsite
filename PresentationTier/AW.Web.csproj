@@ -117,6 +117,7 @@
     <Content Include="Content\submenu.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\loader.gif" />
     <Content Include="Log.config">
       <SubType>Designer</SubType>
     </Content>
@@ -192,17 +193,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\AW.Common.csproj">
       <Project>{1B700619-ECCF-48F2-ABFE-990034FD69A0}</Project>
-      <Name>Common</Name>
+      <Name>AW.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dependecies\Dependecies.csproj">
+    <ProjectReference Include="..\Dependecies\AW.Dependecies.csproj">
       <Project>{DB5B5938-16F6-4759-A561-B3D8CCE69C81}</Project>
-      <Name>Dependecies</Name>
+      <Name>AW.Dependecies</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LogicTier\LogicTier.csproj">
+    <ProjectReference Include="..\LogicTier\AW.Business.csproj">
       <Project>{4B9CC226-61D2-494E-9B2F-FF98693C0608}</Project>
-      <Name>LogicTier</Name>
+      <Name>AW.Business</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

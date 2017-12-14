@@ -13,12 +13,12 @@
                 @if (menuList.Count(p => p.ParentCategoryId == mp.CategoryId) > 0)
                 {
                     @:<ul>
-                    }
+                }
                 @RenderMenuItem(menuList, mp)
                 @if (menuList.Count(p => p.ParentCategoryId == mp.CategoryId) > 0)
                 {
                     @:</ul>
-            }
+                }
             </li>
         }
     </ul>
@@ -31,6 +31,7 @@
         {
             @:<li>
                 @Html.ActionLink(cp.CategoryName, "_AdList", "Ad", new { id = cp.CategoryId }, null)
+
                 if (menuList.Count(p => p.ParentCategoryId == cp.CategoryId) > 0)
                 {
                     @:<ul>
@@ -39,10 +40,10 @@
                     if (menuList.Count(p => p.ParentCategoryId == cp.CategoryId) > 0)
                     {
                         @:</ul>
-                }
+                    }
                 else
                 {
                     @:</li>
-            }
+                }
         }
-}
+    }
