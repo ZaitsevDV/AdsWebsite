@@ -7,8 +7,10 @@ namespace Service.Dto
     {
         [DataMember]
         public int CategoryId { get; set; }
+
         [DataMember]
         public string CategoryName { get; set; }
+
         [DataMember]
         public int ParentCategoryId { get; set; }
     }

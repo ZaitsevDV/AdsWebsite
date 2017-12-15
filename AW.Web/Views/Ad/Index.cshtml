@@ -1,0 +1,21 @@
+﻿<link href="~/Content/submenu.css" rel="stylesheet" type="text/css" />
+
+<div id="categories">
+    @Html.Action("_Categories", "Category")
+</div>
+
+
+
+<div id="adsList">
+    @Html.Action("List", "Ad")
+</div>
+
+<img alt="" 
+     id="loading" 
+     src="@Url.Content("~/Images/loader.gif")" 
+     style="
+            display: none;   
+            position: absolute;
+            bottom: 20px;
+            left: 50%;"
+/>

@@ -6,7 +6,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-[Dd]atabase/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -185,6 +184,7 @@ _pkginfo.txt
 !*.[Cc]ache/
 
 # Others
+Database/
 ClientBin/
 ~$*
 *~

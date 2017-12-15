@@ -1,6 +1,6 @@
-﻿using Service.Dto;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
+using Service.Dto;
 
 namespace Service.Contracts
 {
@@ -12,7 +12,7 @@ namespace Service.Contracts
 
         [OperationContract]
         List<AdDto> GetAdsByCategoryDto(int categoryId);
-        
+
         [OperationContract]
         AdDto GetAdDetailsDto(int adId);
 

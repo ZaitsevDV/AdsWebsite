@@ -1,17 +1,19 @@
-﻿using Service.Dto;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using Service.Dto;
 
 namespace Service.Contracts
 {
     public class DataService : IDataService
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        SqlConnection _connection = new SqlConnection(connectionString);
+        private static readonly string connectionString =
+            ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        private readonly SqlConnection _connection = new SqlConnection(connectionString);
 
         public List<AdDto> GetAdsDto()
         {
@@ -28,17 +30,17 @@ namespace Service.Contracts
                     {
                         var ad = new AdDto
                         {
-                            Id = (int)reader["Id"],
-                            UserName = (string)reader["UserName"],
+                            Id = (int) reader["Id"],
+                            UserName = (string) reader["UserName"],
                             Name = reader["Name"].ToString(),
                             Description = reader["Description"].ToString(),
                             Picture = reader["Picture"].ToString(),
-                            Price = (decimal)reader["Price"],
-                            CategoryId = (int)reader["CategoryId"],
-                            CreationDate = (DateTime)reader["CreationDate"],
-                            LocationId = (int)reader["LocationId"],
-                            TypeId = (int)reader["TypeId"],
-                            ConditionId = (int)reader["ConditionId"]
+                            Price = (decimal) reader["Price"],
+                            CategoryId = (int) reader["CategoryId"],
+                            CreationDate = (DateTime) reader["CreationDate"],
+                            LocationId = (int) reader["LocationId"],
+                            TypeId = (int) reader["TypeId"],
+                            ConditionId = (int) reader["ConditionId"]
                         };
                         adsList.Add(ad);
                     }
@@ -55,9 +57,7 @@ namespace Service.Contracts
             var categoryIdList = GetChildId(categoryId, resultCollection, GetCategoriesDto());
 
             foreach (var id in categoryIdList)
-            {
                 ads.AddRange(GetAdsByParentCategoryDto(id));
-            }
             return ads;
         }
 
@@ -110,9 +110,9 @@ namespace Service.Contracts
                     {
                         var category = new CategoryDto
                         {
-                            CategoryId = (int)reader["CategoryId"],
+                            CategoryId = (int) reader["CategoryId"],
                             CategoryName = reader["CategoryName"].ToString(),
-                            ParentCategoryId = (int)reader["ParentCategoryId"]
+                            ParentCategoryId = (int) reader["ParentCategoryId"]
                         };
                         categoriesList.Add(category);
                     }
@@ -138,7 +138,7 @@ namespace Service.Contracts
                         var userDto = new UserDto
                         {
                             UserName = reader["UserName"].ToString(),
-                            RoleName = (string)reader["RoleName"]
+                            RoleName = (string) reader["RoleName"]
                         };
                         usersList.Add(userDto);
                     }
@@ -188,16 +188,15 @@ namespace Service.Contracts
             }
         }
 
-        private static List<int> GetChildId(int parentId, ICollection<int> resultCollection, IEnumerable<CategoryDto> list)
+        private static List<int> GetChildId(int parentId, ICollection<int> resultCollection,
+            IEnumerable<CategoryDto> list)
         {
             resultCollection.Add(parentId);
 
             var categories = list as CategoryDto[] ?? list.ToArray();
             foreach (var category in categories)
-            {
                 if (category.ParentCategoryId == parentId)
                     GetChildId(category.CategoryId, resultCollection, categories);
-            }
 
             return resultCollection.ToList();
         }
@@ -219,17 +218,17 @@ namespace Service.Contracts
                     {
                         var ad = new AdDto
                         {
-                            Id = (int)reader["Id"],
-                            UserName = (string)reader["UserName"],
+                            Id = (int) reader["Id"],
+                            UserName = (string) reader["UserName"],
                             Name = reader["Name"].ToString(),
                             Description = reader["Description"].ToString(),
                             Picture = reader["Picture"].ToString(),
-                            Price = (decimal)reader["Price"],
-                            CategoryId = (int)reader["CategoryId"],
-                            CreationDate = (DateTime)reader["CreationDate"],
-                            LocationId = (int)reader["LocationId"],
-                            TypeId = (int)reader["TypeId"],
-                            ConditionId = (int)reader["ConditionId"]
+                            Price = (decimal) reader["Price"],
+                            CategoryId = (int) reader["CategoryId"],
+                            CreationDate = (DateTime) reader["CreationDate"],
+                            LocationId = (int) reader["LocationId"],
+                            TypeId = (int) reader["TypeId"],
+                            ConditionId = (int) reader["ConditionId"]
                         };
                         adsList.Add(ad);
                     }
@@ -237,6 +236,5 @@ namespace Service.Contracts
             }
             return adsList;
         }
-
     }
 }

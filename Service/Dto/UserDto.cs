@@ -7,6 +7,7 @@ namespace Service.Dto
     {
         [DataMember]
         public string UserName { get; set; }
+
         [DataMember]
         public string RoleName { get; set; }
     }
