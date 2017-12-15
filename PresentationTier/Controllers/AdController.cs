@@ -22,7 +22,8 @@ namespace PresentationTier.Controllers
             return View(model);
         }
 
-        public ActionResult _AdList(int? id)
+        [HttpGet]
+        public ActionResult List(int? id)
         {
             var category = 0;
             if (id != null)

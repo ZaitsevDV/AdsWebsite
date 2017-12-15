@@ -1,15 +1,15 @@
-﻿@{
-    ViewBag.Title = "List of ads";
-}
-
-<h3>List Of Ads</h3>
-
+﻿<link href="~/Content/submenu.css" rel="stylesheet" type="text/css" />
 
 <div id="categories">
     @Html.Action("_Categories", "Category")
 </div>
 
-<div id="content">
-    @Html.Action("_AdList", "Ad")
+
+<img id="loading" src="@Url.Content("~/Images/loader.gif")" style="display:none" alt="" />
+
+
+<div id="adsList">
+    @Html.Action("List", "Ad")
 </div>
 
+<div id="results"></div>
