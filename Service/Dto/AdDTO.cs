@@ -13,7 +13,7 @@ namespace Service.Dto
         public string UserName { get; set; }
 
         [DataMember]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         [DataMember]
         public string Description { get; set; }

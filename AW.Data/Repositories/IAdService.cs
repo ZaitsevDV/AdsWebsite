@@ -5,9 +5,15 @@ namespace AW.Data.Repositories
 {
     public interface IAdService
     {
+        void CreateAd(Ad ad);
+        void EditeAd(Ad ad);
+        void DeleteAd(int adId);
         IEnumerable<Ad> GetAds();
         List<Ad> GetAdsByCategory(int categoryId);
-        Ad GetAdDetails(int id);
+        AdDetails GetAdDetails(int id);
         List<Category> GetCategories();
+        List<Condition> GetConditions();
+        List<Location> GetLocations();
+        List<AdType> GetTypes();
     }
 }

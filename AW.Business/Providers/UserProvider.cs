@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using AW.Common.Models;
+﻿using AW.Common.Models;
 using AW.Data.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace AW.Business.Providers
 {
@@ -13,7 +13,6 @@ namespace AW.Business.Providers
         {
             _dataService = dataService ?? throw new NullReferenceException();
         }
-
 
         public IEnumerable<User> GetUsers()
         {
@@ -29,5 +28,11 @@ namespace AW.Business.Providers
         {
             return _dataService.IsValidUser(userName, password);
         }
+
+        public List<Email> GetEmails => _dataService.GetEmails();
+
+        public List<Phone> GetPhones => _dataService.GetPhones();
+
+        public List<Role> GetRoles => _dataService.GetRoles();
     }
 }

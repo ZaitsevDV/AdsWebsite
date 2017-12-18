@@ -56,8 +56,15 @@
   <ItemGroup>
     <Compile Include="Contracts\DataService.cs" />
     <Compile Include="Contracts\IDataService.cs" />
+    <Compile Include="Dto\AdDetailsDto.cs" />
     <Compile Include="Dto\AdDto.cs" />
     <Compile Include="Dto\CategoryDto.cs" />
+    <Compile Include="Dto\ConditionDto.cs" />
+    <Compile Include="Dto\EmailDto.cs" />
+    <Compile Include="Dto\LocationDto.cs" />
+    <Compile Include="Dto\PhoneDto.cs" />
+    <Compile Include="Dto\RoleDto.cs" />
+    <Compile Include="Dto\TypeDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

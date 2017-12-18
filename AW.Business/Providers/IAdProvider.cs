@@ -5,9 +5,15 @@ namespace AW.Business.Providers
 {
     public interface IAdProvider
     {
+        void CreateAd(Ad ad);
+        void EditeAd(Ad ad);
+        void DeleteAd(int adId);
         IEnumerable<Ad> GetAds { get; }
-        List<Category> GetCategories { get; }
-        Ad GetAdDetails(int id);
+        AdDetails GetAdDetails(int id);
         List<Ad> GetAdsByCategory(int categoryId);
+        List<Category> GetCategories { get; }
+        List<Condition> GetConditions { get; }
+        List<Location> GetLocations { get; }
+        List<AdType> GetTypes { get; }
     }
 }

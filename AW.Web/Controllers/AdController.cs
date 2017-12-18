@@ -1,12 +1,14 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using AW.Business.Authorization;
 using AW.Business.Providers;
-using log4net;
+using AW.Common.Models;
+using AW.Web.Models;
 
 namespace AW.Web.Controllers
 {
     public class AdController : Controller
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(AdController));
         private readonly IAdProvider _adProvider;
 
         public AdController(IAdProvider adProvider)
@@ -16,13 +18,34 @@ namespace AW.Web.Controllers
 
         public ActionResult Index()
         {
-            Log.Info("Controller:AdController; Action:Index");
+            Logger.Log.Info("Controller:AdController; Action:Index");
             return View();
         }
 
+        public ActionResult CreateAd()
+        {
+            var model = new AdViewModel
+            {
+                User = User as UserPrincipal,
+                Categories = _adProvider.GetCategories.OrderBy(x => x.CategoryName).ToList(),
+                Conditions = _adProvider.GetConditions.OrderBy(x => x.ConditionName).ToList(),
+                Locations = _adProvider.GetLocations.OrderBy(x => x.LocationName).ToList(),
+                Types = _adProvider.GetTypes.OrderBy(x => x.TypeName).ToList()
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateAd(AdDetails newAd)
+        {
+            return View("CreateAd");
+        }
+
+
         public ActionResult Details(int id)
         {
-            Log.Info("Controller:AdController; Action:Details");
+            Logger.Log.Info("Controller:AdController; Action:Details");
             var model = _adProvider.GetAdDetails(id);
             return View(model);
         }
@@ -35,7 +58,7 @@ namespace AW.Web.Controllers
                 category = (int) id;
             var ads = _adProvider.GetAdsByCategory(category);
 
-            Log.Info("Controller:AdController; Action:_AdList");
+            Logger.Log.Info("Controller:AdController; Action:List");
             return PartialView(ads);
         }
     }

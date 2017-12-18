@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using AW.Common.Models;
+﻿using AW.Common.Models;
 using AW.Data.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace AW.Business.Providers
 {
@@ -14,7 +14,22 @@ namespace AW.Business.Providers
             _dataService = dataService ?? throw new NullReferenceException();
         }
 
-        public Ad GetAdDetails(int id)
+        public void CreateAd(Ad ad)
+        {
+            _dataService.CreateAd(ad);
+        }
+
+        public void EditeAd(Ad ad)
+        {
+            _dataService.EditeAd(ad);
+        }
+
+        public void DeleteAd(int adId)
+        {
+            _dataService.DeleteAd(adId);
+        }
+
+        public AdDetails GetAdDetails(int id)
         {
             return _dataService.GetAdDetails(id);
         }
@@ -27,5 +42,11 @@ namespace AW.Business.Providers
         }
 
         public List<Category> GetCategories => _dataService.GetCategories();
+
+        public List<Condition> GetConditions => _dataService.GetConditions();
+
+        public List<Location> GetLocations => _dataService.GetLocations();
+
+        public List<AdType> GetTypes => _dataService.GetTypes();
     }
 }

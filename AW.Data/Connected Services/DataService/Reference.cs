@@ -41,13 +41,13 @@ namespace AW.Data.DataService {
         private int LocationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PictureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TypeIdField;
@@ -144,14 +144,206 @@ namespace AW.Data.DataService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
+        public string Picture {
             get {
-                return this.NameField;
+                return this.PictureField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.PictureField, value) != true)) {
+                    this.PictureField = value;
+                    this.RaisePropertyChanged("Picture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TypeId {
+            get {
+                return this.TypeIdField;
+            }
+            set {
+                if ((this.TypeIdField.Equals(value) != true)) {
+                    this.TypeIdField = value;
+                    this.RaisePropertyChanged("TypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdDetailsDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class AdDetailsDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConditionNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConditionName {
+            get {
+                return this.ConditionNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConditionNameField, value) != true)) {
+                    this.ConditionNameField = value;
+                    this.RaisePropertyChanged("ConditionName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocationName {
+            get {
+                return this.LocationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationNameField, value) != true)) {
+                    this.LocationNameField = value;
+                    this.RaisePropertyChanged("LocationName");
                 }
             }
         }
@@ -183,14 +375,27 @@ namespace AW.Data.DataService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TypeId {
+        public string Title {
             get {
-                return this.TypeIdField;
+                return this.TitleField;
             }
             set {
-                if ((this.TypeIdField.Equals(value) != true)) {
-                    this.TypeIdField = value;
-                    this.RaisePropertyChanged("TypeId");
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TypeName {
+            get {
+                return this.TypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeNameField, value) != true)) {
+                    this.TypeNameField = value;
+                    this.RaisePropertyChanged("TypeName");
                 }
             }
         }
@@ -356,9 +561,425 @@ namespace AW.Data.DataService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConditionDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class ConditionDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ConditionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConditionNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ConditionId {
+            get {
+                return this.ConditionIdField;
+            }
+            set {
+                if ((this.ConditionIdField.Equals(value) != true)) {
+                    this.ConditionIdField = value;
+                    this.RaisePropertyChanged("ConditionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConditionName {
+            get {
+                return this.ConditionNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConditionNameField, value) != true)) {
+                    this.ConditionNameField = value;
+                    this.RaisePropertyChanged("ConditionName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmailDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class EmailDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EmailIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EmailId {
+            get {
+                return this.EmailIdField;
+            }
+            set {
+                if ((this.EmailIdField.Equals(value) != true)) {
+                    this.EmailIdField = value;
+                    this.RaisePropertyChanged("EmailId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailValue {
+            get {
+                return this.EmailValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailValueField, value) != true)) {
+                    this.EmailValueField = value;
+                    this.RaisePropertyChanged("EmailValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class LocationDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LocationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LocationId {
+            get {
+                return this.LocationIdField;
+            }
+            set {
+                if ((this.LocationIdField.Equals(value) != true)) {
+                    this.LocationIdField = value;
+                    this.RaisePropertyChanged("LocationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocationName {
+            get {
+                return this.LocationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationNameField, value) != true)) {
+                    this.LocationNameField = value;
+                    this.RaisePropertyChanged("LocationName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PhoneDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class PhoneDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PhoneIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PhoneId {
+            get {
+                return this.PhoneIdField;
+            }
+            set {
+                if ((this.PhoneIdField.Equals(value) != true)) {
+                    this.PhoneIdField = value;
+                    this.RaisePropertyChanged("PhoneId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoleDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class RoleDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RoleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoleNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RoleId {
+            get {
+                return this.RoleIdField;
+            }
+            set {
+                if ((this.RoleIdField.Equals(value) != true)) {
+                    this.RoleIdField = value;
+                    this.RaisePropertyChanged("RoleId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleName {
+            get {
+                return this.RoleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
+                    this.RoleNameField = value;
+                    this.RaisePropertyChanged("RoleName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TypeDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class TypeDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TypeId {
+            get {
+                return this.TypeIdField;
+            }
+            set {
+                if ((this.TypeIdField.Equals(value) != true)) {
+                    this.TypeIdField = value;
+                    this.RaisePropertyChanged("TypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TypeName {
+            get {
+                return this.TypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeNameField, value) != true)) {
+                    this.TypeNameField = value;
+                    this.RaisePropertyChanged("TypeName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataService.IDataService")]
     public interface IDataService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreateAdDto", ReplyAction="http://tempuri.org/IDataService/CreateAdDtoResponse")]
+        void CreateAdDto(AW.Data.DataService.AdDto adDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreateAdDto", ReplyAction="http://tempuri.org/IDataService/CreateAdDtoResponse")]
+        System.Threading.Tasks.Task CreateAdDtoAsync(AW.Data.DataService.AdDto adDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditeAdDto", ReplyAction="http://tempuri.org/IDataService/EditeAdDtoResponse")]
+        void EditeAdDto(AW.Data.DataService.AdDto adDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditeAdDto", ReplyAction="http://tempuri.org/IDataService/EditeAdDtoResponse")]
+        System.Threading.Tasks.Task EditeAdDtoAsync(AW.Data.DataService.AdDto adDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteAdDto", ReplyAction="http://tempuri.org/IDataService/DeleteAdDtoResponse")]
+        void DeleteAdDto(int adId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteAdDto", ReplyAction="http://tempuri.org/IDataService/DeleteAdDtoResponse")]
+        System.Threading.Tasks.Task DeleteAdDtoAsync(int adId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdsDto", ReplyAction="http://tempuri.org/IDataService/GetAdsDtoResponse")]
         System.Collections.Generic.List<AW.Data.DataService.AdDto> GetAdsDto();
@@ -373,22 +994,16 @@ namespace AW.Data.DataService {
         System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.AdDto>> GetAdsByCategoryDtoAsync(int categoryId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
-        AW.Data.DataService.AdDto GetAdDetailsDto(int adId);
+        AW.Data.DataService.AdDetailsDto GetAdDetailsDto(int adId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetAdDetailsDto", ReplyAction="http://tempuri.org/IDataService/GetAdDetailsDtoResponse")]
-        System.Threading.Tasks.Task<AW.Data.DataService.AdDto> GetAdDetailsDtoAsync(int adId);
+        System.Threading.Tasks.Task<AW.Data.DataService.AdDetailsDto> GetAdDetailsDtoAsync(int adId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
         System.Collections.Generic.List<AW.Data.DataService.CategoryDto> GetCategoriesDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.CategoryDto>> GetCategoriesDtoAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
         AW.Data.DataService.UserDto GetUserDtoByName(string userName);
@@ -401,6 +1016,48 @@ namespace AW.Data.DataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/IsValidUser", ReplyAction="http://tempuri.org/IDataService/IsValidUserResponse")]
         System.Threading.Tasks.Task<bool> IsValidUserAsync(string userName, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetConditionsDto", ReplyAction="http://tempuri.org/IDataService/GetConditionsDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.ConditionDto> GetConditionsDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetConditionsDto", ReplyAction="http://tempuri.org/IDataService/GetConditionsDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.ConditionDto>> GetConditionsDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetEmailsDto", ReplyAction="http://tempuri.org/IDataService/GetEmailsDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.EmailDto> GetEmailsDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetEmailsDto", ReplyAction="http://tempuri.org/IDataService/GetEmailsDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.EmailDto>> GetEmailsDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetLocationsDto", ReplyAction="http://tempuri.org/IDataService/GetLocationsDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.LocationDto> GetLocationsDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetLocationsDto", ReplyAction="http://tempuri.org/IDataService/GetLocationsDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.LocationDto>> GetLocationsDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPhonesDto", ReplyAction="http://tempuri.org/IDataService/GetPhonesDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.PhoneDto> GetPhonesDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPhonesDto", ReplyAction="http://tempuri.org/IDataService/GetPhonesDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.PhoneDto>> GetPhonesDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetRolesDto", ReplyAction="http://tempuri.org/IDataService/GetRolesDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.RoleDto> GetRolesDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetRolesDto", ReplyAction="http://tempuri.org/IDataService/GetRolesDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.RoleDto>> GetRolesDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetTypesDto", ReplyAction="http://tempuri.org/IDataService/GetTypesDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.TypeDto> GetTypesDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetTypesDto", ReplyAction="http://tempuri.org/IDataService/GetTypesDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.TypeDto>> GetTypesDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -430,6 +1087,30 @@ namespace AW.Data.DataService {
                 base(binding, remoteAddress) {
         }
         
+        public void CreateAdDto(AW.Data.DataService.AdDto adDto) {
+            base.Channel.CreateAdDto(adDto);
+        }
+        
+        public System.Threading.Tasks.Task CreateAdDtoAsync(AW.Data.DataService.AdDto adDto) {
+            return base.Channel.CreateAdDtoAsync(adDto);
+        }
+        
+        public void EditeAdDto(AW.Data.DataService.AdDto adDto) {
+            base.Channel.EditeAdDto(adDto);
+        }
+        
+        public System.Threading.Tasks.Task EditeAdDtoAsync(AW.Data.DataService.AdDto adDto) {
+            return base.Channel.EditeAdDtoAsync(adDto);
+        }
+        
+        public void DeleteAdDto(int adId) {
+            base.Channel.DeleteAdDto(adId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAdDtoAsync(int adId) {
+            return base.Channel.DeleteAdDtoAsync(adId);
+        }
+        
         public System.Collections.Generic.List<AW.Data.DataService.AdDto> GetAdsDto() {
             return base.Channel.GetAdsDto();
         }
@@ -446,11 +1127,11 @@ namespace AW.Data.DataService {
             return base.Channel.GetAdsByCategoryDtoAsync(categoryId);
         }
         
-        public AW.Data.DataService.AdDto GetAdDetailsDto(int adId) {
+        public AW.Data.DataService.AdDetailsDto GetAdDetailsDto(int adId) {
             return base.Channel.GetAdDetailsDto(adId);
         }
         
-        public System.Threading.Tasks.Task<AW.Data.DataService.AdDto> GetAdDetailsDtoAsync(int adId) {
+        public System.Threading.Tasks.Task<AW.Data.DataService.AdDetailsDto> GetAdDetailsDtoAsync(int adId) {
             return base.Channel.GetAdDetailsDtoAsync(adId);
         }
         
@@ -460,14 +1141,6 @@ namespace AW.Data.DataService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.CategoryDto>> GetCategoriesDtoAsync() {
             return base.Channel.GetCategoriesDtoAsync();
-        }
-        
-        public System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto() {
-            return base.Channel.GetUsersDto();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync() {
-            return base.Channel.GetUsersDtoAsync();
         }
         
         public AW.Data.DataService.UserDto GetUserDtoByName(string userName) {
@@ -484,6 +1157,62 @@ namespace AW.Data.DataService {
         
         public System.Threading.Tasks.Task<bool> IsValidUserAsync(string userName, string password) {
             return base.Channel.IsValidUserAsync(userName, password);
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.ConditionDto> GetConditionsDto() {
+            return base.Channel.GetConditionsDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.ConditionDto>> GetConditionsDtoAsync() {
+            return base.Channel.GetConditionsDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.EmailDto> GetEmailsDto() {
+            return base.Channel.GetEmailsDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.EmailDto>> GetEmailsDtoAsync() {
+            return base.Channel.GetEmailsDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.LocationDto> GetLocationsDto() {
+            return base.Channel.GetLocationsDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.LocationDto>> GetLocationsDtoAsync() {
+            return base.Channel.GetLocationsDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.PhoneDto> GetPhonesDto() {
+            return base.Channel.GetPhonesDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.PhoneDto>> GetPhonesDtoAsync() {
+            return base.Channel.GetPhonesDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.RoleDto> GetRolesDto() {
+            return base.Channel.GetRolesDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.RoleDto>> GetRolesDtoAsync() {
+            return base.Channel.GetRolesDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.TypeDto> GetTypesDto() {
+            return base.Channel.GetTypesDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.TypeDto>> GetTypesDtoAsync() {
+            return base.Channel.GetTypesDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto() {
+            return base.Channel.GetUsersDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync() {
+            return base.Channel.GetUsersDtoAsync();
         }
     }
 }

@@ -1,64 +1,31 @@
-﻿@model AW.Common.Models.Ad
+﻿@model AW.Common.Models.AdDetails
 
-<h2>Details</h2>
+<h2>@Model.Title</h2>
+<br />
 
-<div class="body-content">
-    <div class="img-rounded">
-        <img src="@Model.Picture" alt="No image available">
-    </div>
+<img class="img-rounded" src="@Model.Picture" alt="No image available", height="400">
 
-    <dl class="dl-horizontal">
+<br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <dt>Description</dt>
+    <dd textarea rows="4">@Html.DisplayFor(model => model.Description)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+    <dt>Price</dt>
+    <dd>@Html.DisplayFor(model => model.Price)</dd>
 
-        <dd>
-            <textarea rows="4">
-            @Html.DisplayFor(model => model.Description)
-            </textarea>
-        </dd>
+    <dt>Condition</dt>
+    <dd>@Html.DisplayFor(model => model.ConditionName)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+    <dt>Creation Date</dt>
+    <dd>@Html.DisplayFor(model => model.CreationDate)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+    <dt>Category</dt>
+    <dd>@Html.DisplayFor(model => model.CategoryName)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Condition)
-        </dt>
+    <dt>Location</dt>
+    <dd>@Html.DisplayFor(model => model.LocationName)</dd>
+</dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Condition)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-
-    </dl>
-</div>
 @Html.ActionLink("Back", "Index", "Ad")

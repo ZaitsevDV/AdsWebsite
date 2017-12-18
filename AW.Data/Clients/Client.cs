@@ -5,6 +5,43 @@ namespace AW.Data.Clients
 {
     public class Client : IClient
     {
+
+        public void CreateAdDto(AdDto adDto)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.CreateAdDto(adDto);
+
+                client.Close();
+            }
+        }
+
+        public void EditeAdDto(AdDto adDto)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.EditeAdDto(adDto);
+
+                client.Close();
+            }
+        }
+
+        public void DeleteAdDto(int adId)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.DeleteAdDto(adId);
+
+                client.Close();
+            }
+        }
+
         public List<AdDto> GetAdsByCategoryDto(int categoryId)
         {
             List<AdDto> result;
@@ -19,9 +56,9 @@ namespace AW.Data.Clients
             return result;
         }
 
-        public AdDto GetAdDetailsDto(int id)
+        public AdDetailsDto GetAdDetailsDto(int id)
         {
-            AdDto result;
+            AdDetailsDto result;
             using (var client = new DataServiceClient())
             {
                 client.Open();
@@ -97,6 +134,90 @@ namespace AW.Data.Clients
                 client.Open();
 
                 result = client.IsValidUser(userName, password);
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<ConditionDto> GetConditionsDto()
+        {
+            List<ConditionDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<ConditionDto>(client.GetConditionsDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<EmailDto> GetEmailsDto()
+        {
+            List<EmailDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<EmailDto>(client.GetEmailsDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<LocationDto> GetLocationsDto()
+        {
+            List<LocationDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<LocationDto>(client.GetLocationsDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<PhoneDto> GetPhonesDto()
+        {
+            List<PhoneDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<PhoneDto>(client.GetPhonesDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<RoleDto> GetRolesDto()
+        {
+            List<RoleDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<RoleDto>(client.GetRolesDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<TypeDto> GetTypesDto()
+        {
+            List<TypeDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<TypeDto>(client.GetTypesDto());
 
                 client.Close();
             }

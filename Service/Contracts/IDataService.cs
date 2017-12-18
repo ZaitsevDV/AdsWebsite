@@ -8,24 +8,51 @@ namespace Service.Contracts
     public interface IDataService
     {
         [OperationContract]
+        void CreateAdDto(AdDto adDto);
+
+        [OperationContract]
+        void EditeAdDto(AdDto adDto);
+
+        [OperationContract]
+        void DeleteAdDto(int adId);
+
+        [OperationContract]
         List<AdDto> GetAdsDto();
 
         [OperationContract]
         List<AdDto> GetAdsByCategoryDto(int categoryId);
 
         [OperationContract]
-        AdDto GetAdDetailsDto(int adId);
+        AdDetailsDto GetAdDetailsDto(int adId);
 
         [OperationContract]
         List<CategoryDto> GetCategoriesDto();
-
-        [OperationContract]
-        List<UserDto> GetUsersDto();
 
         [OperationContract]
         UserDto GetUserDtoByName(string userName);
 
         [OperationContract]
         bool IsValidUser(string userName, string password);
+
+        [OperationContract]
+        List<ConditionDto> GetConditionsDto();
+
+        [OperationContract]
+        List<EmailDto> GetEmailsDto();
+
+        [OperationContract]
+        List<LocationDto> GetLocationsDto();
+
+        [OperationContract]
+        List<PhoneDto> GetPhonesDto();
+
+        [OperationContract]
+        List<RoleDto> GetRolesDto();
+
+        [OperationContract]
+        List<TypeDto> GetTypesDto();
+
+        [OperationContract]
+        List<UserDto> GetUsersDto();
     }
 }
