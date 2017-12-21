@@ -7,7 +7,6 @@ namespace AW.Web.Controllers
     public class CategoryController : Controller
     {
         private readonly IAdProvider _adProvider;
-        public ILog Log = LogManager.GetLogger(typeof(CategoryController));
 
         public CategoryController(IAdProvider adProvider)
         {

@@ -5,48 +5,56 @@
     <br />
     <br />
     <h1>No ads in this category.</h1>
+    <br />
+    <br />
+    @Html.ActionLink("Create ad in current category", "CreateAd", new { id = ViewBag.Category })
 
 }
 else
 {
     <table class="table">
         <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    Price
-                </th>
-                <th>
-                </th>
-            </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+            </th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @*@Html.ActionLink("Edit", "EditAd", new { id = item.Id })*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "EditAd", new { id = item.Id })*@
 
-                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
 
-                        @*@Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })*@
-                    </td>
-                </tr>
-            }
+                    @*@Html.ActionLink("Delete", "DeleteAd", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
+
+    if (ViewBag.Category != 0)
+     {
+         @Html.ActionLink("Create ad in current category", "CreateAd", new {id = ViewBag.Category})
+     }
 }

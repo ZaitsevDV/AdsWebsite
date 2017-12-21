@@ -1,9 +1,8 @@
 ﻿@using System.Web.Mvc.Html
+
 @model AW.Web.Models.AdViewModel
 
-@{
-    ViewBag.Title = "CreateAd";
-}
+<script src="~/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 <h2>Create Ad</h2>
 
@@ -12,176 +11,131 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
         <div class="form-group">
-            @Html.Label("UserName", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ad.UserName, new { htmlAttributes = new { @class = "form-control", value = @Model.User.UserName } })
+            @Html.Label("Title", new {@class = "control-label col-md-2"})
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Ad.Title, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Ad.Title, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Title", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ad.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ad.Title, "", new { @class = "text-danger" })
+            @Html.Label("Description", new {@class = "control-label col-md-2"})
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.Ad.Description, new {@class = "form-control", placeholder = "Enter detailed comments...", type = "text"})
+                @Html.ValidationMessageFor(model => model.Ad.Description, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Description", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ad.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ad.Description, "", new { @class = "text-danger" })
+            @Html.Label("Price", new {@class = "control-label col-md-2"})
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Ad.Price, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Ad.Price, "", new {@class = "text-danger"})
             </div>
         </div>
 
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Picture, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+        @Html.EditorFor(model => model.Ad.Category, new {htmlAttributes = new {Style = "display: none"}})
+        @Html.EditorFor(model => model.Ad.Picture, new {htmlAttributes = new {Style = "display: none"}})
 
         <div class="form-group">
-            @Html.Label("Price", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ad.Price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ad.Price, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Category", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Ad.Category, new SelectList(@Model.Categories, "CategoryId", "CategoryName"), "Select category", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Ad.Category, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Creation date", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ad.CreationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ad.CreationDate, "", new { @class = "text-danger" })
+            @Html.Label("Location", new {@class = "control-label col-md-2"})
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.Ad.LocationId, new SelectList(ViewBag.Locations, "LocationId", "LocationName"), "Select location", new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Ad.LocationId, "", new {@class = "text-danger"})
             </div>
         </div>
 
 
         <div class="form-group">
-            @Html.Label("Location", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Ad.LocationId, new SelectList(@Model.Locations, "LocationId", "LocationName"), "Select location", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Ad.LocationId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Select type", new { @class = "control-label col-md-2" })
-            <div class="col-md-10" style="line-height:24pt">
-                @foreach (var item in Model.Types)
-                {
-                    @Html.Label(item.TypeName, new { @class = "h3 label label-default" })
-                    @:
-                    @Html.RadioButtonFor(model => model.Ad.TypeId, item.TypeId, new { @class = "radio-inline" })
-                    @:
-                }
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("New item", new { @class = "control-label col-md-2" })
-            <div class="col-md-10" style="line-height:30pt">
-                @Html.CheckBoxFor(model => model.New, false)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+            @Html.LabelFor(model => model.Ad.CreationDate, new {@class = "control-label col-md-2"})
+            <div class="col-md-3">
+                <div class="input-group" id="datetimepicker">
+                    @Html.TextBoxFor(model => model.Ad.CreationDate, "", new {@class = "form-control datatimepicker-style"})
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
+                @Html.ValidationMessageFor(model => model.Ad.CreationDate, "", new {@class = "text-danger"})
             </div>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-    </div>
-</div>
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-
-<div class="form-group">
-    @Html.LabelFor(model => model.Ad.CreationDate, new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        <div class="input-group" id="datetimepicker2">
-            @Html.TextBoxFor(model => model.Ad.CreationDate, "", new { @class = "form-control datatimepicker-style" })
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+        <div class="form-group">
+            @Html.Label("Type", new {@class = "control-label col-md-2"})
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.Ad.TypeId, new SelectList(ViewBag.AdType, "TypeId", "TypeName"), "Select ad type", new {@class = "form-control", id = "TypeId" })
+                @Html.ValidationMessageFor(model => model.Ad.TypeId, "", new {@class = "text-danger"})
+            </div>
         </div>
-        @Html.ValidationMessageFor(model => model.Ad.CreationDate, "", new { @class = "text-danger" })
+
+        <div id="New_item">
+            <div class="form-group">
+                @Html.Label("New item", new {@class = "control-label col-md-2"})
+                <div class="col-md-3" style="line-height: 30pt">
+                    @Html.CheckBoxFor(model => model.New, false)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <a class='btn' href='javascript:;'>
+                    Choose File...
+                    <input type="file" name="Image" size="40"
+                           style="position: absolute; z-index: 2; top: 0; left: 0; filter: alpha(opacity=0); opacity: 0; background-color: transparent; color: transparent;"
+                           onchange='$("#upload-file-info").html($(this).val());'>
+                </a>
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Create" class="btn btn-default col-md-1 col-md-offset-2"/>
+            @Html.ActionLink("Cancel", "Index", null, new {@class = "btn btn-default col-md-1"})
+        </div>
     </div>
-</div>
-
-
-
-
+}
 
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#New_item").hide();
+
+        $('#TypeId').on('change', function() {
+            if (this.value === '1' || this.value === '2' || this.value === '3')
+            {
+                $("#New_item").show();
+            }
+            else
+            {
+                $("#New_item").hide();
+            }
+        });
+    });
+
     $(document).ready(function () {
         $(function () {
             $('#datetimepicker').datetimepicker({
-                useCurrent: false,
-                format: "DD.MM.YYYY"
-            });
-        })
-
-        $(function () {
-            $('#datetimepicker2').datetimepicker({
-                useCurrent: false,
-                format: "DD.MM.YYYY hh:mm:ss A"
+                useCurrent: true,
+                format: "DD.MM.YYYY hh:mm A"
             });
         });
 
         $(function () {
-            var actionCount = 2
+            var actionCount = 1;
             $("#newAction").click(function () {
                 var clon = $("#action_group").clone();
                 clon.children(".control-label").text('Action ' + actionCount);
-                clon.children("div.col-md-10").children("input").val("");
+                clon.children("div.col-md-3").children("input").val("");
                 $("#action_conteiner").append(clon);
                 actionCount++;
-            })
-        })
-    });
+            });
+        });
 
-    (function () {
-        jQuery.validator.methods.date = function (value, element) {
-            var formats = ["DD.MM.YYYY", "DD.MM.YYYY hh:mm:ss A"];
-            return moment(value, formats, true).isValid();
-        };
-    })(jQuery, moment);
+    });
 </script>
