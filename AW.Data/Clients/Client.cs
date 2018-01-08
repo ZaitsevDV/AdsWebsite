@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using AW.Data.DataService;
+﻿using AW.Data.DataService;
+using System.Collections.Generic;
 
 namespace AW.Data.Clients
 {
     public class Client : IClient
     {
+        #region Ads
 
         public void CreateAdDto(AdDto adDto)
         {
@@ -98,6 +99,52 @@ namespace AW.Data.Clients
             return result;
         }
 
+        public List<ConditionDto> GetConditionsDto()
+        {
+            List<ConditionDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<ConditionDto>(client.GetConditionsDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<LocationDto> GetLocationsDto()
+        {
+            List<LocationDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<LocationDto>(client.GetLocationsDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        public List<TypeDto> GetTypesDto()
+        {
+            List<TypeDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                result = new List<TypeDto>(client.GetTypesDto());
+
+                client.Close();
+            }
+            return result;
+        }
+
+        #endregion
+
+        #region Users
+
         public List<UserDto> GetUsersDto()
         {
             List<UserDto> result;
@@ -140,60 +187,150 @@ namespace AW.Data.Clients
             return result;
         }
 
-        public List<ConditionDto> GetConditionsDto()
+        public void CreateUserDto(UserDto userDto)
         {
-            List<ConditionDto> result;
             using (var client = new DataServiceClient())
             {
                 client.Open();
 
-                result = new List<ConditionDto>(client.GetConditionsDto());
+                client.CreateUserDto(userDto);
 
+                client.Close();
+            }
+        }
+
+        public void EditeUserDto(UserDto userDto)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.EditeUserDto(userDto);
+
+                client.Close();
+            }
+        }
+
+        public void EditePasswordDto(string userName, string password)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.EditePasswordDto(userName, password);
+
+                client.Close();
+            }
+        }
+
+        public void DeleteUserDto(string userName)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.DeleteUserDto(userName);
+
+                client.Close();
+            }
+        }
+
+        public List<PhoneDto> GetPhonesDto(string userName)
+        {
+            List<PhoneDto> result;
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+                result = new List<PhoneDto>(client.GetPhonesDto(userName));
                 client.Close();
             }
             return result;
         }
 
-        public List<EmailDto> GetEmailsDto()
+        public void CreatePhoneDto(PhoneDto phoneDto)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.CreatePhoneDto(phoneDto);
+
+                client.Close();
+            }
+        }
+
+        public void EditePhoneDto(PhoneDto phoneDto)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.EditePhoneDto(phoneDto);
+
+                client.Close();
+            }
+        }
+
+        public void DeletePhoneDto(int phoneId)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.DeletePhoneDto(phoneId);
+
+                client.Close();
+            }
+        }
+
+        public List<EmailDto> GetEmailsDto(string userName)
         {
             List<EmailDto> result;
             using (var client = new DataServiceClient())
             {
                 client.Open();
 
-                result = new List<EmailDto>(client.GetEmailsDto());
+                result = new List<EmailDto>(client.GetEmailsDto(userName));
 
                 client.Close();
             }
             return result;
         }
 
-        public List<LocationDto> GetLocationsDto()
+        public void CreateEmailDto(EmailDto emailDto)
         {
-            List<LocationDto> result;
             using (var client = new DataServiceClient())
             {
                 client.Open();
 
-                result = new List<LocationDto>(client.GetLocationsDto());
+                client.CreateEmailDto(emailDto);
 
                 client.Close();
             }
-            return result;
         }
 
-        public List<PhoneDto> GetPhonesDto()
+        public void EditeEmailDto(EmailDto emailDto)
         {
-            List<PhoneDto> result;
             using (var client = new DataServiceClient())
             {
                 client.Open();
 
-                result = new List<PhoneDto>(client.GetPhonesDto());
+                client.EditeEmailDto(emailDto);
 
                 client.Close();
             }
-            return result;
+        }
+
+        public void DeleteEmailDto(int emailId)
+        {
+            using (var client = new DataServiceClient())
+            {
+                client.Open();
+
+                client.DeleteEmailDto(emailId);
+
+                client.Close();
+            }
         }
 
         public List<RoleDto> GetRolesDto()
@@ -209,19 +346,6 @@ namespace AW.Data.Clients
             }
             return result;
         }
-
-        public List<TypeDto> GetTypesDto()
-        {
-            List<TypeDto> result;
-            using (var client = new DataServiceClient())
-            {
-                client.Open();
-
-                result = new List<TypeDto>(client.GetTypesDto());
-
-                client.Close();
-            }
-            return result;
-        }
+        #endregion
     }
 }

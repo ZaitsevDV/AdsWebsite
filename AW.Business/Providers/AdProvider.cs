@@ -34,7 +34,7 @@ namespace AW.Business.Providers
             return _dataService.GetAdDetails(id);
         }
 
-        public IEnumerable<Ad> GetAds => _dataService.GetAds();
+        public List<Ad> GetAds => _dataService.GetAds();
 
         public List<Ad> GetAdsByCategory(int categoryId)
         {

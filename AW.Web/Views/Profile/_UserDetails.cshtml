@@ -1,0 +1,41 @@
+﻿@model AW.Web.Models.UserViewModel
+@using (Ajax.BeginForm("UserDetails", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("User name:")
+        </dt>
+        <dd>@Html.DisplayFor(model => model.User.UserName)</dd>
+
+        @if (HttpContext.Current.User.IsInRole("Admin"))
+        {
+            <dt>
+                @Html.DisplayName("Role:")
+            </dt>
+            <dd>@Html.DisplayFor(model => model.User.Role.RoleName)</dd>
+        }
+
+        <dt>
+            @Html.DisplayName("Phones:")
+        </dt>
+        @foreach (var item in Model.Phones)
+        {
+            <dd>@Html.DisplayFor(modelItem => item.PhoneNumber)</dd>
+        }
+
+        <dt>
+            @Html.DisplayName("Emails:")
+        </dt>
+        @foreach (var item in Model.Emails)
+        {
+            <dd>@Html.DisplayFor(modelItem => item.EmailValue)</dd>
+        }
+    </dl>
+    if (HttpContext.Current.User.IsInRole("Admin"))
+    {
+        <br />
+        @Ajax.ActionLink("To list", "UsersList", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" })
+    }
+}

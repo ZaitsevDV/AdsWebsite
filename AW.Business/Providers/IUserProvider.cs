@@ -5,11 +5,21 @@ namespace AW.Business.Providers
 {
     public interface IUserProvider
     {
-        IEnumerable<User> GetUsers();
+        List<User> GetUsers();
+        void CreateUser(User user);
+        void EditeUser(User user);
+        void EditePassword(string userName, string password);
+        void DeleteUser(string userName);
         User GetUserByName(string userName);
         bool IsValidUser(string userName, string password);
-        List<Email> GetEmails { get; }
-        List<Phone> GetPhones { get; }
         List<Role> GetRoles { get; }
+        List<Phone> GetPhones(string userName);
+        void CreatePhone(Phone phone);
+        void EditePhone(Phone phone);
+        void DeletePhone(int phoneId);
+        List<Email> GetEmails(string userName);
+        void CreateEmail(Email email);
+        void EditeEmail(Email email);
+        void DeleteEmail(int emailId);
     }
 }

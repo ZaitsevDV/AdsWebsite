@@ -49,6 +49,54 @@
   <wsdl:message name="IDataService_GetCategoriesDto_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCategoriesDtoResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataService_GetConditionsDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConditionsDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetConditionsDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConditionsDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTypesDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypesDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTypesDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypesDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLocationsDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationsDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLocationsDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationsDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateUserDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateUserDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_EditeUserDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditeUserDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_EditeUserDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditeUserDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_EditePasswordDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditePasswordDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_EditePasswordDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditePasswordDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteUserDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteUserDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUsersDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetUsersDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersDtoResponse" />
+  </wsdl:message>
   <wsdl:message name="IDataService_GetUserDtoByName_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserDtoByName" />
   </wsdl:message>
@@ -61,23 +109,11 @@
   <wsdl:message name="IDataService_IsValidUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsValidUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetConditionsDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetConditionsDto" />
+  <wsdl:message name="IDataService_GetRolesDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesDto" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetConditionsDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetConditionsDtoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_GetEmailsDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetEmailsDto" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_GetEmailsDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetEmailsDtoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_GetLocationsDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetLocationsDto" />
-  </wsdl:message>
-  <wsdl:message name="IDataService_GetLocationsDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetLocationsDtoResponse" />
+  <wsdl:message name="IDataService_GetRolesDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesDtoResponse" />
   </wsdl:message>
   <wsdl:message name="IDataService_GetPhonesDto_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPhonesDto" />
@@ -85,23 +121,47 @@
   <wsdl:message name="IDataService_GetPhonesDto_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPhonesDtoResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetRolesDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetRolesDto" />
+  <wsdl:message name="IDataService_CreatePhoneDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePhoneDto" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetRolesDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetRolesDtoResponse" />
+  <wsdl:message name="IDataService_CreatePhoneDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePhoneDtoResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetTypesDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTypesDto" />
+  <wsdl:message name="IDataService_EditePhoneDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditePhoneDto" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetTypesDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTypesDtoResponse" />
+  <wsdl:message name="IDataService_EditePhoneDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditePhoneDtoResponse" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetUsersDto_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUsersDto" />
+  <wsdl:message name="IDataService_DeletePhoneDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhoneDto" />
   </wsdl:message>
-  <wsdl:message name="IDataService_GetUsersDto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUsersDtoResponse" />
+  <wsdl:message name="IDataService_DeletePhoneDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhoneDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetEmailsDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailsDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetEmailsDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailsDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateEmailDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEmailDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateEmailDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEmailDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_EditeEmailDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditeEmailDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_EditeEmailDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditeEmailDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteEmailDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailDto" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteEmailDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailDtoResponse" />
   </wsdl:message>
   <wsdl:portType name="IDataService">
     <wsdl:operation name="CreateAdDto">
@@ -132,6 +192,38 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetCategoriesDto" message="tns:IDataService_GetCategoriesDto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetCategoriesDtoResponse" message="tns:IDataService_GetCategoriesDto_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetConditionsDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetConditionsDto" message="tns:IDataService_GetConditionsDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetConditionsDtoResponse" message="tns:IDataService_GetConditionsDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypesDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetTypesDto" message="tns:IDataService_GetTypesDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetTypesDtoResponse" message="tns:IDataService_GetTypesDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationsDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetLocationsDto" message="tns:IDataService_GetLocationsDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetLocationsDtoResponse" message="tns:IDataService_GetLocationsDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CreateUserDto" message="tns:IDataService_CreateUserDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreateUserDtoResponse" message="tns:IDataService_CreateUserDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditeUserDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/EditeUserDto" message="tns:IDataService_EditeUserDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/EditeUserDtoResponse" message="tns:IDataService_EditeUserDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditePasswordDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/EditePasswordDto" message="tns:IDataService_EditePasswordDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/EditePasswordDtoResponse" message="tns:IDataService_EditePasswordDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteUserDto" message="tns:IDataService_DeleteUserDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteUserDtoResponse" message="tns:IDataService_DeleteUserDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUsersDto" message="tns:IDataService_GetUsersDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUsersDtoResponse" message="tns:IDataService_GetUsersDto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetUserDtoByName">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUserDtoByName" message="tns:IDataService_GetUserDtoByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUserDtoByNameResponse" message="tns:IDataService_GetUserDtoByName_OutputMessage" />
@@ -140,33 +232,41 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/IsValidUser" message="tns:IDataService_IsValidUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/IsValidUserResponse" message="tns:IDataService_IsValidUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetConditionsDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetConditionsDto" message="tns:IDataService_GetConditionsDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetConditionsDtoResponse" message="tns:IDataService_GetConditionsDto_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEmailsDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetEmailsDto" message="tns:IDataService_GetEmailsDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetEmailsDtoResponse" message="tns:IDataService_GetEmailsDto_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetLocationsDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetLocationsDto" message="tns:IDataService_GetLocationsDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetLocationsDtoResponse" message="tns:IDataService_GetLocationsDto_OutputMessage" />
+    <wsdl:operation name="GetRolesDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetRolesDto" message="tns:IDataService_GetRolesDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetRolesDtoResponse" message="tns:IDataService_GetRolesDto_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPhonesDto">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetPhonesDto" message="tns:IDataService_GetPhonesDto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetPhonesDtoResponse" message="tns:IDataService_GetPhonesDto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetRolesDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetRolesDto" message="tns:IDataService_GetRolesDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetRolesDtoResponse" message="tns:IDataService_GetRolesDto_OutputMessage" />
+    <wsdl:operation name="CreatePhoneDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CreatePhoneDto" message="tns:IDataService_CreatePhoneDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreatePhoneDtoResponse" message="tns:IDataService_CreatePhoneDto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetTypesDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetTypesDto" message="tns:IDataService_GetTypesDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetTypesDtoResponse" message="tns:IDataService_GetTypesDto_OutputMessage" />
+    <wsdl:operation name="EditePhoneDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/EditePhoneDto" message="tns:IDataService_EditePhoneDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/EditePhoneDtoResponse" message="tns:IDataService_EditePhoneDto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetUsersDto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetUsersDto" message="tns:IDataService_GetUsersDto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetUsersDtoResponse" message="tns:IDataService_GetUsersDto_OutputMessage" />
+    <wsdl:operation name="DeletePhoneDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeletePhoneDto" message="tns:IDataService_DeletePhoneDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeletePhoneDtoResponse" message="tns:IDataService_DeletePhoneDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailsDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetEmailsDto" message="tns:IDataService_GetEmailsDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetEmailsDtoResponse" message="tns:IDataService_GetEmailsDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmailDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CreateEmailDto" message="tns:IDataService_CreateEmailDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreateEmailDtoResponse" message="tns:IDataService_CreateEmailDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditeEmailDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/EditeEmailDto" message="tns:IDataService_EditeEmailDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/EditeEmailDtoResponse" message="tns:IDataService_EditeEmailDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/DeleteEmailDto" message="tns:IDataService_DeleteEmailDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/DeleteEmailDtoResponse" message="tns:IDataService_DeleteEmailDto_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
@@ -234,6 +334,78 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetConditionsDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetConditionsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypesDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetTypesDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationsDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetLocationsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CreateUserDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditeUserDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/EditeUserDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditePasswordDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/EditePasswordDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteUserDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetUsersDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetUserDtoByName">
       <soap:operation soapAction="http://tempuri.org/IDataService/GetUserDtoByName" style="document" />
       <wsdl:input>
@@ -252,26 +424,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetConditionsDto">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetConditionsDto" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmailsDto">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetEmailsDto" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetLocationsDto">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetLocationsDto" style="document" />
+    <wsdl:operation name="GetRolesDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetRolesDto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -288,8 +442,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRolesDto">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetRolesDto" style="document" />
+    <wsdl:operation name="CreatePhoneDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CreatePhoneDto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -297,8 +451,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTypesDto">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetTypesDto" style="document" />
+    <wsdl:operation name="EditePhoneDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/EditePhoneDto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -306,8 +460,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUsersDto">
-      <soap:operation soapAction="http://tempuri.org/IDataService/GetUsersDto" style="document" />
+    <wsdl:operation name="DeletePhoneDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeletePhoneDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailsDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetEmailsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmailDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CreateEmailDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditeEmailDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/EditeEmailDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailDto">
+      <soap:operation soapAction="http://tempuri.org/IDataService/DeleteEmailDto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

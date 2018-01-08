@@ -1,7 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Helpers;
 using AW.Business.Authorization;
 using AW.Common.Enums;
 using AW.Web.Models;
+using System.Web.Mvc;
 
 namespace AW.Web.Controllers
 {
@@ -21,23 +22,26 @@ namespace AW.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string userName, string password)
+        public ActionResult Login(LoginViewModel loginView)
         {
-            var result = _service.Login(userName, password);
-            var model = new LoginViewModel();
+            if (!ModelState.IsValid) return View(loginView);
+            var passwordHash = Crypto.SHA1(loginView.Password);
+            var result = _service.Login(loginView.Login, passwordHash);
 
             switch (result)
             {
                 case LoginResult.NoError:
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Ad");
                 case LoginResult.EmptyCredentials:
-                    model.Message = "Check user name and password";
+                    loginView.Message = "Check user name and password";
                     break;
                 case LoginResult.InvalidCredentials:
-                    model.Message = "The user is not valid";
+                    loginView.Message = "The user is not valid";
                     break;
+                default:
+                    return View(loginView);
             }
-            return View(model);
+            return View(loginView);
         }
 
         public ActionResult Logout()

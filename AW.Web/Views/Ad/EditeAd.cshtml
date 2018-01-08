@@ -1,0 +1,107 @@
+﻿@using System.Web.Mvc.Html
+
+@model AW.Web.Models.AdViewModel
+
+<script src="~/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="~/scripts/createAd.js" type="text/javascript"></script>
+
+<h2>Edit Ad</h2>
+
+@using (Html.BeginForm("EditeAd", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Ad.Id)
+    @Html.HiddenFor(model => model.Ad.Category)
+    @Html.HiddenFor(model => model.Ad.Picture)
+
+    <div>
+        <div class="col-md-6">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.Label("Title", new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ad.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ad.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Description", new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.TextAreaFor(model => model.Ad.Description, new { @class = "form-control", placeholder = "Enter detailed comments...", type = "text" })
+                        @Html.ValidationMessageFor(model => model.Ad.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Price", new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ad.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ad.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Location", new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(model => model.Ad.LocationId, new SelectList(ViewBag.Locations, "LocationId", "LocationName"), "Select location", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ad.LocationId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ad.CreationDate, new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        <div class="input-group" id="datetimepicker">
+                            @Html.TextBoxFor(model => model.Ad.CreationDate, "", new { @class = "form-control bootstrap-datetimepicker-widget" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Ad.CreationDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    @Html.Label("Type", new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(model => model.Ad.TypeId, new SelectList(ViewBag.AdType, "TypeId", "TypeName"), "Select ad type", new { @class = "form-control", id = "TypeId" })
+                        @Html.ValidationMessageFor(model => model.Ad.TypeId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div id="New_item">
+                    <div class="form-group">
+                        @Html.Label("New item", new { @class = "control-label col-md-2" })
+                        <div class="col-md-3" style="line-height: 30pt">
+                            @Html.CheckBoxFor(model => model.New, false)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img class="col-md-12 img-rounded" src="@Url.Content(Model.Ad.Picture)" alt="~/Images/No-image-found.png", height="400">
+            <div class="form-group">
+                <div class="col-md-2">
+                    <a class="btn" href="javascript:;">
+                        Change image...
+                        <input type="file" name="UploadImage" size="40"
+                               style="position: absolute; z-index: 2; top: 0; left: 0; filter: alpha(opacity=0); -ms-opacity: 0; opacity: 0; background-color: transparent; color: transparent;"
+                               onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class="label label-info" id="upload-file-info"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="col-md-12 row">
+        <input type="submit" value="Save" class="btn btn-default col-md-1 col-md-offset-5" style="margin-right: 10px" />
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default col-md-1", style ="margin: auto" })
+    </div>
+}

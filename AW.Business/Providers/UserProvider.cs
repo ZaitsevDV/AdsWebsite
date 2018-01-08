@@ -14,7 +14,7 @@ namespace AW.Business.Providers
             _dataService = dataService ?? throw new NullReferenceException();
         }
 
-        public IEnumerable<User> GetUsers()
+        public List<User> GetUsers()
         {
             return _dataService.GetUsers();
         }
@@ -29,9 +29,65 @@ namespace AW.Business.Providers
             return _dataService.IsValidUser(userName, password);
         }
 
-        public List<Email> GetEmails => _dataService.GetEmails();
+        public void CreateUser(User user)
+        {
+            _dataService.CreateUser(user);
+        }
 
-        public List<Phone> GetPhones => _dataService.GetPhones();
+        public void EditeUser(User user)
+        {
+            _dataService.EditeUser(user);
+        }
+
+        public void EditePassword(string userName, string password)
+        {
+            _dataService.EditePassword(userName, password);
+        }
+
+        public void DeleteUser(string userName)
+        {
+            _dataService.DeleteUser(userName);
+        }
+
+        public List<Phone> GetPhones(string userName)
+        {
+            return _dataService.GetPhones(userName);
+        }
+
+        public void CreatePhone(Phone phone)
+        {
+            _dataService.CreatePhone(phone);
+        }
+
+        public void EditePhone(Phone phone)
+        {
+            _dataService.EditePhone(phone);
+        }
+
+        public void DeletePhone(int phoneId)
+        {
+            _dataService.DeletePhone(phoneId);
+        }
+
+        public List<Email> GetEmails(string userName)
+        {
+            return _dataService.GetEmails(userName);
+        }
+
+        public void CreateEmail(Email email)
+        {
+            _dataService.CreateEmail(email);
+        }
+
+        public void EditeEmail(Email email)
+        {
+            _dataService.EditeEmail(email);
+        }
+
+        public void DeleteEmail(int emailId)
+        {
+            _dataService.DeleteEmail(emailId);
+        }
 
         public List<Role> GetRoles => _dataService.GetRoles();
     }

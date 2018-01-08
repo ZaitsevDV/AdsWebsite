@@ -1,16 +1,14 @@
 ﻿@model AW.Common.Models.AdDetails
 
 <h2>@Model.Title</h2>
+
+<h4>@Model.Description</h4>
 <br />
 
-<img class="img-rounded" src="@Model.Picture" alt="No image available", height="400">
-
+<img class="img-rounded" src="@Url.Content(Model.Picture)" alt="~/Images/No-image-found.png" , height="200">
 <br />
 
 <dl class="dl-horizontal">
-
-    <dt>Description</dt>
-    <dd textarea rows="4">@Html.DisplayFor(model => model.Description)</dd>
 
     <dt>Price</dt>
     <dd>@Html.DisplayFor(model => model.Price)</dd>
@@ -28,4 +26,6 @@
     <dd>@Html.DisplayFor(model => model.LocationName)</dd>
 </dl>
 
-@Html.ActionLink("Back", "Index", "Ad")
+@*@Html.ActionLink("Ok", "Index", null, new { @class = "btn btn-default col-md-1" })*@
+
+<a class="btn btn-default col-md-1" href="javascript:history.back();">Ok</a>

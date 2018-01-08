@@ -8,7 +8,7 @@ namespace AW.Business.Providers
         void CreateAd(Ad ad);
         void EditeAd(Ad ad);
         void DeleteAd(int adId);
-        IEnumerable<Ad> GetAds { get; }
+        List<Ad> GetAds { get; }
         AdDetails GetAdDetails(int id);
         List<Ad> GetAdsByCategory(int categoryId);
         List<Category> GetCategories { get; }

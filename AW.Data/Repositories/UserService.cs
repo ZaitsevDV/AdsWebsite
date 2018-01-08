@@ -16,12 +16,33 @@ namespace AW.Data.Repositories
             _convert = convert;
         }
 
-
-        public IEnumerable<User> GetUsers()
+        public List<User> GetUsers()
         {
             var usersDto = _client.GetUsersDto();
             if (usersDto == null) return default(List<User>);
             return _convert.ToUsers(usersDto) as List<User>;
+        }
+
+        public void CreateUser(User user)
+        {
+            var userDto = _convert.ToUserDto(user);
+            _client.CreateUserDto(userDto);
+        }
+
+        public void EditeUser(User user)
+        {
+            var userDto = _convert.ToUserDto(user);
+            _client.EditeUserDto(userDto);
+        }
+
+        public void EditePassword(string userName, string password)
+        {
+            _client.EditePasswordDto(userName, password);
+        }
+
+        public void DeleteUser(string userName)
+        {
+            _client.DeleteUserDto(userName);
         }
 
         public User GetUserByName(string userName)
@@ -36,18 +57,52 @@ namespace AW.Data.Repositories
             return _client.IsValidUser(userName, password);
         }
 
-        public List<Email> GetEmails()
+        public List<Phone> GetPhones(string userName)
         {
-            var emailDto = _client.GetEmailsDto();
+            var phonesDto = _client.GetPhonesDto(userName);
+            if (phonesDto == null) return default(List<Phone>);
+            return _convert.ToPhones(phonesDto);
+        }
+
+        public void CreatePhone(Phone phone)
+        {
+            var phoneDto = _convert.ToPhoneDto(phone);
+            _client.CreatePhoneDto(phoneDto);
+        }
+
+        public void EditePhone(Phone phone)
+        {
+            var phoneDto = _convert.ToPhoneDto(phone);
+            _client.EditePhoneDto(phoneDto);
+        }
+
+        public void DeletePhone(int phoneId)
+        {
+            _client.DeletePhoneDto(phoneId);
+        }
+
+        public List<Email> GetEmails(string userName)
+        {
+            var emailDto = _client.GetEmailsDto(userName);
             if (emailDto == null) return default(List<Email>);
             return _convert.ToEmails(emailDto);
         }
 
-        public List<Phone> GetPhones()
+        public void CreateEmail(Email email)
         {
-            var phonesDto = _client.GetPhonesDto();
-            if (phonesDto == null) return default(List<Phone>);
-            return _convert.ToPhones(phonesDto);
+            var emailDto = _convert.ToEmailDto(email);
+            _client.CreateEmailDto(emailDto);
+        }
+
+        public void EditeEmail(Email email)
+        {
+            var emailDto = _convert.ToEmailDto(email);
+            _client.EditeEmailDto(emailDto);
+        }
+
+        public void DeleteEmail(int emailId)
+        {
+            _client.DeleteEmailDto(emailId);
         }
 
         public List<Role> GetRoles()

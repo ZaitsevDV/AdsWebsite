@@ -1,0 +1,42 @@
+﻿@model List<AW.Common.Models.User>
+
+@using (Ajax.BeginForm("UsersList", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Role
+                </th>
+                <th>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role.RoleName)
+                    </td>
+                    <td>
+                        @Ajax.ActionLink("  ", "UserDetails", new { id = item.UserName }, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "glyphicon glyphicon-user" })
+                        @Ajax.ActionLink("  ", "UpdateProfile", new { id = item.UserName }, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "glyphicon glyphicon-edit" })
+                        @Ajax.ActionLink("  ", "SetPassword", new { id = item.UserName }, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "glyphicon glyphicon-lock" })
+                        @Ajax.ActionLink("  ", "Delete", new { id = item.UserName }, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "glyphicon glyphicon-remove" })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        @Ajax.ActionLink("Create new user", "UserDetails", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" })
+    </div>
+}

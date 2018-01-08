@@ -30,7 +30,7 @@ namespace AW.Web
             var principal = new UserPrincipal(ticket.Name)
             {
                 UserName = model.UserName,
-                Roles = model.Roles.Select(x => x.RoleName).ToArray()
+                Role = model.Role
             };
             HttpContext.Current.User = principal;
         }

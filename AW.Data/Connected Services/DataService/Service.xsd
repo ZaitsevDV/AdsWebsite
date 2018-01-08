@@ -89,6 +89,103 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetConditionsDto">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConditionsDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetConditionsDtoResult" nillable="true" type="q7:ArrayOfConditionDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypesDto">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypesDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetTypesDtoResult" nillable="true" type="q8:ArrayOfTypeDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLocationsDto">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLocationsDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetLocationsDtoResult" nillable="true" type="q9:ArrayOfLocationDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="userDto" nillable="true" type="q10:UserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditeUserDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="userDto" nillable="true" type="q11:UserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditeUserDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditePasswordDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditePasswordDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersDto">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUsersDtoResult" nillable="true" type="q12:ArrayOfUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetUserDtoByName">
     <xs:complexType>
       <xs:sequence>
@@ -99,7 +196,7 @@
   <xs:element name="GetUserDtoByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUserDtoByNameResult" nillable="true" type="q7:UserDto" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUserDtoByNameResult" nillable="true" type="q13:UserDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -118,54 +215,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetConditionsDto">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetConditionsDtoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetConditionsDtoResult" nillable="true" type="q8:ArrayOfConditionDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmailsDto">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmailsDtoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetEmailsDtoResult" nillable="true" type="q9:ArrayOfEmailDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetLocationsDto">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetLocationsDtoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetLocationsDtoResult" nillable="true" type="q10:ArrayOfLocationDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPhonesDto">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPhonesDtoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetPhonesDtoResult" nillable="true" type="q11:ArrayOfPhoneDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetRolesDto">
     <xs:complexType>
       <xs:sequence />
@@ -174,32 +223,108 @@
   <xs:element name="GetRolesDtoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetRolesDtoResult" nillable="true" type="q12:ArrayOfRoleDto" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetRolesDtoResult" nillable="true" type="q14:ArrayOfRoleDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetTypesDto">
+  <xs:element name="GetPhonesDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhonesDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetPhonesDtoResult" nillable="true" type="q15:ArrayOfPhoneDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePhoneDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="phoneDto" nillable="true" type="q16:PhoneDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePhoneDtoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetTypesDtoResponse">
+  <xs:element name="EditePhoneDto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetTypesDtoResult" nillable="true" type="q13:ArrayOfTypeDto" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="phoneDto" nillable="true" type="q17:PhoneDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUsersDto">
+  <xs:element name="EditePhoneDtoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUsersDtoResponse">
+  <xs:element name="DeletePhoneDto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetUsersDtoResult" nillable="true" type="q14:ArrayOfUserDto" />
+        <xs:element minOccurs="0" name="phoneId" type="xs:int" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhoneDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailsDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailsDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="GetEmailsDtoResult" nillable="true" type="q18:ArrayOfEmailDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEmailDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="emailDto" nillable="true" type="q19:EmailDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEmailDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditeEmailDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Service.Dto" minOccurs="0" name="emailDto" nillable="true" type="q20:EmailDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditeEmailDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmailDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmailDtoResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

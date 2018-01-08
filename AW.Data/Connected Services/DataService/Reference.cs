@@ -502,67 +502,6 @@ namespace AW.Data.DataService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
-    [System.SerializableAttribute()]
-    public partial class UserDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RoleNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleName {
-            get {
-                return this.RoleNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
-                    this.RoleNameField = value;
-                    this.RaisePropertyChanged("RoleName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConditionDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
     [System.SerializableAttribute()]
     public partial class ConditionDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -624,21 +563,18 @@ namespace AW.Data.DataService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EmailDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TypeDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
     [System.SerializableAttribute()]
-    public partial class EmailDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class TypeDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EmailIdField;
+        private int TypeIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
+        private string TypeNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -651,40 +587,27 @@ namespace AW.Data.DataService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EmailId {
+        public int TypeId {
             get {
-                return this.EmailIdField;
+                return this.TypeIdField;
             }
             set {
-                if ((this.EmailIdField.Equals(value) != true)) {
-                    this.EmailIdField = value;
-                    this.RaisePropertyChanged("EmailId");
+                if ((this.TypeIdField.Equals(value) != true)) {
+                    this.TypeIdField = value;
+                    this.RaisePropertyChanged("TypeId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EmailValue {
+        public string TypeName {
             get {
-                return this.EmailValueField;
+                return this.TypeNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.EmailValueField, value) != true)) {
-                    this.EmailValueField = value;
-                    this.RaisePropertyChanged("EmailValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                if ((object.ReferenceEquals(this.TypeNameField, value) != true)) {
+                    this.TypeNameField = value;
+                    this.RaisePropertyChanged("TypeName");
                 }
             }
         }
@@ -746,6 +669,144 @@ namespace AW.Data.DataService {
                 if ((object.ReferenceEquals(this.LocationNameField, value) != true)) {
                     this.LocationNameField = value;
                     this.RaisePropertyChanged("LocationName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class UserDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AW.Data.DataService.RoleDto RoleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AW.Data.DataService.RoleDto Role {
+            get {
+                return this.RoleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoleDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.SerializableAttribute()]
+    public partial class RoleDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RoleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoleNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RoleId {
+            get {
+                return this.RoleIdField;
+            }
+            set {
+                if ((this.RoleIdField.Equals(value) != true)) {
+                    this.RoleIdField = value;
+                    this.RaisePropertyChanged("RoleId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleName {
+            get {
+                return this.RoleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
+                    this.RoleNameField = value;
+                    this.RaisePropertyChanged("RoleName");
                 }
             }
         }
@@ -839,18 +900,21 @@ namespace AW.Data.DataService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RoleDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmailDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
     [System.SerializableAttribute()]
-    public partial class RoleDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class EmailDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RoleIdField;
+        private int EmailIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RoleNameField;
+        private string EmailValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -863,88 +927,40 @@ namespace AW.Data.DataService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RoleId {
+        public int EmailId {
             get {
-                return this.RoleIdField;
+                return this.EmailIdField;
             }
             set {
-                if ((this.RoleIdField.Equals(value) != true)) {
-                    this.RoleIdField = value;
-                    this.RaisePropertyChanged("RoleId");
+                if ((this.EmailIdField.Equals(value) != true)) {
+                    this.EmailIdField = value;
+                    this.RaisePropertyChanged("EmailId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleName {
+        public string EmailValue {
             get {
-                return this.RoleNameField;
+                return this.EmailValueField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
-                    this.RoleNameField = value;
-                    this.RaisePropertyChanged("RoleName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TypeDto", Namespace="http://schemas.datacontract.org/2004/07/Service.Dto")]
-    [System.SerializableAttribute()]
-    public partial class TypeDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TypeIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TypeId {
-            get {
-                return this.TypeIdField;
-            }
-            set {
-                if ((this.TypeIdField.Equals(value) != true)) {
-                    this.TypeIdField = value;
-                    this.RaisePropertyChanged("TypeId");
+                if ((object.ReferenceEquals(this.EmailValueField, value) != true)) {
+                    this.EmailValueField = value;
+                    this.RaisePropertyChanged("EmailValue");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TypeName {
+        public string UserName {
             get {
-                return this.TypeNameField;
+                return this.UserNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.TypeNameField, value) != true)) {
-                    this.TypeNameField = value;
-                    this.RaisePropertyChanged("TypeName");
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
                 }
             }
         }
@@ -1005,6 +1021,54 @@ namespace AW.Data.DataService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetCategoriesDto", ReplyAction="http://tempuri.org/IDataService/GetCategoriesDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.CategoryDto>> GetCategoriesDtoAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetConditionsDto", ReplyAction="http://tempuri.org/IDataService/GetConditionsDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.ConditionDto> GetConditionsDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetConditionsDto", ReplyAction="http://tempuri.org/IDataService/GetConditionsDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.ConditionDto>> GetConditionsDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetTypesDto", ReplyAction="http://tempuri.org/IDataService/GetTypesDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.TypeDto> GetTypesDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetTypesDto", ReplyAction="http://tempuri.org/IDataService/GetTypesDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.TypeDto>> GetTypesDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetLocationsDto", ReplyAction="http://tempuri.org/IDataService/GetLocationsDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.LocationDto> GetLocationsDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetLocationsDto", ReplyAction="http://tempuri.org/IDataService/GetLocationsDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.LocationDto>> GetLocationsDtoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreateUserDto", ReplyAction="http://tempuri.org/IDataService/CreateUserDtoResponse")]
+        void CreateUserDto(AW.Data.DataService.UserDto userDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreateUserDto", ReplyAction="http://tempuri.org/IDataService/CreateUserDtoResponse")]
+        System.Threading.Tasks.Task CreateUserDtoAsync(AW.Data.DataService.UserDto userDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditeUserDto", ReplyAction="http://tempuri.org/IDataService/EditeUserDtoResponse")]
+        void EditeUserDto(AW.Data.DataService.UserDto userDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditeUserDto", ReplyAction="http://tempuri.org/IDataService/EditeUserDtoResponse")]
+        System.Threading.Tasks.Task EditeUserDtoAsync(AW.Data.DataService.UserDto userDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditePasswordDto", ReplyAction="http://tempuri.org/IDataService/EditePasswordDtoResponse")]
+        void EditePasswordDto(string userName, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditePasswordDto", ReplyAction="http://tempuri.org/IDataService/EditePasswordDtoResponse")]
+        System.Threading.Tasks.Task EditePasswordDtoAsync(string userName, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteUserDto", ReplyAction="http://tempuri.org/IDataService/DeleteUserDtoResponse")]
+        void DeleteUserDto(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteUserDto", ReplyAction="http://tempuri.org/IDataService/DeleteUserDtoResponse")]
+        System.Threading.Tasks.Task DeleteUserDtoAsync(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUserDtoByName", ReplyAction="http://tempuri.org/IDataService/GetUserDtoByNameResponse")]
         AW.Data.DataService.UserDto GetUserDtoByName(string userName);
         
@@ -1017,47 +1081,59 @@ namespace AW.Data.DataService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/IsValidUser", ReplyAction="http://tempuri.org/IDataService/IsValidUserResponse")]
         System.Threading.Tasks.Task<bool> IsValidUserAsync(string userName, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetConditionsDto", ReplyAction="http://tempuri.org/IDataService/GetConditionsDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.ConditionDto> GetConditionsDto();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetConditionsDto", ReplyAction="http://tempuri.org/IDataService/GetConditionsDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.ConditionDto>> GetConditionsDtoAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetEmailsDto", ReplyAction="http://tempuri.org/IDataService/GetEmailsDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.EmailDto> GetEmailsDto();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetEmailsDto", ReplyAction="http://tempuri.org/IDataService/GetEmailsDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.EmailDto>> GetEmailsDtoAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetLocationsDto", ReplyAction="http://tempuri.org/IDataService/GetLocationsDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.LocationDto> GetLocationsDto();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetLocationsDto", ReplyAction="http://tempuri.org/IDataService/GetLocationsDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.LocationDto>> GetLocationsDtoAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPhonesDto", ReplyAction="http://tempuri.org/IDataService/GetPhonesDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.PhoneDto> GetPhonesDto();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPhonesDto", ReplyAction="http://tempuri.org/IDataService/GetPhonesDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.PhoneDto>> GetPhonesDtoAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetRolesDto", ReplyAction="http://tempuri.org/IDataService/GetRolesDtoResponse")]
         System.Collections.Generic.List<AW.Data.DataService.RoleDto> GetRolesDto();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetRolesDto", ReplyAction="http://tempuri.org/IDataService/GetRolesDtoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.RoleDto>> GetRolesDtoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetTypesDto", ReplyAction="http://tempuri.org/IDataService/GetTypesDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.TypeDto> GetTypesDto();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPhonesDto", ReplyAction="http://tempuri.org/IDataService/GetPhonesDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.PhoneDto> GetPhonesDto(string userName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetTypesDto", ReplyAction="http://tempuri.org/IDataService/GetTypesDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.TypeDto>> GetTypesDtoAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetPhonesDto", ReplyAction="http://tempuri.org/IDataService/GetPhonesDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.PhoneDto>> GetPhonesDtoAsync(string userName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
-        System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreatePhoneDto", ReplyAction="http://tempuri.org/IDataService/CreatePhoneDtoResponse")]
+        void CreatePhoneDto(AW.Data.DataService.PhoneDto phoneDto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetUsersDto", ReplyAction="http://tempuri.org/IDataService/GetUsersDtoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreatePhoneDto", ReplyAction="http://tempuri.org/IDataService/CreatePhoneDtoResponse")]
+        System.Threading.Tasks.Task CreatePhoneDtoAsync(AW.Data.DataService.PhoneDto phoneDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditePhoneDto", ReplyAction="http://tempuri.org/IDataService/EditePhoneDtoResponse")]
+        void EditePhoneDto(AW.Data.DataService.PhoneDto phoneDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditePhoneDto", ReplyAction="http://tempuri.org/IDataService/EditePhoneDtoResponse")]
+        System.Threading.Tasks.Task EditePhoneDtoAsync(AW.Data.DataService.PhoneDto phoneDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeletePhoneDto", ReplyAction="http://tempuri.org/IDataService/DeletePhoneDtoResponse")]
+        void DeletePhoneDto(int phoneId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeletePhoneDto", ReplyAction="http://tempuri.org/IDataService/DeletePhoneDtoResponse")]
+        System.Threading.Tasks.Task DeletePhoneDtoAsync(int phoneId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetEmailsDto", ReplyAction="http://tempuri.org/IDataService/GetEmailsDtoResponse")]
+        System.Collections.Generic.List<AW.Data.DataService.EmailDto> GetEmailsDto(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/GetEmailsDto", ReplyAction="http://tempuri.org/IDataService/GetEmailsDtoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.EmailDto>> GetEmailsDtoAsync(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreateEmailDto", ReplyAction="http://tempuri.org/IDataService/CreateEmailDtoResponse")]
+        void CreateEmailDto(AW.Data.DataService.EmailDto emailDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/CreateEmailDto", ReplyAction="http://tempuri.org/IDataService/CreateEmailDtoResponse")]
+        System.Threading.Tasks.Task CreateEmailDtoAsync(AW.Data.DataService.EmailDto emailDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditeEmailDto", ReplyAction="http://tempuri.org/IDataService/EditeEmailDtoResponse")]
+        void EditeEmailDto(AW.Data.DataService.EmailDto emailDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/EditeEmailDto", ReplyAction="http://tempuri.org/IDataService/EditeEmailDtoResponse")]
+        System.Threading.Tasks.Task EditeEmailDtoAsync(AW.Data.DataService.EmailDto emailDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteEmailDto", ReplyAction="http://tempuri.org/IDataService/DeleteEmailDtoResponse")]
+        void DeleteEmailDto(int emailId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/DeleteEmailDto", ReplyAction="http://tempuri.org/IDataService/DeleteEmailDtoResponse")]
+        System.Threading.Tasks.Task DeleteEmailDtoAsync(int emailId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1143,6 +1219,70 @@ namespace AW.Data.DataService {
             return base.Channel.GetCategoriesDtoAsync();
         }
         
+        public System.Collections.Generic.List<AW.Data.DataService.ConditionDto> GetConditionsDto() {
+            return base.Channel.GetConditionsDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.ConditionDto>> GetConditionsDtoAsync() {
+            return base.Channel.GetConditionsDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.TypeDto> GetTypesDto() {
+            return base.Channel.GetTypesDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.TypeDto>> GetTypesDtoAsync() {
+            return base.Channel.GetTypesDtoAsync();
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.LocationDto> GetLocationsDto() {
+            return base.Channel.GetLocationsDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.LocationDto>> GetLocationsDtoAsync() {
+            return base.Channel.GetLocationsDtoAsync();
+        }
+        
+        public void CreateUserDto(AW.Data.DataService.UserDto userDto) {
+            base.Channel.CreateUserDto(userDto);
+        }
+        
+        public System.Threading.Tasks.Task CreateUserDtoAsync(AW.Data.DataService.UserDto userDto) {
+            return base.Channel.CreateUserDtoAsync(userDto);
+        }
+        
+        public void EditeUserDto(AW.Data.DataService.UserDto userDto) {
+            base.Channel.EditeUserDto(userDto);
+        }
+        
+        public System.Threading.Tasks.Task EditeUserDtoAsync(AW.Data.DataService.UserDto userDto) {
+            return base.Channel.EditeUserDtoAsync(userDto);
+        }
+        
+        public void EditePasswordDto(string userName, string password) {
+            base.Channel.EditePasswordDto(userName, password);
+        }
+        
+        public System.Threading.Tasks.Task EditePasswordDtoAsync(string userName, string password) {
+            return base.Channel.EditePasswordDtoAsync(userName, password);
+        }
+        
+        public void DeleteUserDto(string userName) {
+            base.Channel.DeleteUserDto(userName);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUserDtoAsync(string userName) {
+            return base.Channel.DeleteUserDtoAsync(userName);
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto() {
+            return base.Channel.GetUsersDto();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync() {
+            return base.Channel.GetUsersDtoAsync();
+        }
+        
         public AW.Data.DataService.UserDto GetUserDtoByName(string userName) {
             return base.Channel.GetUserDtoByName(userName);
         }
@@ -1159,38 +1299,6 @@ namespace AW.Data.DataService {
             return base.Channel.IsValidUserAsync(userName, password);
         }
         
-        public System.Collections.Generic.List<AW.Data.DataService.ConditionDto> GetConditionsDto() {
-            return base.Channel.GetConditionsDto();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.ConditionDto>> GetConditionsDtoAsync() {
-            return base.Channel.GetConditionsDtoAsync();
-        }
-        
-        public System.Collections.Generic.List<AW.Data.DataService.EmailDto> GetEmailsDto() {
-            return base.Channel.GetEmailsDto();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.EmailDto>> GetEmailsDtoAsync() {
-            return base.Channel.GetEmailsDtoAsync();
-        }
-        
-        public System.Collections.Generic.List<AW.Data.DataService.LocationDto> GetLocationsDto() {
-            return base.Channel.GetLocationsDto();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.LocationDto>> GetLocationsDtoAsync() {
-            return base.Channel.GetLocationsDtoAsync();
-        }
-        
-        public System.Collections.Generic.List<AW.Data.DataService.PhoneDto> GetPhonesDto() {
-            return base.Channel.GetPhonesDto();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.PhoneDto>> GetPhonesDtoAsync() {
-            return base.Channel.GetPhonesDtoAsync();
-        }
-        
         public System.Collections.Generic.List<AW.Data.DataService.RoleDto> GetRolesDto() {
             return base.Channel.GetRolesDto();
         }
@@ -1199,20 +1307,68 @@ namespace AW.Data.DataService {
             return base.Channel.GetRolesDtoAsync();
         }
         
-        public System.Collections.Generic.List<AW.Data.DataService.TypeDto> GetTypesDto() {
-            return base.Channel.GetTypesDto();
+        public System.Collections.Generic.List<AW.Data.DataService.PhoneDto> GetPhonesDto(string userName) {
+            return base.Channel.GetPhonesDto(userName);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.TypeDto>> GetTypesDtoAsync() {
-            return base.Channel.GetTypesDtoAsync();
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.PhoneDto>> GetPhonesDtoAsync(string userName) {
+            return base.Channel.GetPhonesDtoAsync(userName);
         }
         
-        public System.Collections.Generic.List<AW.Data.DataService.UserDto> GetUsersDto() {
-            return base.Channel.GetUsersDto();
+        public void CreatePhoneDto(AW.Data.DataService.PhoneDto phoneDto) {
+            base.Channel.CreatePhoneDto(phoneDto);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.UserDto>> GetUsersDtoAsync() {
-            return base.Channel.GetUsersDtoAsync();
+        public System.Threading.Tasks.Task CreatePhoneDtoAsync(AW.Data.DataService.PhoneDto phoneDto) {
+            return base.Channel.CreatePhoneDtoAsync(phoneDto);
+        }
+        
+        public void EditePhoneDto(AW.Data.DataService.PhoneDto phoneDto) {
+            base.Channel.EditePhoneDto(phoneDto);
+        }
+        
+        public System.Threading.Tasks.Task EditePhoneDtoAsync(AW.Data.DataService.PhoneDto phoneDto) {
+            return base.Channel.EditePhoneDtoAsync(phoneDto);
+        }
+        
+        public void DeletePhoneDto(int phoneId) {
+            base.Channel.DeletePhoneDto(phoneId);
+        }
+        
+        public System.Threading.Tasks.Task DeletePhoneDtoAsync(int phoneId) {
+            return base.Channel.DeletePhoneDtoAsync(phoneId);
+        }
+        
+        public System.Collections.Generic.List<AW.Data.DataService.EmailDto> GetEmailsDto(string userName) {
+            return base.Channel.GetEmailsDto(userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AW.Data.DataService.EmailDto>> GetEmailsDtoAsync(string userName) {
+            return base.Channel.GetEmailsDtoAsync(userName);
+        }
+        
+        public void CreateEmailDto(AW.Data.DataService.EmailDto emailDto) {
+            base.Channel.CreateEmailDto(emailDto);
+        }
+        
+        public System.Threading.Tasks.Task CreateEmailDtoAsync(AW.Data.DataService.EmailDto emailDto) {
+            return base.Channel.CreateEmailDtoAsync(emailDto);
+        }
+        
+        public void EditeEmailDto(AW.Data.DataService.EmailDto emailDto) {
+            base.Channel.EditeEmailDto(emailDto);
+        }
+        
+        public System.Threading.Tasks.Task EditeEmailDtoAsync(AW.Data.DataService.EmailDto emailDto) {
+            return base.Channel.EditeEmailDtoAsync(emailDto);
+        }
+        
+        public void DeleteEmailDto(int emailId) {
+            base.Channel.DeleteEmailDto(emailId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteEmailDtoAsync(int emailId) {
+            return base.Channel.DeleteEmailDtoAsync(emailId);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using AW.Common.Models;
 using System.Security.Principal;
 
 namespace AW.Business.Authorization
@@ -11,12 +11,12 @@ namespace AW.Business.Authorization
         }
 
         public string UserName { get; set; }
-        public string[] Roles { get; set; }
+        public Role Role { get; set; }
         public IIdentity Identity { get; }
 
         public bool IsInRole(string role)
         {
-            return Roles.Contains(role);
+            return Role.RoleName.Contains(role);
         }
     }
 }

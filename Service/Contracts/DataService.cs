@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Service.Dto;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using Service.Dto;
 
 namespace Service.Contracts
 {
@@ -14,6 +14,8 @@ namespace Service.Contracts
             ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         private readonly SqlConnection _connection = new SqlConnection(ConnectionString);
+
+        #region Ads
 
         public void CreateAdDto(AdDto adDto)
         {
@@ -42,7 +44,7 @@ namespace Service.Contracts
         {
             _connection.ConnectionString = ConnectionString;
 
-            using (var command = new SqlCommand("EditeAd", _connection))
+            using (var command = new SqlCommand("EditAd", _connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@Id", adDto.Id);
@@ -155,33 +157,6 @@ namespace Service.Contracts
             return adDetails;
         }
 
-        public List<CategoryDto> GetCategoriesDto()
-        {
-            _connection.ConnectionString = ConnectionString;
-            var categoriesList = new List<CategoryDto>();
-
-            using (var command = new SqlCommand("GetCategories", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                _connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var category = new CategoryDto
-                        {
-                            CategoryId = (int)reader["CategoryId"],
-                            CategoryName = reader["CategoryName"].ToString(),
-                            ParentCategoryId = (int)reader["ParentCategoryId"]
-                        };
-                        categoriesList.Add(category);
-                    }
-                }
-                _connection.Close();
-            }
-            return categoriesList;
-        }
-
         public List<TypeDto> GetTypesDto()
         {
             _connection.ConnectionString = ConnectionString;
@@ -206,72 +181,6 @@ namespace Service.Contracts
                 _connection.Close();
             }
             return typesList;
-        }
-
-        public List<UserDto> GetUsersDto()
-        {
-            _connection.ConnectionString = ConnectionString;
-            var usersList = new List<UserDto>();
-
-            using (var command = new SqlCommand("GetUsers", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                _connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var userDto = new UserDto
-                        {
-                            UserName = reader["UserName"].ToString(),
-                            RoleName = (string)reader["RoleName"]
-                        };
-                        usersList.Add(userDto);
-                    }
-                }
-                _connection.Close();
-            }
-            return usersList;
-        }
-
-        public UserDto GetUserDtoByName(string userName)
-        {
-            _connection.ConnectionString = ConnectionString;
-            var userDto = new UserDto();
-
-            using (var command = new SqlCommand("GetUserDetails", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserName", userName);
-                _connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        userDto.UserName = reader["UserName"].ToString();
-                        userDto.RoleName = reader["RoleName"].ToString();
-                    }
-                }
-                _connection.Close();
-            }
-            return userDto;
-        }
-
-        public bool IsValidUser(string userName, string password)
-        {
-            _connection.ConnectionString = ConnectionString;
-
-            using (var command = new SqlCommand("IsValidUser", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserName", userName);
-                command.Parameters.AddWithValue("@Password", password);
-                _connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    return reader.Read();
-                }
-            }
         }
 
         public List<ConditionDto> GetConditionsDto()
@@ -300,33 +209,6 @@ namespace Service.Contracts
             return conditionList;
         }
 
-        public List<EmailDto> GetEmailsDto()
-        {
-            _connection.ConnectionString = ConnectionString;
-            var emailList = new List<EmailDto>();
-
-            using (var command = new SqlCommand("GetEmails", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                _connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var emailDto = new EmailDto
-                        {
-                            EmailId = (int)reader["EmailId"],
-                            UserName = reader["UserName"].ToString(),
-                            EmailValue = reader["EmailValue"].ToString()
-                        };
-                        emailList.Add(emailDto);
-                    }
-                }
-                _connection.Close();
-            }
-            return emailList;
-        }
-
         public List<LocationDto> GetLocationsDto()
         {
             _connection.ConnectionString = ConnectionString;
@@ -353,12 +235,12 @@ namespace Service.Contracts
             return locationList;
         }
 
-        public List<PhoneDto> GetPhonesDto()
+        public List<CategoryDto> GetCategoriesDto()
         {
             _connection.ConnectionString = ConnectionString;
-            var phoneList = new List<PhoneDto>();
+            var categoriesList = new List<CategoryDto>();
 
-            using (var command = new SqlCommand("GetPhones", _connection))
+            using (var command = new SqlCommand("GetCategories", _connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 _connection.Open();
@@ -366,48 +248,22 @@ namespace Service.Contracts
                 {
                     while (reader.Read())
                     {
-                        var phoneDto = new PhoneDto
+                        var category = new CategoryDto
                         {
-                            PhoneId = (int)reader["PhoneId"],
-                            UserName = reader["UserName"].ToString(),
-                            PhoneNumber = reader["PhoneNumber"].ToString()
+                            CategoryId = (int)reader["CategoryId"],
+                            CategoryName = reader["CategoryName"].ToString(),
+                            ParentCategoryId = (int)reader["ParentCategoryId"]
                         };
-                        phoneList.Add(phoneDto);
+                        categoriesList.Add(category);
                     }
                 }
                 _connection.Close();
             }
-            return phoneList;
-        }
-
-        public List<RoleDto> GetRolesDto()
-        {
-            _connection.ConnectionString = ConnectionString;
-            var roleList = new List<RoleDto>();
-
-            using (var command = new SqlCommand("GetRoles", _connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                _connection.Open();
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var roleDto = new RoleDto
-                        {
-                            RoleId = (int)reader["ConditionId"],
-                            RoleName = reader["ConditionName"].ToString()
-                        };
-                        roleList.Add(roleDto);
-                    }
-                }
-                _connection.Close();
-            }
-            return roleList;
+            return categoriesList;
         }
 
         private static List<int> GetChildId(int parentId, ICollection<int> resultCollection,
-            IEnumerable<CategoryDto> list)
+    IEnumerable<CategoryDto> list)
         {
             resultCollection.Add(parentId);
             var categories = list as CategoryDto[] ?? list.ToArray();
@@ -452,5 +308,317 @@ namespace Service.Contracts
             }
             return adsList;
         }
+
+        #endregion
+
+        #region Users
+
+        public List<UserDto> GetUsersDto()
+        {
+            _connection.ConnectionString = ConnectionString;
+            var usersList = new List<UserDto>();
+
+            using (var command = new SqlCommand("GetUsers", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                _connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var userDto = new UserDto
+                        {
+                            UserName = reader["UserName"].ToString()
+                        };
+
+                        var role = new RoleDto
+                        {
+                            RoleId = (int)reader["RoleId"],
+                            RoleName = reader["RoleName"].ToString()
+                        };
+
+                        userDto.Role = role;
+                        usersList.Add(userDto);
+                    }
+                }
+                _connection.Close();
+            }
+            return usersList;
+        }
+
+        public void CreateUserDto(UserDto userDto)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("CreateUser", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userDto.UserName);
+                command.Parameters.AddWithValue("@RoleId", userDto.Role.RoleId);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void EditeUserDto(UserDto userDto)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("EditUser", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userDto.UserName);
+                command.Parameters.AddWithValue("@RoleId", userDto.Role.RoleId);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void EditePasswordDto(string userName, string password)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("EditPassword", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@Password", password);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void DeleteUserDto(string userName)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("DeleteUser", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public UserDto GetUserDtoByName(string userName)
+        {
+            _connection.ConnectionString = ConnectionString;
+            var userDto = new UserDto();
+
+            using (var command = new SqlCommand("GetUserDetails", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                _connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        userDto.UserName = reader["UserName"].ToString();
+                        var role = new RoleDto
+                        {
+                            RoleId = (int)reader["RoleId"],
+                            RoleName = reader["RoleName"].ToString()
+                        };
+                        userDto.Role = role;
+                    }
+                }
+                _connection.Close();
+            }
+            return userDto;
+        }
+
+        public bool IsValidUser(string userName, string password)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("IsValidUser", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@Password", password);
+                _connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    return reader.Read();
+                }
+            }
+        }
+
+        public List<PhoneDto> GetPhonesDto(string userName)
+        {
+            _connection.ConnectionString = ConnectionString;
+            var phoneList = new List<PhoneDto>();
+
+            using (var command = new SqlCommand("GetPhones", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                _connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var phoneDto = new PhoneDto
+                        {
+                            PhoneId = (int)reader["PhoneId"],
+                            UserName = reader["UserName"].ToString(),
+                            PhoneNumber = reader["PhoneNumber"].ToString()
+                        };
+                        phoneList.Add(phoneDto);
+                    }
+                }
+                _connection.Close();
+            }
+            return phoneList;
+        }
+
+        public void CreatePhoneDto(PhoneDto phoneDto)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("CreatePhone", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", phoneDto.UserName);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneDto.PhoneNumber);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void EditePhoneDto(PhoneDto phoneDto)
+        {
+            _connection.ConnectionString = ConnectionString;
+            using (var command = new SqlCommand("EditPhone", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@PhoneId", phoneDto.PhoneId);
+                command.Parameters.AddWithValue("@UserName", phoneDto.UserName);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneDto.PhoneNumber);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void DeletePhoneDto(int phoneId)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("DeletePhone", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@PhoneId", phoneId);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public List<EmailDto> GetEmailsDto(string userName)
+        {
+            _connection.ConnectionString = ConnectionString;
+            var emailList = new List<EmailDto>();
+
+            using (var command = new SqlCommand("GetEmails", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", userName);
+                _connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var emailDto = new EmailDto
+                        {
+                            EmailId = (int)reader["EmailId"],
+                            UserName = reader["UserName"].ToString(),
+                            EmailValue = reader["EmailValue"].ToString()
+                        };
+                        emailList.Add(emailDto);
+                    }
+                }
+                _connection.Close();
+            }
+            return emailList;
+        }
+
+        public void CreateEmailDto(EmailDto emailDto)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("CreateEmail", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserName", emailDto.UserName);
+                command.Parameters.AddWithValue("@EmailValue", emailDto.EmailValue);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void EditeEmailDto(EmailDto emailDto)
+        {
+            _connection.ConnectionString = ConnectionString;
+            using (var command = new SqlCommand("EditEmail", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@EmailId", emailDto.EmailId);
+                command.Parameters.AddWithValue("@UserName", emailDto.UserName);
+                command.Parameters.AddWithValue("@EmailValue", emailDto.EmailValue);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public void DeleteEmailDto(int emailId)
+        {
+            _connection.ConnectionString = ConnectionString;
+
+            using (var command = new SqlCommand("DeleteEmail", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@EmailId", emailId);
+                _connection.Open();
+                command.ExecuteNonQuery();
+                _connection.Close();
+            }
+        }
+
+        public List<RoleDto> GetRolesDto()
+        {
+            _connection.ConnectionString = ConnectionString;
+            var roleList = new List<RoleDto>();
+
+            using (var command = new SqlCommand("GetRoles", _connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                _connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var roleDto = new RoleDto
+                        {
+                            RoleId = (int)reader["RoleId"],
+                            RoleName = reader["RoleName"].ToString()
+                        };
+                        roleList.Add(roleDto);
+                    }
+                }
+                _connection.Close();
+            }
+            return roleList;
+        }
+        #endregion
     }
 }

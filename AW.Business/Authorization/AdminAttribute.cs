@@ -9,9 +9,9 @@ namespace AW.Business.Authorization
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             var user = HttpContext.Current.User as UserPrincipal;
-            if (!user.IsInRole("Administrator"))
-                filterContext.Result =
-                    new RedirectToRouteResult(new RouteValueDictionary(new {controller = "Access", action = "Denied"}));
+
+            if (user == null || !user.IsInRole("Admin"))
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Access", action = "Denied", area = "" }));
         }
     }
 }

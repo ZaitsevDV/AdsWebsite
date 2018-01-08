@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Service.Dto;
+using System.Collections.Generic;
 using System.ServiceModel;
-using Service.Dto;
 
 namespace Service.Contracts
 {
     [ServiceContract]
     public interface IDataService
     {
+        #region Ads
+
         [OperationContract]
         void CreateAdDto(AdDto adDto);
 
@@ -29,30 +31,65 @@ namespace Service.Contracts
         List<CategoryDto> GetCategoriesDto();
 
         [OperationContract]
+        List<ConditionDto> GetConditionsDto();
+
+        [OperationContract]
+        List<TypeDto> GetTypesDto();
+
+        [OperationContract]
+        List<LocationDto> GetLocationsDto();
+        #endregion
+
+        #region Users
+
+        [OperationContract]
+        void CreateUserDto(UserDto userDto);
+
+        [OperationContract]
+        void EditeUserDto(UserDto userDto);
+
+        [OperationContract]
+        void EditePasswordDto(string userName, string password);
+
+        [OperationContract]
+        void DeleteUserDto(string userName);
+
+        [OperationContract]
+        List<UserDto> GetUsersDto();
+
+        [OperationContract]
         UserDto GetUserDtoByName(string userName);
 
         [OperationContract]
         bool IsValidUser(string userName, string password);
 
         [OperationContract]
-        List<ConditionDto> GetConditionsDto();
-
-        [OperationContract]
-        List<EmailDto> GetEmailsDto();
-
-        [OperationContract]
-        List<LocationDto> GetLocationsDto();
-
-        [OperationContract]
-        List<PhoneDto> GetPhonesDto();
-
-        [OperationContract]
         List<RoleDto> GetRolesDto();
 
         [OperationContract]
-        List<TypeDto> GetTypesDto();
+        List<PhoneDto> GetPhonesDto(string userName);
 
         [OperationContract]
-        List<UserDto> GetUsersDto();
+        void CreatePhoneDto(PhoneDto phoneDto);
+
+        [OperationContract]
+        void EditePhoneDto(PhoneDto phoneDto);
+
+        [OperationContract]
+        void DeletePhoneDto(int phoneId);
+
+        [OperationContract]
+        List<EmailDto> GetEmailsDto(string userName);
+
+        [OperationContract]
+        void CreateEmailDto(EmailDto emailDto);
+
+        [OperationContract]
+        void EditeEmailDto(EmailDto emailDto);
+
+        [OperationContract]
+        void DeleteEmailDto(int emailId);
+
+        #endregion
     }
 }

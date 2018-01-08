@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "ProfilePage";
+    var options = new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" };
+}
+<ul class="nav nav-tabs" style="margin-top: 5px">
+    @if (HttpContext.Current.User.IsInRole("Admin"))
+    {
+        <li role="presentation" data-toggle="tab">
+            @Ajax.ActionLink("Users list", "UsersList", options)
+        </li>
+    }
+    <li role="presentation" data-toggle="tab">
+        @Ajax.ActionLink("User details", "UserDetails", options)
+    </li>
+    <li role="presentation" data-toggle="tab">
+        @Ajax.ActionLink("Update Profile", "UpdateProfile", options)
+    </li>
+    <li role="presentation" data-toggle="tab">
+        @Ajax.ActionLink("Change password", "SetPassword", options)
+    </li>
+</ul>
+<br/>
+<div id="result">
+    @Html.Action("UserDetails", "Profile")
+</div>
+<img alt=""
+     id="loader"
+     src="@Url.Content("~/Images/loader.gif")"
+     style="display: none;
+                    position: absolute;
+                    bottom: 20px;
+                    left: 50%;" />

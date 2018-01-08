@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using AW.Common.Models;
+﻿using AW.Common.Models;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Web;
 
 namespace AW.Web.Models
@@ -8,7 +9,8 @@ namespace AW.Web.Models
     {
         public Ad Ad { get; set; }
         public List<AdType> AdType { get; set; }
-        public HttpPostedFileBase Image { get; set; }
+        [DisplayName("Image")]
+        public HttpPostedFileBase UploadImage { get; set; }
         public bool New { get; set; }
     }
 }

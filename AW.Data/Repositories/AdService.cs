@@ -47,7 +47,7 @@ namespace AW.Data.Repositories
             return _convert.ToAdDetails(adDetailsDto);
         }
 
-        public IEnumerable<Ad> GetAds()
+        public List<Ad> GetAds()
         {
             var adsDto = _client.GetAdsDto();
             if (adsDto == null) return default(List<Ad>);

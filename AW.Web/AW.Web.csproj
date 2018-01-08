@@ -63,6 +63,12 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
     </Reference>
@@ -116,11 +122,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\submenu.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\loader.gif" />
+    <Content Include="Images\No-image-found.jpg" />
     <Content Include="Log.config">
       <SubType>Designer</SubType>
     </Content>
@@ -128,6 +136,7 @@
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\createAd.js" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -243,6 +252,8 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -253,7 +264,10 @@
     </Compile>
     <Compile Include="Loger.cs" />
     <Compile Include="Models\AdViewModel.cs" />
+    <Compile Include="Models\FilterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\PasswordViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,11 +281,24 @@
     <Content Include="Views\Ad\Details.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\_Categories.cshtml" />
-    <Content Include="Views\Ad\List.cshtml" />
+    <Content Include="Views\Ad\_List.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Access\Denied.cshtml" />
     <Content Include="Views\Ad\CreateAd.cshtml" />
+    <Content Include="Views\Profile\ProfilePage.cshtml" />
+    <Content Include="Views\Profile\_SetPassword.cshtml" />
+    <Content Include="Views\Profile\_UpdateProfile.cshtml" />
+    <Content Include="Views\Profile\_UserDetails.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Search\SearchList.cshtml" />
+    <Content Include="Views\Search\_Filter.cshtml" />
+    <Content Include="Views\Search\_SearchResult.cshtml" />
+    <Content Include="Views\Ad\Delete.cshtml" />
+    <Content Include="Views\Ad\EditeAd.cshtml" />
+    <Content Include="Views\Profile\_UsersList.cshtml" />
+    <Content Include="Views\Profile\_Delete.cshtml" />
+    <Content Include="Views\Profile\_CreateProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

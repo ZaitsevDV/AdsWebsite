@@ -1,0 +1,36 @@
+﻿@model AW.Common.Models.AdDetails
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>@Model.Title</h3>
+<h4>@Model.Description</h4>
+<br />
+
+<img class="img-rounded" src="@Model.Picture" alt="No image available" , height="400">
+<br />
+
+<dl class="dl-horizontal">
+
+    <dt>Price</dt>
+    <dd>@Html.DisplayFor(model => model.Price)</dd>
+
+    <dt>Condition</dt>
+    <dd>@Html.DisplayFor(model => model.ConditionName)</dd>
+
+    <dt>Creation Date</dt>
+    <dd>@Html.DisplayFor(model => model.CreationDate)</dd>
+
+    <dt>Category</dt>
+    <dd>@Html.DisplayFor(model => model.CategoryName)</dd>
+
+    <dt>Location</dt>
+    <dd>@Html.DisplayFor(model => model.LocationName)</dd>
+</dl>
+<h3 style="color: darkred">Are you really want to remove this ad?</h3>
+
+
+<div class="row">
+    @Html.ActionLink("Delete", "DeleteConfirmed", new { id = Model.Id }, new { @class = "btn btn-default col-md-1" })
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default col-md-1" })
+</div>

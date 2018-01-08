@@ -8,7 +8,7 @@ namespace AW.Data.Repositories
         void CreateAd(Ad ad);
         void EditeAd(Ad ad);
         void DeleteAd(int adId);
-        IEnumerable<Ad> GetAds();
+        List<Ad> GetAds();
         List<Ad> GetAdsByCategory(int categoryId);
         AdDetails GetAdDetails(int id);
         List<Category> GetCategories();
