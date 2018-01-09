@@ -3,24 +3,14 @@
 {
     @Html.AntiForgeryToken()
     <br />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayName("User name:")
-        </dt>
-        <dd>@Html.DisplayFor(model => model.UserName)</dd>
-
-        <dt>
-            @Html.DisplayName("Role:")
-        </dt>
-        <dd>@Html.DisplayFor(model => model.Role.RoleName)</dd>
-    </dl>
-    <br />
-    <h3 style="color: darkred">Are you really want delete @Model.Role.RoleName @Model.UserName?</h3>
-    <br />
-
-    <div class="row">
-        @Ajax.ActionLink("Delete", "DeleteConfirmed", new { id = Model.UserName }, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "btn btn-default col-md-1" })
-        @Ajax.ActionLink("Cancel", "UsersList", null, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "btn btn-default col-md-1" })
+    <div class="h3 alert alert-danger" role="alert" style="text-align: center">
+        Are you really want delete @Model.Role.RoleName @Model.UserName?
     </div>
-
+    <br />
+    <div class="text-center">
+        <div class="btn-group" role="group">
+            @Ajax.ActionLink("Delete", "DeleteConfirmed", new { id = Model.UserName }, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { type = "button", @class = "btn btn-default" })
+            @Ajax.ActionLink("Cancel", "UsersList", null, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { type = "button", @class = "btn btn-default" })
+        </div>
+    </div>
 }

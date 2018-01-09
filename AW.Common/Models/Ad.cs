@@ -8,7 +8,7 @@ namespace AW.Common.Models
         public int      Id           { get; set; }
         public string   UserName     { get; set; }
         [Required(ErrorMessage = "Required field")]
-        [RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Only alphabetic characters are allowed")]
+        //[RegularExpression(@"^[a-zA-Zd]*$", ErrorMessage = "Only alphabetic characters and digits are allowed")]
         public string   Title        { get; set; }
         public string   Description  { get; set; }
         public string   Picture      { get; set; }

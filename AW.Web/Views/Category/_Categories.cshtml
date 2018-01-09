@@ -11,7 +11,7 @@
                 @Ajax.ActionLink(mp.CategoryName, "List", "Ad", new {id = mp.CategoryId},
                         new AjaxOptions {UpdateTargetId = "adsList",
                             InsertionMode = InsertionMode.Replace,
-                            LoadingElementId = "loading", LoadingElementDuration = 200})
+                            LoadingElementId = "loading"})
                 @if (menuList.Count(p => p.ParentCategoryId == mp.CategoryId) > 0)
                 {
                     @:<ul>

@@ -1,31 +1,52 @@
-﻿@model AW.Common.Models.AdDetails
+﻿@model AW.Web.Models.AdDetailsViewModel
+<div class="col-md-4">
+    <div align="center">
+        <div class="page-header">
+            <h1>
+                @Model.Ad.Title<br />
+                <small>@Model.Ad.Description</small>
+            </h1>
+        </div>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>Price</dt>
+        <dd>$@Html.DisplayFor(model => model.Ad.Price)</dd>
 
-<h2>@Model.Title</h2>
+        <dt>Condition</dt>
+        <dd>@Html.DisplayFor(model => model.Ad.ConditionName)</dd>
 
-<h4>@Model.Description</h4>
-<br />
+        <dt>Creation Date</dt>
+        <dd>@Html.DisplayFor(model => model.Ad.CreationDate)</dd>
 
-<img class="img-rounded" src="@Url.Content(Model.Picture)" alt="~/Images/No-image-found.png" , height="200">
-<br />
+        <dt>Category</dt>
+        <dd>@Html.DisplayFor(model => model.Ad.CategoryName)</dd>
 
-<dl class="dl-horizontal">
+        <dt>Location</dt>
+        <dd>@Html.DisplayFor(model => model.Ad.LocationName)</dd>
+    </dl>
+    <br />
+    <div class="h4" align="center">Contacts:</div>
+    <dl class="dl-horizontal">
+        <dt>Phone(s)</dt>
+        @foreach (var item in Model.Phones)
+        {
+            <dd>@Html.DisplayFor(modelItem => item.PhoneNumber)</dd>
+        }
 
-    <dt>Price</dt>
-    <dd>@Html.DisplayFor(model => model.Price)</dd>
+        <dt>Email(s)</dt>
+        @foreach (var item in Model.Emails)
+        {
+            <dd>@Html.DisplayFor(modelItem => item.EmailValue)</dd>
+        }
 
-    <dt>Condition</dt>
-    <dd>@Html.DisplayFor(model => model.ConditionName)</dd>
+    </dl>
+    <div class="col-md-12" align="center" style="margin-top: 10px">
+        <a class="btn btn-default" href="javascript:history.back();">Ok</a>
+    </div>
+</div>
 
-    <dt>Creation Date</dt>
-    <dd>@Html.DisplayFor(model => model.CreationDate)</dd>
-
-    <dt>Category</dt>
-    <dd>@Html.DisplayFor(model => model.CategoryName)</dd>
-
-    <dt>Location</dt>
-    <dd>@Html.DisplayFor(model => model.LocationName)</dd>
-</dl>
-
-@*@Html.ActionLink("Ok", "Index", null, new { @class = "btn btn-default col-md-1" })*@
-
-<a class="btn btn-default col-md-1" href="javascript:history.back();">Ok</a>
+<div class="col-md-8">
+    <div align="center">
+        <img class="img-rounded" src="@Url.Content(Model.Ad.Picture)" alt="~/Images/No-image-found.png" style="max-width: 100%; margin-top: 20pt">
+    </div>
+</div>

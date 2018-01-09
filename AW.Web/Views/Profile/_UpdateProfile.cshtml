@@ -3,73 +3,72 @@
 
 @using (Ajax.BeginForm("UpdateProfile", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }))
 {
-<div class="form-horizontal">
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    
-    <div class="form-group">
-        @Html.Label("User name", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(m => m.User.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-        </div>
-    </div>
+    <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @if (HttpContext.Current.User.IsInRole("Admin"))
-    {
         <div class="form-group">
-            @Html.Label("Role", new { @class = "control-label col-md-2" })
+            @Html.Label("User name", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.User.Role.RoleId, new SelectList(ViewBag.Roles, "RoleId", "RoleName"), "Select role", new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.User.Role.RoleId, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.User.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
             </div>
         </div>
-    }
-    else
-    {
-        @Html.HiddenFor(m => m.User.Role.RoleId);
-    }
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Phones, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @for (var i = 0; i < Model.Phones.Count; i++)
-            {
-                @Html.HiddenFor(m => m.Phones[i].PhoneId)
-                @Html.HiddenFor(m => m.Phones[i].UserName)
-                @Html.TextBoxFor(m => m.Phones[i].PhoneNumber, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Phones[i].PhoneNumber, "", new { @class = "text-danger" })
-            }
-            @Html.EditorFor(m => m.NewPhone.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Add new phone number..." } })
-            @Html.ValidationMessageFor(m => m.NewPhone.PhoneNumber, "", new { @class = "text-danger" })
+        @if (HttpContext.Current.User.IsInRole("Admin"))
+        {
+            <div class="form-group">
+                @Html.Label("Role", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.User.Role.RoleId, new SelectList(ViewBag.Roles, "RoleId", "RoleName"), "Select role", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.User.Role.RoleId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            @Html.HiddenFor(m => m.User.Role.RoleId);
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phones, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @for (var i = 0; i < Model.Phones.Count; i++)
+                {
+                    @Html.HiddenFor(m => m.Phones[i].PhoneId)
+                    @Html.HiddenFor(m => m.Phones[i].UserName)
+                    @Html.TextBoxFor(m => m.Phones[i].PhoneNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Phones[i].PhoneNumber, "", new { @class = "text-danger" })
+                }
+                @Html.EditorFor(m => m.NewPhone.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Add new phone number..." } })
+                @Html.ValidationMessageFor(m => m.NewPhone.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Emails, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @for (var i = 0; i < Model.Emails.Count; i++)
+                {
+                    @Html.HiddenFor(m => m.Emails[i].EmailId)
+                    @Html.HiddenFor(m => m.Emails[i].UserName)
+                    @Html.TextBoxFor(m => m.Emails[i].EmailValue, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Emails[i].EmailValue, "", new { @class = "text-danger" })
+                }
+                @Html.EditorFor(m => m.NewEmail.EmailValue, new { htmlAttributes = new { @class = "form-control", placeholder = "Add new email..." } })
+                @Html.ValidationMessageFor(m => m.NewEmail.EmailValue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-default" />
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    @Ajax.ActionLink("To list", "UsersList", null, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "btn btn-default" })
+                }
+
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Emails, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @for (var i = 0; i < Model.Emails.Count; i++)
-            {
-                @Html.HiddenFor(m => m.Emails[i].EmailId)
-                @Html.HiddenFor(m => m.Emails[i].UserName)
-                @Html.TextBoxFor(m => m.Emails[i].EmailValue, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Emails[i].EmailValue, "", new { @class = "text-danger" })
-            }
-            @Html.EditorFor(m => m.NewEmail.EmailValue, new { htmlAttributes = new { @class = "form-control", placeholder = "Add new email..." } })
-            @Html.ValidationMessageFor(m => m.NewEmail.EmailValue, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Update" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-
-    if (HttpContext.Current.User.IsInRole("Admin"))
-    {
-        <br />
-        @Ajax.ActionLink("To list", "UsersList", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" })
-    }
 
 }

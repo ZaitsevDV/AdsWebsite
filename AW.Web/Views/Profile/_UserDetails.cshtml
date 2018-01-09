@@ -36,6 +36,6 @@
     if (HttpContext.Current.User.IsInRole("Admin"))
     {
         <br />
-        @Ajax.ActionLink("To list", "UsersList", new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" })
+            @Ajax.ActionLink("To list", "UsersList", null, new AjaxOptions { UpdateTargetId = "result", LoadingElementId = "loader" }, new { @class = "btn btn-default" })
     }
 }

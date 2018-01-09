@@ -1,20 +1,23 @@
-﻿
-@{
-    ViewBag.Title = "SearchList";
+﻿@{
+    ViewBag.Title = "Search - ";
 }
-
-<h2>SearchList</h2>
-
-<div class="col-md-3">
-    <h3>Filter</h3>
-    @Html.Partial("_Filter")
-
-</div>
-
-<div class="col-md-9">
-    <h3>Result</h3>
-    <div id="results">
-        @Html.Action("GetSearchResult")
+<br/>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Search panel</h3>
     </div>
+    <div class="panel-body">
+        <div class="col-md-3">
+            <h3>Filter</h3>
+            @Html.Partial("_Filter")
 
+        </div>
+
+        <div class="col-md-9">
+            <h3>Result</h3>
+            <div id="results">
+                @Html.Action("GetSearchResult")
+            </div>
+        </div>
+    </div>
 </div>

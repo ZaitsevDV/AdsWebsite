@@ -6,13 +6,14 @@ using System.Web.Mvc;
 
 namespace AW.Web.Controllers
 {
+    [User]
     public class ProfileController : Controller
     {
-        private IUserProvider _provider;
+        private IUserProvider _userProvider;
 
-        public ProfileController(IUserProvider userProvider)
+        public ProfileController(IUserProvider userUserProvider)
         {
-            _provider = userProvider;
+            _userProvider = userUserProvider;
         }
 
         public ActionResult ProfilePage()
@@ -22,7 +23,7 @@ namespace AW.Web.Controllers
 
         public ActionResult UsersList()
         {
-            var users = _provider.GetUsers();
+            var users = _userProvider.GetUsers();
             return PartialView("_UsersList", users);
         }
 
@@ -35,37 +36,41 @@ namespace AW.Web.Controllers
             }
             var profile = new UserViewModel
             {
-                User = _provider.GetUserByName(id),
-                Emails = _provider.GetEmails(id),
-                Phones = _provider.GetPhones(id)
+                User = _userProvider.GetUserByName(id),
+                Emails = _userProvider.GetEmails(id),
+                Phones = _userProvider.GetPhones(id)
             };
             return PartialView("_UserDetails", profile);
         }
 
         public ActionResult CreateProfile()
         {
-            ViewBag.Roles = _provider.GetRoles;
+            ViewBag.Roles = _userProvider.GetRoles;
             return PartialView("_CreateProfile");
         }
 
         [HttpPost]
         public ActionResult CreateProfile(UserViewModel create)
         {
-            ViewBag.Roles = _provider.GetRoles;
+            ViewBag.Roles = _userProvider.GetRoles;
             if (!ModelState.IsValid) return PartialView("_CreateProfile", create);
 
-            _provider.CreateUser(create.User);
+            _userProvider.CreateUser(create.User);
+
+            var userName = create.User.UserName;
+            var password = Crypto.SHA1(create.User.Password);
+            _userProvider.EditePassword(userName, password);
 
             if (!string.IsNullOrEmpty(create.NewEmail.EmailValue))
             {
                 create.NewPhone.UserName = create.User.UserName;
-                _provider.CreatePhone(create.NewPhone);
+                _userProvider.CreatePhone(create.NewPhone);
             }
 
             if (!string.IsNullOrEmpty(create.NewEmail.EmailValue))
             {
                 create.NewEmail.UserName = create.User.UserName;
-                _provider.CreateEmail(create.NewEmail);
+                _userProvider.CreateEmail(create.NewEmail);
             }
 
             return RedirectToAction("UpdateProfile", new { id = create.User.UserName });
@@ -79,18 +84,18 @@ namespace AW.Web.Controllers
             }
             var profile = new UserViewModel
             {
-                User = _provider.GetUserByName(id),
-                Emails = _provider.GetEmails(id),
-                Phones = _provider.GetPhones(id)
+                User = _userProvider.GetUserByName(id),
+                Emails = _userProvider.GetEmails(id),
+                Phones = _userProvider.GetPhones(id)
             };
-            ViewBag.Roles = _provider.GetRoles;
+            ViewBag.Roles = _userProvider.GetRoles;
             return PartialView("_UpdateProfile", profile);
         }
 
         [HttpPost]
         public ActionResult UpdateProfile(UserViewModel update)
         {
-            ViewBag.Roles = _provider.GetRoles;
+            ViewBag.Roles = _userProvider.GetRoles;
             if (!ModelState.IsValid) return PartialView("_UpdateProfile", update);
 
             if (update.Phones != null)
@@ -99,12 +104,12 @@ namespace AW.Web.Controllers
                 {
                     if (string.IsNullOrEmpty(phone.PhoneNumber))
                     {
-                        _provider.DeletePhone(phone.PhoneId);
+                        _userProvider.DeletePhone(phone.PhoneId);
                     }
                     else
                     {
                         phone.UserName = update.User.UserName;
-                        _provider.EditePhone(phone);
+                        _userProvider.EditePhone(phone);
                     }
                 }
             }
@@ -112,7 +117,7 @@ namespace AW.Web.Controllers
             if (!string.IsNullOrEmpty(update.NewPhone.PhoneNumber))
             {
                 update.NewPhone.UserName = update.User.UserName;
-                _provider.CreatePhone(update.NewPhone);
+                _userProvider.CreatePhone(update.NewPhone);
             }
 
             if (update.Emails != null)
@@ -121,12 +126,12 @@ namespace AW.Web.Controllers
                 {
                     if (string.IsNullOrEmpty(email.EmailValue))
                     {
-                        _provider.DeleteEmail(email.EmailId);
+                        _userProvider.DeleteEmail(email.EmailId);
                     }
                     else
                     {
                         email.UserName = update.User.UserName;
-                        _provider.EditeEmail(email);
+                        _userProvider.EditeEmail(email);
                     }
                 }
             }
@@ -134,10 +139,10 @@ namespace AW.Web.Controllers
             if (!string.IsNullOrEmpty(update.NewEmail.EmailValue))
             {
                 update.NewEmail.UserName = update.User.UserName;
-                _provider.CreateEmail(update.NewEmail);
+                _userProvider.CreateEmail(update.NewEmail);
             }
 
-            _provider.EditeUser(update.User);
+            _userProvider.EditeUser(update.User);
 
             return RedirectToAction("UpdateProfile", new { id = update.User.UserName });
         }
@@ -162,14 +167,14 @@ namespace AW.Web.Controllers
             if (!ModelState.IsValid) return PartialView("_SetPassword");
             var password = Crypto.SHA1(userPassword.Password);
             var userName = userPassword.UserName;
-            _provider.EditePassword(userName, password);
+            _userProvider.EditePassword(userName, password);
             ViewBag.Message = "The password is successfully changed";
             return PartialView("_SetPassword");
         }
 
         public ActionResult Delete(string id)
         {
-            var user = _provider.GetUserByName(id);
+            var user = _userProvider.GetUserByName(id);
 
             if (user == null)
             {
@@ -180,17 +185,17 @@ namespace AW.Web.Controllers
 
         public ActionResult DeleteConfirmed(string id)
         {
-            var phones = _provider.GetPhones(id);
+            var phones = _userProvider.GetPhones(id);
             foreach (var phone in phones)
             {
-                _provider.DeletePhone(phone.PhoneId);
+                _userProvider.DeletePhone(phone.PhoneId);
             }
-            var emails = _provider.GetEmails(id);
+            var emails = _userProvider.GetEmails(id);
             foreach (var email in emails)
             {
-                _provider.DeleteEmail(email.EmailId);
+                _userProvider.DeleteEmail(email.EmailId);
             }
-            _provider.DeleteUser(id);
+            _userProvider.DeleteUser(id);
             return RedirectToAction("UsersList");
         }
 

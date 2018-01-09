@@ -1,4 +1,8 @@
-﻿<link href="~/Content/submenu.css" rel="stylesheet" type="text/css" />
+﻿@{
+    ViewBag.Title="List of ads - ";
+}
+
+<link href="~/Content/submenu.css" rel="stylesheet" type="text/css" />
 
 <div id="categories">
     @Html.Action("_Categories", "Category")
@@ -10,13 +14,12 @@
     @Html.Action("List", "Ad")
 </div>
 
-<br/>
+<br />
 
-<img alt="" 
-     id="loading" 
-     src="@Url.Content("~/Images/loader.gif")" 
-     style="display: none;   
+<img alt=""
+     id="loading"
+     src="@Url.Content("~/Images/loader.gif")"
+     style="display: none;
             position: absolute;
             bottom: 20px;
-            left: 50%;"
-/>
+            left: 50%;" />

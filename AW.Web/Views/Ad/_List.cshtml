@@ -2,68 +2,47 @@
 
 @if (Model.Count == 0)
 {
+    <div style="display: block; margin: 15%" align="center">
+        <div class="h1 alert alert-info" role="alert" style="text-align: center">
+            No ads in this category
+        </div>
+    </div>
     <br />
-    <h1 style="text-align: center">No ads in this category.</h1>
-    <br />
-    if (HttpContext.Current.User.Identity.IsAuthenticated)
+    <div class="col-md-12" align="center">
+        @Html.ActionLink("Create ad in current category", "CreateAd", null, new { id = ViewBag.Category }, new { @class = "btn btn-default" })
+    </div>
+}
+else
+{
+    foreach (var item in Model)
     {
-        <div style="text-align: center">
-            @Html.ActionLink("Create ad in current category", "CreateAd", new { id = ViewBag.Category })
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail" style="height: 345px">
+                <a href="/Ad/Details/@item.Id">
+                    <img class="img-rounded" src="@Url.Content(item.Picture)" alt="~/Images/No-image-found.png" style="max-height: 190px">
+                </a>
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    <p>$@Html.DisplayFor(modelItem => item.Price)</p>
+                    <div style="position: absolute; top: 5pt; right: 17pt">
+                        @Html.ActionLink("   ", "Details", "Ad", new { id = item.Id }, new { @class = "glyphicon glyphicon-info-sign" })
+                        <span> </span>
+                        @if (HttpContext.Current.User.Identity.Name == item.UserName || HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("Editor"))
+                        {
+                            @Html.ActionLink("   ", "EditeAd", new { id = item.Id }, new { @class = " glyphicon glyphicon-cog" })
+                            <span> </span>
+                            @Html.ActionLink("   ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove-sign" })
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     }
-}
-
-else
-
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    Price
-                </th>
-                <th>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.ActionLink("   ", "Details", "Ad", new { id = item.Id }, new { @class = "glyphicon glyphicon-info-sign" })
-                        <span>  </span>
-                        @if (HttpContext.Current.User.Identity.Name == item.UserName|| HttpContext.Current.User.IsInRole("Admin")|| HttpContext.Current.User.IsInRole("Editor"))
-                        {
-                            @Html.ActionLink("   ", "EditeAd", new {id = item.Id}, new {@class = " glyphicon glyphicon-cog" })
-                            <span>  </span>
-                            @Html.ActionLink("   ", "Delete", new {id = item.Id}, new {@class = "glyphicon glyphicon-remove-sign" })
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    if (ViewBag.Category != 0 && HttpContext.Current.User.Identity.IsAuthenticated)
+    if (ViewBag.Category != 0)
     {
-        <div style="text-align: center">
-            @Html.ActionLink("Create ad in current category", "CreateAd", new { id = ViewBag.Category })
+        <div class="col-md-12" align="center">
+            @Html.ActionLink("Create ad in current category", "CreateAd", null, new { id = ViewBag.Category }, new { @class = "btn btn-default" })
         </div>
     }
 }

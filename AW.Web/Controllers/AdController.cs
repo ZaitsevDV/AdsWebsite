@@ -13,10 +13,12 @@ namespace AW.Web.Controllers
     public class AdController : Controller
     {
         private readonly IAdProvider _adProvider;
+        private readonly IUserProvider _userProvider;
 
-        public AdController(IAdProvider adProvider)
+        public AdController(IAdProvider adProvider, IUserProvider userProvider)
         {
             _adProvider = adProvider;
+            _userProvider = userProvider;
         }
 
         public ActionResult Index()
@@ -25,7 +27,7 @@ namespace AW.Web.Controllers
             return View();
         }
 
-
+        [User]
         public ActionResult CreateAd(int id)
         {
             ViewBag.Conditions = _adProvider.GetConditions.OrderBy(x => x.ConditionName).ToList();
@@ -198,7 +200,13 @@ namespace AW.Web.Controllers
         public ActionResult Details(int id)
         {
             Logger.Log.Info("Controller:AdController; Action:Details");
-            var model = _adProvider.GetAdDetails(id);
+            var ad = _adProvider.GetAdDetails(id);
+            var model = new AdDetailsViewModel
+            {
+                Ad = ad,
+                Phones = _userProvider.GetPhones(ad.UserName),
+                Emails = _userProvider.GetEmails(ad.UserName)
+            };
             return View(model);
         }
 

@@ -12,5 +12,8 @@ namespace AW.Web.Models
         [DisplayName("Image")]
         public HttpPostedFileBase UploadImage { get; set; }
         public bool New { get; set; }
+        public List<Phone> Phones { get; set; }
+        public List<Email> Emails { get; set; }
+
     }
 }

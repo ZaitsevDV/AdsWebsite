@@ -1,49 +1,58 @@
 ﻿nav {
-    background-color: #45818E;
+    background-color: #000000;
     margin: 10px 0;
     width: 100%;
+    z-index: 999;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
 
-nav ul li {
-    background-color: #45818E;
-    display: inline-block;
-    margin: 0px -7px 0 0;
-}
+        nav ul li {
+            background-color: #000000;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: inline-block;
+            margin: 0 -7px 0 0;
+            z-index: 999;
+        }
 
-nav a {
-    color: #FFF;
-    display: block;
-    font-size: 15px;
-    line-height: 30px;
-    padding: 0 10px;
-    text-decoration: none;
-}
+    nav a {
+        color: #FFF;
+        display: block;
+        font-size: 15px;
+        line-height: 30px;
+        padding: 0 10px;
+        text-decoration: none;
+    }
 
-nav a:hover { background-color: #6A9AA5; }
+        nav a:hover {
+            background-color: #cbcbcb;
+            border-radius: 5px;
+            z-index: 999
+        }
 
-nav ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-}
+    nav ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+    }
 
-nav ul li:hover > ul { display: inherit; }
+    nav ul li:hover > ul {
+        display: inherit;
+    }
 
-nav ul ul li {
-    display: list-item;
-    min-width: 170px;
-    position: relative;
-}
+    nav ul ul li {
+        display: list-item;
+        min-width: 170px;
+        position: relative;
+    }
 
-nav ul ul ul {
-    left: 100%;
-    position: absolute;
-    top: 0;
-}
+    nav ul ul ul {
+        left: 100%;
+        position: absolute;
+        top: 0;
+    }

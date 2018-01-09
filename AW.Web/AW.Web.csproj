@@ -129,6 +129,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\No-image-found.jpg" />
+    <Content Include="Images\SiteLogo.jpg" />
     <Content Include="Log.config">
       <SubType>Designer</SubType>
     </Content>
@@ -263,6 +264,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Loger.cs" />
+    <Compile Include="Models\AdDetailsViewModel.cs" />
     <Compile Include="Models\AdViewModel.cs" />
     <Compile Include="Models\FilterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />

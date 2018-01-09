@@ -36,7 +36,7 @@ namespace AW.Web.Controllers
                     loginView.Message = "Check user name and password";
                     break;
                 case LoginResult.InvalidCredentials:
-                    loginView.Message = "The user is not valid";
+                    loginView.Message = "User is not valid";
                     break;
                 default:
                     return View(loginView);
