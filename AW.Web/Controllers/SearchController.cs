@@ -36,31 +36,26 @@ namespace AW.Web.Controllers
         {
             ViewBag.Result = true;
 
-            if (!string.IsNullOrEmpty(filter.Title) || 
-                filter.CategoryId != default(int) ||
-                filter.TypeId != default(int))
+            var ads = _adProvider.GetAds;
+
+            if (filter.CategoryId != default(int))
             {
-                var ads = _adProvider.GetAds;
+                ads = _adProvider.GetAdsByCategory(filter.CategoryId);
+            }
 
-                if (!string.IsNullOrEmpty(filter.Title))
-                {
-                    ads = ads.Where(x => x.Title.Contains(filter.Title)).ToList();
-                }
+            if (filter.TypeId != default(int))
+            {
+                ads = ads.Where(x => x.TypeId == filter.TypeId).ToList();
+            }
 
-                if (filter.CategoryId != default(int))
-                {
-                    ads = _adProvider.GetAdsByCategory(filter.CategoryId);
-                }
+            if (!string.IsNullOrEmpty(filter.Title))
+            {
+                ads = ads.Where(x => x.Title.ToLower().Contains(filter.Title.ToLower())).ToList();
+            }
 
-                if (filter.TypeId != default(int))
-                {
-                    ads = ads.Where(x => x.TypeId == filter.TypeId).ToList();
-                }
-
-                if (ads.Any())
-                {
-                    return PartialView("_SearchResult", ads);
-                }
+            if (ads.Any())
+            {
+                return PartialView("_SearchResult", ads);
             }
 
             ViewBag.Result = false;
